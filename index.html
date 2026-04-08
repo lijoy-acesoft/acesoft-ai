@@ -8,6 +8,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/footer-component.css" rel="stylesheet">
 
 	<link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon">
 	<link rel="icon" href="images/logo-2.png" type="image/x-icon">
@@ -1207,210 +1208,452 @@
 			}
 		}
 
-		.acesoft-services-section {
+		.as-services {
 			position: relative;
-			padding: 110px 0 98px;
+			padding: 100px 0 88px;
 			background:
-				radial-gradient(circle at 88% 10%, rgba(66, 114, 255, 0.12) 0%, rgba(66, 114, 255, 0) 42%),
-				radial-gradient(circle at 8% 92%, rgba(255, 76, 110, 0.1) 0%, rgba(255, 76, 110, 0) 45%),
-				#f3f7ff;
-		}
-
-		.acesoft-services-section .services-heading-wrap {
-			margin-bottom: 44px;
-		}
-
-		.acesoft-services-section .sec-title {
-			margin-bottom: 0;
-		}
-
-		.acesoft-services-section .sec-title .sub-title {
-			display: inline-flex;
-			align-items: center;
-			gap: 8px;
-			padding: 8px 15px;
-			background: #ffffff;
-			border: 1px solid #d7e3ff;
-			border-radius: 999px;
-			color: #3d5fcc;
-			font-weight: 700;
-			letter-spacing: 0.35px;
-		}
-
-		.acesoft-services-section .sec-title h2 {
-			color: #0f1d44;
-			line-height: 1.16;
-			font-size: 46px;
-			margin-top: 18px;
-			margin-bottom: 16px;
-		}
-
-		.acesoft-services-section .services-intro-text {
-			color: #59658a;
-			font-size: 17px;
-			line-height: 1.7;
-			max-width: 740px;
-		}
-
-		.acesoft-services-section .services-cta {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			padding: 14px 22px;
-			border-radius: 12px;
-			background: linear-gradient(135deg, #3f63d5 0%, #557dff 52%, #6f9dff 100%);
-			color: #fff;
-			font-weight: 600;
-			box-shadow: 0 12px 24px rgba(63, 99, 213, 0.27);
-			transition: transform 0.25s ease, box-shadow 0.25s ease;
-		}
-
-		.acesoft-services-section .services-cta:hover {
-			color: #fff;
-			transform: translateY(-2px);
-			box-shadow: 0 16px 28px rgba(63, 99, 213, 0.34);
-		}
-
-		.acesoft-services-section .service-block-three {
-			margin-bottom: 28px;
-		}
-
-		.acesoft-services-section .service-block-three .inner-box {
-			position: relative;
-			height: 100%;
-			padding: 28px 28px 28px;
-			border-radius: 20px;
-			background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-			border: 1px solid #dde8ff;
-			box-shadow: 0 14px 32px rgba(19, 37, 91, 0.08);
-			transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+				radial-gradient(ellipse 70% 55% at 8% 92%, rgba(255,79,110,0.07) 0%, transparent 55%),
+				radial-gradient(ellipse 60% 50% at 92% 8%, rgba(62,98,212,0.1) 0%, transparent 50%),
+				linear-gradient(180deg, #f0f5ff 0%, #edf2ff 100%);
 			overflow: hidden;
 		}
-
-		.acesoft-services-section .service-block-three .inner-box:before {
-			content: "";
+		.as-services::before {
+			content: '';
 			position: absolute;
-			left: 20px;
-			right: 20px;
+			inset: 0;
+			background-image: radial-gradient(circle, rgba(62,98,212,0.06) 1px, transparent 1px);
+			background-size: 32px 32px;
+			pointer-events: none;
+		}
+		.as-container {
+			max-width: 1240px;
+			margin: 0 auto;
+			padding: 0 24px;
+			position: relative;
+			z-index: 2;
+		}
+		.as-header {
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+			gap: 32px;
+			margin-bottom: 52px;
+			flex-wrap: wrap;
+		}
+		.as-header-left { flex: 1; min-width: 280px; }
+		.as-label {
+			display: inline-flex;
+			align-items: center;
+			gap: 7px;
+			padding: 7px 14px;
+			border-radius: 999px;
+			background: #fff;
+			border: 1px solid #d2e0ff;
+			color: #3458cc;
+			font-size: 12.5px;
+			font-weight: 700;
+			letter-spacing: 0.3px;
+			margin-bottom: 16px;
+		}
+		.as-label-dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background: #3e62d4;
+			animation: pulse-dot 2s ease-in-out infinite;
+		}
+		@keyframes pulse-dot {
+			0%, 100% { opacity: 1; transform: scale(1); }
+			50% { opacity: 0.4; transform: scale(0.7); }
+		}
+		.as-title {
+			font-family: 'Syne', sans-serif;
+			font-size: clamp(32px, 4vw, 46px);
+			font-weight: 800;
+			color: #0d1a3a;
+			line-height: 1.12;
+			letter-spacing: -0.5px;
+		}
+		.as-title em {
+			font-style: normal;
+			background: linear-gradient(90deg, #3a5fcc 0%, #5e80f0 45%, #7b9bff 100%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		.as-subtitle {
+			margin-top: 12px;
+			color: #6674a0;
+			font-size: 16.5px;
+			line-height: 1.65;
+			max-width: 580px;
+		}
+		.as-cta-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			padding: 14px 24px;
+			border-radius: 14px;
+			background: linear-gradient(135deg, #2f56cb 0%, #4f73ef 52%, #6b8fff 100%);
+			color: #fff;
+			font-weight: 700;
+			font-size: 14.5px;
+			text-decoration: none;
+			box-shadow: 0 10px 28px rgba(47,86,203,0.3);
+			transition: transform 0.22s, box-shadow 0.22s;
+			flex-shrink: 0;
+		}
+		.as-cta-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 16px 32px rgba(47,86,203,0.38);
+			color: #fff;
+			text-decoration: none;
+		}
+		.as-stats-bar {
+			display: flex;
+			align-items: stretch;
+			gap: 0;
+			background: #0f1d45;
+			border-radius: 20px;
+			margin-bottom: 44px;
+			overflow: hidden;
+			border: 1px solid rgba(255,255,255,0.07);
+			box-shadow: 0 18px 46px rgba(8,15,40,0.22);
+		}
+		.as-stat {
+			flex: 1;
+			padding: 22px 24px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			position: relative;
+			transition: background 0.2s;
+		}
+		.as-stat + .as-stat::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 16px;
+			bottom: 16px;
+			width: 1px;
+			background: rgba(255,255,255,0.1);
+		}
+		.as-stat:hover { background: rgba(255,255,255,0.05); }
+		.as-stat-num {
+			font-family: 'Syne', sans-serif;
+			font-size: 28px;
+			font-weight: 800;
+			color: #fff;
+			line-height: 1;
+			letter-spacing: -0.5px;
+		}
+		.as-stat-num span {
+			background: linear-gradient(90deg, #7fb2ff 0%, #aecbff 100%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		.as-stat-label {
+			font-size: 12px;
+			color: rgba(200,218,255,0.7);
+			margin-top: 5px;
+			font-weight: 500;
+		}
+		.as-filters {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 32px;
+			flex-wrap: wrap;
+		}
+		.as-filter-label {
+			font-size: 13px;
+			color: #6674a0;
+			font-weight: 600;
+			margin-right: 4px;
+		}
+		.as-filter {
+			padding: 8px 18px;
+			border-radius: 999px;
+			border: 1.5px solid #dce5f8;
+			background: #fff;
+			color: #3a4a72;
+			font-size: 13px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.18s;
+			font-family: 'DM Sans', sans-serif;
+		}
+		.as-filter:hover {
+			border-color: #3e62d4;
+			color: #3e62d4;
+			background: #eef3ff;
+		}
+		.as-filter.active {
+			background: #3e62d4;
+			border-color: #3e62d4;
+			color: #fff;
+		}
+		.as-cards-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 20px;
+			margin-bottom: 32px;
+		}
+		.as-card {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			background: #fff;
+			border: 1px solid #dce5f8;
+			border-radius: 20px;
+			padding: 18px 18px 16px;
+			min-height: 370px;
+			transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+			overflow: hidden;
+		}
+		.as-card:hover {
+			transform: translateY(-6px);
+			border-color: #bfcdf4;
+			box-shadow: 0 16px 34px rgba(10,22,56,0.12);
+		}
+		.as-card-accent {
+			position: absolute;
+			left: 18px;
+			right: 18px;
 			top: 0;
 			height: 4px;
 			border-radius: 0 0 8px 8px;
 			background: linear-gradient(90deg, #4f71ff 0%, #7f95ff 48%, #ff6686 100%);
-			opacity: 0.85;
+			opacity: 0.9;
 		}
-
-		.acesoft-services-section .service-chip {
-			display: inline-block;
-			padding: 5px 11px;
-			font-size: 11px;
+		.as-card-phase {
+			position: absolute;
+			top: 14px;
+			right: 16px;
+			font-size: 12px;
 			font-weight: 700;
-			letter-spacing: 0.35px;
+			color: #a9b4d3;
+		}
+		.as-stage-chip {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			padding: 5px 10px;
+			border-radius: 999px;
+			font-size: 10.5px;
+			font-weight: 700;
 			text-transform: uppercase;
-			color: #4164d4;
+			letter-spacing: 0.3px;
 			background: #edf3ff;
 			border: 1px solid #d8e5ff;
-			border-radius: 999px;
-			margin-bottom: 14px;
+			color: #3e62d4;
+			width: fit-content;
+			margin-top: 8px;
+			margin-bottom: 12px;
 		}
-
-		.acesoft-services-section .service-block-three .icon-box {
-			width: 60px;
-			height: 60px;
-			border-radius: 14px;
+		.as-icon-box {
+			width: 52px;
+			height: 52px;
+			border-radius: 13px;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
 			background: linear-gradient(145deg, #edf3ff 0%, #dde8ff 100%);
 			color: #3458cc;
 			box-shadow: inset 0 0 0 1px #d2e0ff;
-			margin-bottom: 16px;
+			margin-bottom: 12px;
 		}
-
-		.acesoft-services-section .service-block-three .icon-box .icon {
-			font-size: 28px;
+		.as-icon-box svg { width: 26px; height: 26px; }
+		.as-card-title {
+			font-size: 20px;
+			line-height: 1.25;
+			color: #0d1a3a;
+			font-weight: 800;
+			margin-bottom: 8px;
 		}
-
-		.acesoft-services-section .service-block-three .title {
+		.as-card-desc {
+			font-size: 14px;
+			line-height: 1.62;
+			color: #6674a0;
+			margin-bottom: 12px;
+		}
+		.as-deliverables { margin-top: auto; }
+		.as-deliver-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 7px;
 			margin-bottom: 10px;
 		}
-
-		.acesoft-services-section .service-block-three .title a {
-			color: #102150;
-			font-weight: 700;
-			line-height: 1.32;
+		.as-deliver-tag {
+			font-size: 11px;
+			padding: 5px 9px;
+			border-radius: 999px;
+			background: #f3f7ff;
+			color: #51618f;
+			border: 1px solid #e3ebfb;
+			font-weight: 600;
 		}
-
-		.acesoft-services-section .service-block-three .text {
-			color: #5a678f;
-			font-size: 15px;
-			line-height: 1.72;
-		}
-
-		.acesoft-services-section .service-block-three .read-more {
-			position: absolute;
-			left: 28px;
-			bottom: 28px;
+		.as-card-link {
 			display: inline-flex;
 			align-items: center;
-			gap: 8px;
-			font-size: 14px;
-			font-weight: 600;
-			color: #3e62d4;
-			transition: all 0.25s ease;
+			gap: 7px;
+			font-size: 13px;
+			font-weight: 700;
+			color: #3458cc;
+			text-decoration: none;
 		}
-
-		.acesoft-services-section .service-block-three .read-more i {
-			width: 32px;
-			height: 32px;
-			border-radius: 50%;
+		.as-card-link:hover { color: #254abf; text-decoration: none; }
+		.as-journey {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 30px 34px;
+			background: #fff;
+			border: 1px solid #dce5f8;
+			border-radius: 20px;
+			margin-bottom: 28px;
+			box-shadow: 0 10px 26px rgba(10,22,56,0.08);
+		}
+		.as-journey-step {
+			position: relative;
+			flex: 1;
+			text-align: center;
+		}
+		.as-journey-step:not(:last-child)::before {
+			content: '';
+			position: absolute;
+			top: 18px;
+			right: -6px;
+			width: 12px;
+			height: 1.5px;
+			background: #cfdaf4;
+		}
+		.as-j-num {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			background: #eaf1ff;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			background: #edf3ff;
+			color: #3458cc;
+			font-weight: 800;
+			font-size: 14px;
+			margin-bottom: 8px;
+			border: 1px solid #d2e0ff;
 		}
-
-		.acesoft-services-section .service-block-three:hover .inner-box {
-			transform: translateY(-8px);
-			border-color: #c9d9ff;
-			box-shadow: 0 22px 48px rgba(20, 38, 88, 0.15);
+		.as-j-label {
+			font-size: 12.5px;
+			color: #51618f;
+			font-weight: 700;
 		}
-
-		.acesoft-services-section .service-block-three:hover .read-more {
-			color: #254abf;
-		}
-
-		.acesoft-services-section .service-block-three:hover .read-more i {
-			background: #3f63d5;
+		.as-bottom-cta {
+			position: relative;
+			overflow: hidden;
+			border-radius: 28px;
+			padding: 34px 36px;
+			background: linear-gradient(120deg, #0f1d45 0%, #1a2e66 58%, #3e62d4 100%);
 			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 22px;
+			box-shadow: 0 20px 42px rgba(10,22,56,0.28);
 		}
-
-		@media (max-width: 991px) {
-			.acesoft-services-section {
-				padding: 90px 0 78px;
-			}
-
-			.acesoft-services-section .sec-title h2 {
-				font-size: 36px;
-			}
-
-			.acesoft-services-section .services-intro-text {
-				font-size: 16px;
-				margin-bottom: 18px;
+		.as-bottom-cta::before {
+			content: '';
+			position: absolute;
+			width: 220px;
+			height: 220px;
+			border-radius: 50%;
+			right: -70px;
+			top: -90px;
+			background: radial-gradient(circle, rgba(255,255,255,0.22), transparent 70%);
+			pointer-events: none;
+		}
+		.as-cta-text {
+			position: relative;
+			z-index: 1;
+			max-width: 580px;
+		}
+		.as-cta-text h3 {
+			font-family: 'Syne', sans-serif;
+			font-size: clamp(24px, 3vw, 34px);
+			line-height: 1.15;
+			margin-bottom: 6px;
+		}
+		.as-cta-text p {
+			color: rgba(235,242,255,0.86);
+			font-size: 15px;
+		}
+		.as-cta-actions {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			flex-wrap: wrap;
+			position: relative;
+			z-index: 1;
+		}
+		.as-btn-white {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			padding: 14px 26px;
+			border-radius: 14px;
+			background: #fff;
+			color: #0f1d45;
+			font-weight: 700;
+			font-size: 14.5px;
+			text-decoration: none;
+			box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+		}
+		.as-btn-white:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 14px 28px rgba(0,0,0,0.22);
+		}
+		.as-btn-ghost-white {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			padding: 14px 24px;
+			border-radius: 14px;
+			background: rgba(255,255,255,0.14);
+			color: #fff;
+			font-weight: 600;
+			font-size: 14.5px;
+			text-decoration: none;
+			border: 1.5px solid rgba(255,255,255,0.3);
+		}
+		.as-btn-ghost-white:hover {
+			background: rgba(255,255,255,0.22);
+			border-color: rgba(255,255,255,0.5);
+		}
+		@media (max-width: 1180px) {
+			.as-cards-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
-
-		@media (max-width: 576px) {
-			.acesoft-services-section .sec-title h2 {
-				font-size: 30px;
-			}
-
-			.acesoft-services-section .service-block-three .inner-box {
-				padding: 24px 20px 80px;
-			}
-
-			.acesoft-services-section .service-block-three .read-more {
-				left: 20px;
-			}
+		@media (max-width: 860px) {
+			.as-stats-bar { flex-wrap: wrap; }
+			.as-stat { flex: 1 1 calc(50% - 1px); }
+			.as-journey { flex-wrap: wrap; gap: 20px; padding: 28px 24px; }
+			.as-journey-step { flex: 1 1 calc(33% - 20px); }
+			.as-journey-step::before { display: none; }
+			.as-bottom-cta { padding: 28px 28px; flex-direction: column; align-items: flex-start; }
+		}
+		@media (max-width: 560px) {
+			.as-services { padding: 72px 0 64px; }
+			.as-header { flex-direction: column; align-items: flex-start; }
+			.as-stat { flex: 1 1 100%; }
+			.as-stat + .as-stat::before { display: none; }
+			.as-cards-grid { grid-template-columns: 1fr; }
+			.as-journey-step { flex: 1 1 calc(50% - 20px); }
+			.as-bottom-cta { padding: 24px 20px; }
+			.as-cta-actions { flex-direction: column; align-items: stretch; width: 100%; }
+			.as-cta-actions a { justify-content: center; }
 		}
 
 		.acesoft-about-section {
@@ -2662,114 +2905,101 @@
 		</section>
 		<!-- End Banner Section -->
 
-		<!-- Services Section Three -->
-		<section class="services-section-three acesoft-services-section">
-			<div class="auto-container">
-				<div class="services-heading-wrap row align-items-end">
-					<div class="col-lg-8">
-						<div class="sec-title">
-							<span class="sub-title"><i class="fa fa-layer-group"></i> Acesoft Services</span>
-							<h2>End-to-end AI engineering services<br>for every stage of growth.</h2>
-							<div class="services-intro-text">
-								From AI opportunity mapping to production rollout, Acesoft delivers practical AI
-								solutions for startups, SMBs, and enterprises.
-							</div>
-						</div>
+		<section class="as-services" id="acesoftServices">
+			<div class="as-container">
+				<div class="as-header">
+					<div class="as-header-left">
+						<div class="as-label"><span class="as-label-dot"></span>Acesoft Services</div>
+						<h2 class="as-title">End-to-end AI engineering services<br>for <em>every stage of growth.</em></h2>
+						<p class="as-subtitle">From AI opportunity discovery to production optimization, Acesoft delivers practical AI and machine learning solutions for startups, SMBs, and enterprises worldwide.</p>
 					</div>
-					<div class="col-lg-4 text-lg-end text-left mt-4 mt-lg-0">
-						<a href="page-contact.html" class="services-cta">Discuss Your Project</a>
+					<a href="page-contact.html" class="as-cta-btn">Discuss Your Project
+						<svg fill="none" viewBox="0 0 20 20" width="16" height="16"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</a>
+				</div>
+
+		
+
+				<div class="as-filters">
+					<span class="as-filter-label">View for:</span>
+					<button class="as-filter active" data-filter="all">All Services</button>
+					<button class="as-filter" data-filter="startup">Startups</button>
+					<button class="as-filter" data-filter="enterprise">Enterprise</button>
+					<button class="as-filter" data-filter="design">Design-First</button>
+				</div>
+
+				<div class="as-cards-grid" id="asCardsGrid">
+					<div class="as-card theme-blue" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">01</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Discovery</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="2" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="2" y="14" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M14 19h10M19 14v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Strategy &amp; Use-Case Discovery</h4>
+						<p class="as-card-desc">Identify high-value AI opportunities, define measurable outcomes, and build a practical roadmap aligned with business priorities.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">AI Opportunity Mapping</span><span class="as-deliver-tag">Data Readiness Review</span><span class="as-deliver-tag">ROI Prioritization</span><span class="as-deliver-tag">Delivery Roadmap</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-violet" data-filter="all startup design" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">02</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Design</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><circle cx="13" cy="13" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M8 13h10M13 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="13" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+						<h4 class="as-card-title">AI Product UX &amp; Conversation Design</h4>
+						<p class="as-card-desc">Design intuitive AI interactions, prompt flows, and human-in-the-loop experiences that improve trust and adoption.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Conversation Flows</span><span class="as-deliver-tag">Prompt Patterns</span><span class="as-deliver-tag">UX Prototypes</span><span class="as-deliver-tag">Usability Testing</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-teal" data-filter="all enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">03</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Native Apps</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="7" y="2" width="12" height="22" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="20" r="1" fill="currentColor"/><path d="M10 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">LLM Apps, RAG &amp; Enterprise Copilots</h4>
+						<p class="as-card-desc">Build secure AI assistants and knowledge copilots connected to your internal data, docs, and enterprise workflows.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">LLM Integration</span><span class="as-deliver-tag">RAG Pipelines</span><span class="as-deliver-tag">Vector Search</span><span class="as-deliver-tag">Copilot UX</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-amber" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">04</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Cross-Platform</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M5 13h16M13 5l8 8-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Agents &amp; Workflow Orchestration</h4>
+						<p class="as-card-desc">Automate multi-step operations across CRM, ERP, support, and internal tools using reliable AI agent workflows.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Agent Workflows</span><span class="as-deliver-tag">Tool Integration</span><span class="as-deliver-tag">Process Automation</span><span class="as-deliver-tag">Human Approval Loops</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-coral" data-filter="all enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">05</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Testing</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M4 6h18M4 13h12M4 20h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="19" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M22.5 21.5l2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Evaluation, Guardrails &amp; Security</h4>
+						<p class="as-card-desc">Validate model quality, reduce hallucinations, enforce policy controls, and secure AI systems for enterprise production.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Evaluation</span><span class="as-deliver-tag">Safety Guardrails</span><span class="as-deliver-tag">Prompt Security</span><span class="as-deliver-tag">Compliance Checks</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-indigo" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">06</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Growth</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M3 20l6-6 4 4 10-12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="4" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></div>
+						<h4 class="as-card-title">MLOps, Monitoring &amp; Optimization</h4>
+						<p class="as-card-desc">Scale and improve AI systems with model observability, drift tracking, retraining loops, and ongoing performance tuning.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Monitoring</span><span class="as-deliver-tag">Drift Detection</span><span class="as-deliver-tag">Retraining Pipelines</span><span class="as-deliver-tag">Cost Optimization</span></div><a href="android-app-development.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 				</div>
 
-				<div class="row">
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Discovery</span>
-								<div class="icon-box"><i class="icon flaticon-online-shopping"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">AI Strategy <br>& Use-Case
-										Discovery</a></h5>
-								<div class="text">Identify high-value AI opportunities, prioritize use cases, and define
-									measurable business outcomes.</div>
-							</div>
-						</div>
-					</div>
+				<div class="as-journey">
+					<div class="as-journey-step"><div class="as-j-num">01</div><div class="as-j-label">Discover AI Use Cases</div></div>
+					<div class="as-journey-step"><div class="as-j-num">02</div><div class="as-j-label">Design AI Experience</div></div>
+					<div class="as-journey-step"><div class="as-j-num">03</div><div class="as-j-label">Build &amp; Integrate Models</div></div>
+					<div class="as-journey-step"><div class="as-j-num">04</div><div class="as-j-label">Evaluate &amp; Secure</div></div>
+					<div class="as-journey-step"><div class="as-j-num">05</div><div class="as-j-label">Deploy to Production</div></div>
+					<div class="as-journey-step"><div class="as-j-num">06</div><div class="as-j-label">Monitor &amp; Improve</div></div>
+				</div>
 
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Design</span>
-								<div class="icon-box"><i class="icon flaticon-design"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">AI Product UX <br>& Conversation
-										Design</a></h5>
-								<div class="text">Design intuitive AI interactions, prompt flows, and user journeys that
-									improve adoption and trust.</div>
-							</div>
-						</div>
+				<div class="as-bottom-cta">
+					<div class="as-cta-text">
+						<h3 class="text-white">Ready to build AI that delivers results?</h3>
+						<p>Talk to our AI specialists - we'll respond within one business day.</p>
 					</div>
-
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Generative AI</span>
-								<div class="icon-box"><i class="icon flaticon-brain"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">LLM Apps, RAG <br>& Enterprise
-										Copilots</a></h5>
-								<div class="text">Build secure AI assistants and knowledge copilots connected to your
-									internal data and business systems.</div>
-							</div>
-						</div>
+					<div class="as-cta-actions">
+						<a href="page-contact.html" class="as-btn-white">Book a Free Consultation</a>
+						<a href="tel:+15198081000" class="as-btn-ghost-white">+1 519 808 1000</a>
 					</div>
-
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Automation</span>
-								<div class="icon-box"><i class="icon flaticon-reputation"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">AI Agents & Workflow
-										<br>Orchestration</a></h5>
-								<div class="text">Automate multi-step operations across CRM, ERP, and support tools with
-									reliable agent workflows.</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Testing</span>
-								<div class="icon-box"><i class="icon flaticon-discuss"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">AI Evaluation, Guardrails <br>&
-										Security Testing</a></h5>
-								<div class="text">Validate model quality, control hallucinations, and enforce
-									responsible AI policies for production safety.</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Service Block-three -->
-					<div class="service-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="inner-box">
-							<div class="content">
-								<span class="service-chip">Growth</span>
-								<div class="icon-box"><i class="icon flaticon-front-end"></i></div>
-								<h5 class="title"><a href="ai-development-company.html">MLOps, Monitoring <br>&
-										Continuous Optimization</a></h5>
-								<div class="text">Scale and improve AI systems with model observability, feedback loops,
-									and performance tuning.</div>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</section>
-		<!-- End Services Section-->
 
 		<!-- About Section Four -->
 		<section class="about-section-four pt-0 acesoft-about-section">
@@ -3002,92 +3232,61 @@
 			</div>
 		</section>
 
-		<!-- Main Footer -->
-		<footer class="main-footer">
-			<div class="bg bg-pattern-9"></div>
-			<div class="auto-container"></div>
-			<!--Widgets Section-->
-			<div class="widgets-section">
-				<div class="auto-container">
-					<div class="row">
-						<!--Footer Column-->
-						<div class="footer-column col-xl-3 col-lg-12 col-md-12">
-							<div class="footer-widget about-widget">
-								<div class="logo">
-									<a href="index.html">
-										<img src="images/logo.png" alt="Acesoft Inc" /></a>
-									<img src="images/acesoft/iso-certified.png"
-										alt="ISO Certified Software Development Company Canada" />
-								</div>
-								<div class="text">
-									Unlocking Innovation.
+		<div id="footer-root">
+			<footer class="main-footer">
+				<div class="bg bg-pattern-9"></div>
+				<div class="widgets-section">
+					<div class="auto-container">
+						<div class="row">
+							<div class="footer-column col-xl-3 col-lg-12 col-md-12">
+								<div class="footer-widget about-widget">
+									<div class="logo">
+										<a href="index.html"><img src="images/logo.png" alt="Acesoft Inc" /></a>
+										<img src="images/acesoft/iso-certified.png" alt="ISO Certified Software Development Company Canada" />
+									</div>
+									<div class="text">AI-First Digital Engineering.</div>
+									<p class="footer-about-copy">We design and deliver secure AI systems, machine learning solutions, and intelligent digital products that drive measurable business growth.</p>
 								</div>
 							</div>
-						</div>
-						<!--Footer Column-->
-						<div class="footer-column col-xl-3 col-lg-4 col-md-4">
-							<div class="footer-widget links-widget">
-								<h6 class="widget-title">Explore</h6>
-								<ul class="user-links">
-									<li><a href="enterprise-applications-development.html">Enterprise Application
-											Development</a></li>
-									<li><a href="ios-android-mobile-app-development.html">Mobile Application
-											Development</a></li>
-									<li><a href="ai-development-company.html">Artificial Intelligence</a></li>
-									<li><a href="business-process-outsourcing-company-bpo-services.html">BPO
-											Services</a></li>
-									<li><a href="bpo-backoffice-support-company.html">Customer Service</a></li>
-									<li><a href="hire-software-developers-team.html">Hire Software Developers</a></li>
-								</ul>
-							</div>
-						</div>
-						<!--Footer Column-->
-						<div class="footer-column col-xl-3 col-lg-4 col-md-4 col-sm-8">
-							<div class="footer-widget gallery-widget">
-								<h6 class="widget-title">Office locations : 24 X 7 X 365 </h6>
-								<img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300"
-									height="275">
-							</div>
-						</div>
-						<!--Footer Column-->
-						<div class="footer-column col-xl-3 col-lg-4 col-md-4">
-							<div class="footer-widget contacts-widget">
-								<h6 class="widget-title">Contact</h6>
-								<div class="text">
-									200 Villagewalk Blvd Suite 304, London, ON N6G 0W8
+							<div class="footer-column col-xl-3 col-lg-4 col-md-4">
+								<div class="footer-widget links-widget">
+									<h6 class="widget-title">Explore</h6>
+									<ul class="user-links">
+										<li><a href="index.html">Home</a></li>
+										<li><a href="android-app-development.html">Details</a></li>
+										<li><a href="page-contact.html">Get in Touch</a></li>
+										<li><a href="page-contact.html">Contact</a></li>
+									</ul>
 								</div>
-								<ul class="contact-info">
-									<li>
-										<i class="fa fa-envelope"></i>
-										<a href="mailto:info@acesoft.ca">info@acesoft.ca</a><br />
-									</li>
-									<li>
-										<i class="fa fa-phone-square"></i>
-										<a href="tel:+15198081000">+1 519 808 1000</a><br />
-									</li>
-								</ul>
-								<div class="btn-box animate-3">
-									<a href="page-contact.html" class="theme-btn btn-style-one"><span
-											class="btn-title">Contact
-											Us</span></a>
+							</div>
+							<div class="footer-column col-xl-3 col-lg-4 col-md-4 col-sm-8">
+								<div class="footer-widget gallery-widget">
+									<h6 class="widget-title">Global Delivery : 24 x 7 x 365</h6>
+									<img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+								</div>
+							</div>
+							<div class="footer-column col-xl-3 col-lg-4 col-md-4">
+								<div class="footer-widget contacts-widget">
+									<h6 class="widget-title">Contact</h6>
+									<ul class="contact-info">
+										<li><i class="fa fa-envelope"></i> <a href="mailto:info@acesoft.ca">info@acesoft.ca</a></li>
+										<li><i class="fa fa-phone-square"></i> <a href="tel:+15198081000">+1 519 808 1000</a></li>
+									</ul>
+									<a href="page-contact.html" class="footer-contact-btn">Start Your AI Project</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--Footer Bottom-->
-			<div class="footer-bottom">
-				<div class="auto-container">
-					<div class="inner-container">
-						<div class="copyright-text">
-							&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a>
+				<div class="footer-bottom">
+					<div class="auto-container">
+						<div class="inner-container">
+							<div class="copyright-text">&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a></div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
-		<!--End Main Footer -->
+			</footer>
+		</div>
 
 	</div><!-- End Page Wrapper -->
 
@@ -3360,6 +3559,52 @@
 			var el = document.getElementById("apiTicker");
 			if (el) el.textContent = (1100 + Math.floor(Math.random() * 420)).toLocaleString();
 		}, 2400);
+	</script>
+	<script>
+		function animateCount(el, target, duration) {
+			var start = 0;
+			var step = target / (duration / 16);
+			var timer = setInterval(function () {
+				start = Math.min(start + step, target);
+				el.textContent = Math.round(start);
+				if (start >= target) clearInterval(timer);
+			}, 16);
+		}
+		var observed = false;
+		var observer = new IntersectionObserver(function (entries) {
+			if (entries[0].isIntersecting && !observed) {
+				observed = true;
+				animateCount(document.getElementById("stat-apps"), 300, 1400);
+				animateCount(document.getElementById("stat-sat"), 98, 1200);
+				animateCount(document.getElementById("stat-yrs"), 12, 1100);
+			}
+		}, { threshold: 0.3 });
+		var statsBar = document.querySelector(".as-stats-bar");
+		if (statsBar) observer.observe(statsBar);
+
+		var filters = document.querySelectorAll(".as-filter");
+		var cards = document.querySelectorAll(".as-card");
+		filters.forEach(function (btn) {
+			btn.addEventListener("click", function () {
+				var f = btn.dataset.filter;
+				filters.forEach(function (b) { b.classList.remove("active"); });
+				btn.classList.add("active");
+				cards.forEach(function (card) {
+					var tags = (card.dataset.filter || "").split(" ");
+					var show = f === "all" || tags.indexOf(f) !== -1;
+					card.style.display = show ? "flex" : "none";
+				});
+			});
+		});
+		cards.forEach(function (card) {
+			card.setAttribute("tabindex", "0");
+			card.addEventListener("keydown", function (e) {
+				if (e.key === "Enter") {
+					var link = card.querySelector(".as-card-link");
+					if (link) link.click();
+				}
+			});
+		});
 	</script>
 	<script>
 		(function () {

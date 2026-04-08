@@ -12238,8 +12238,8 @@ Sidebar
 /* Widget Section */
 .main-footer .widgets-section {
   position: relative;
-  padding: 90px 0 20px;
-}
+  /* padding: 90px 0 20px;
+} */
 .main-footer .footer-column {
   position: relative;
   margin-bottom: 50px;
@@ -12517,7 +12517,7 @@ Sidebar
 }
 .footer-bottom .inner-container {
   position: relative;
-  padding: 35px 15px;
+  /* padding: 35px 15px; */
   text-align: center;
 }
 .footer-bottom .copyright-text {
