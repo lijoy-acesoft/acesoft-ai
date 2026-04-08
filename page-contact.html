@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Acesoft Mobile App Development | Contact Us</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon" />
+  <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <style>
+    .flag-icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 15px;
+      margin-right: 5px;
+    }
+    .country {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .main-header.header-style-one .main-box {
+      background: rgba(8, 12, 24, 0.46);
+      /* border: 1px solid rgba(255, 255, 255, 0.1); */
+      backdrop-filter: blur(8px);
+      min-height: 96px;
+    }
+    .main-header.header-style-one {
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, #23429f 0%, #101b43 40%, #070d21 80%, #040812 100%);
+      z-index: 20;
+    }
+    .main-header.header-style-one .logo-box { padding: 14px 0; }
+    .main-header.header-style-one .logo img {
+      max-height: 66px;
+      width: auto;
+    }
+    .main-header.header-style-one .main-menu .navigation > li > a { color: rgba(230, 238, 255, 0.9); }
+    .main-header.header-style-one .main-menu .navigation > li:hover > a,
+    .main-header.header-style-one .main-menu .navigation > li.current > a { color: #ffffff; }
+    .sticky-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e8edf7;
+    }
+    .sticky-header .logo img {
+      max-height: 52px;
+      width: auto;
+    }
+    .sticky-header .main-menu .navigation > li > a { color: #1a2444 !important; }
+    .sticky-header .main-menu .navigation > li.dropdown > a:after { color: #1a2444; }
+    .sticky-header .main-menu .navigation > li.current > a,
+    .sticky-header .main-menu .navigation > li:hover > a { color: #ff4b63 !important; }
+    .header-top {
+      background: rgba(8, 12, 24, 0.42);
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .header-top .inner-container {
+      min-height: 46px;
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .header-top .top-left {
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .header-top .top-right {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+    .header-top .top-left .list-style-one {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-top .top-left .list-style-one li {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(150, 186, 255, 0.24);
+      color: rgba(236, 244, 255, 0.92);
+      font-size: 11px;
+      line-height: 1;
+      white-space: nowrap;
+      backdrop-filter: blur(5px);
+    }
+    .header-top .top-left .list-style-one li i {
+      color: #8dc2ff;
+      font-size: 11px;
+    }
+    .header-top .top-left .list-style-one li a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .header-top .top-left .list-style-one li a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .header-top .top-right .useful-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .header-top .top-right .useful-links li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      border: 1px solid rgba(143, 186, 255, 0.38);
+      background: linear-gradient(135deg, #3d67dd 0%, #5a86ff 55%, #67a0ff 100%);
+      box-shadow: 0 8px 20px rgba(28, 74, 170, 0.34);
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    }
+    .header-top .top-right .useful-links li a:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+      box-shadow: 0 10px 24px rgba(36, 102, 220, 0.38);
+    }
+    .contact-page-shell {
+      background:
+        radial-gradient(circle at 88% 10%, rgba(66, 114, 255, 0.12) 0%, rgba(66, 114, 255, 0) 42%),
+        radial-gradient(circle at 8% 92%, rgba(255, 76, 110, 0.1) 0%, rgba(255, 76, 110, 0) 45%),
+        #f3f7ff;
+    }
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 25px 0 88px;
+      background: linear-gradient(130deg, #0c1733 0%, #121f43 45%, #0f2f68 100%);
+      color: #fff;
+    }
+
+    .contact-hero .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+      transition: transform 0.25s ease-out;
+    }
+
+    .contact-hero .hero-orb.one {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle at 30% 30%, rgba(12, 236, 255, 0.35), rgba(12, 236, 255, 0));
+      top: -140px;
+      left: -120px;
+    }
+
+    .contact-hero .hero-orb.two {
+      width: 330px;
+      height: 330px;
+      background: radial-gradient(circle at 60% 45%, rgba(70, 120, 255, 0.34), rgba(70, 120, 255, 0));
+      right: -100px;
+      bottom: -110px;
+    }
+
+    .contact-hero .title {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-hero p {
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 17px;
+      margin-bottom: 24px;
+    }
+
+    .contact-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-badges span {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .contact-main {
+      margin-top: -54px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 82px;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-offering-card {
+      height: 100%;
+      border-radius: 18px;
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      box-shadow: 0 14px 35px rgba(20, 34, 73, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-offering-card:hover {
+      transform: translateY(-8px);
+      border-color: #9db8ff;
+      box-shadow: 0 22px 40px rgba(24, 45, 100, 0.14);
+    }
+
+    .contact-offering-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: linear-gradient(160deg, #e7eeff, #d6f7ff);
+      color: #153377;
+      font-size: 22px;
+    }
+
+    .contact-offering-card h5 {
+      margin-bottom: 10px;
+    }
+
+    .contact-panel,
+    .contact-form-panel {
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      border-radius: 24px;
+      box-shadow: 0 15px 42px rgba(20, 34, 73, 0.1);
+    }
+
+    .contact-panel {
+      padding: 36px;
+      height: 100%;
+    }
+
+    .contact-panel .text {
+      color: #56607a;
+      margin-bottom: 0;
+    }
+
+    .contact-panel .contact-details__info li {
+      border-bottom: 1px dashed #e5eaf3;
+      padding: 16px 0;
+      margin-bottom: 0;
+    }
+
+    .contact-panel .contact-details__info li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .location-image-wrap {
+      margin-top: 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #d9e1ef;
+    }
+
+    .location-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-form-panel {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-panel::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60, 118, 255, 0.2), rgba(60, 118, 255, 0));
+      pointer-events: none;
+    }
+
+    .contact-form-panel .form-control {
+      min-height: 54px;
+      border-radius: 12px;
+      border: 1px solid #d8dfec;
+      box-shadow: none;
+      color: #102147;
+      background: #fbfcff;
+    }
+
+    .contact-form-panel textarea.form-control {
+      min-height: 160px;
+      resize: vertical;
+      padding-top: 14px;
+    }
+
+    .contact-form-panel .form-control:focus {
+      border-color: #3b6fff;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(59, 111, 255, 0.14);
+    }
+
+    .contact-form-panel .theme-btn {
+      min-width: 158px;
+    }
+
+    .map-panel {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #dfe6f3;
+      box-shadow: 0 15px 40px rgba(20, 34, 73, 0.1);
+      margin-top: 26px;
+    }
+
+    .map-panel iframe {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .clientele-head {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .clientele-head h4 {
+      margin: 0;
+      color: #132957;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 20px 0;
+      background: #fff;
+      border-top: 1px solid #e3e9f4;
+      border-bottom: 1px solid #e3e9f4;
+      /* box-shadow: 0 10px 30px rgba(20, 34, 73, 0.06); */
+      /* mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); */
+      /* -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); */
+    }
+
+    .logo-slide {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      min-width: 100%;
+      width: max-content;
+      animation: logoSlide 26s linear infinite;
+      will-change: transform;
+      flex-shrink: 0;
+      padding-right: 42px;
+    }
+
+    .logo-slider:hover .logo-slide {
+      animation-play-state: paused;
+    }
+
+    .logo-slide img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+      transition: transform 0.25s ease;
+    }
+
+    .logo-slide img:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Reference-style preloader */
+    .container-preloader {
+      align-items: center;
+      cursor: none;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 900;
+    }
+
+    .container-preloader .animation-preloader {
+      position: absolute;
+      z-index: 100;
+    }
+
+    .container-preloader .animation-preloader .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      border: 10px solid rgba(0, 0, 0, 0.2);
+      border-top-color: #ed1c24;
+      height: 9em;
+      margin: 0 auto 3.5em auto;
+      width: 9em;
+    }
+
+    .container-preloader .animation-preloader .txt-loading {
+      font: bold 5em "Montserrat", sans-serif;
+      text-align: center;
+      user-select: none;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters {
+      color: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:before {
+      animation: characters 4s infinite;
+      color: #101933;
+      content: attr(preloader-text);
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform: rotateY(-90deg);
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(2):before {
+      animation-delay: 0.2s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(3):before {
+      animation-delay: 0.4s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(4):before {
+      animation-delay: 0.6s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(5):before {
+      animation-delay: 0.8s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(6):before {
+      animation-delay: 1s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(7):before {
+      animation-delay: 1.2s;
+    }
+
+    .container-preloader .loader-section {
+      background-color: #ffffff;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      width: calc(50% + 1px);
+    }
+
+    .container-preloader .loader-section.section-left {
+      left: 0;
+    }
+
+    .container-preloader .loader-section.section-right {
+      right: 0;
+    }
+
+    .loaded .animation-preloader {
+      opacity: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .loaded .loader-section.section-left {
+      transform: translateX(-101%);
+      transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1);
+    }
+
+    .loaded .loader-section.section-right {
+      transform: translateX(101%);
+      transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1);
+    }
+
+    @keyframes spinner {
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    @keyframes characters {
+      0%,
+      75%,
+      100% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+      }
+
+      25%,
+      50% {
+        opacity: 1;
+        transform: rotateY(0deg);
+      }
+    }
+
+    @keyframes logoSlide {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .contact-hero {
+        padding: 104px 0 80px;
+      }
+
+      .contact-main {
+        margin-top: -42px;
+      }
+
+      .contact-panel,
+      .contact-form-panel {
+        padding: 26px;
+      }
+
+      .logo-slide {
+        gap: 28px;
+      }
+
+      .logo-slide img {
+        height: 30px;
+      }
+
+      .container-preloader .animation-preloader .spinner {
+        height: 8em;
+        width: 8em;
+      }
+
+      .container-preloader .animation-preloader .txt-loading {
+        font: bold 3.5em "Montserrat", sans-serif;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .header-top .top-left .list-style-one li:nth-child(2),
+      .header-top .top-left .list-style-one li:nth-child(3) {
+        display: none;
+      }
+      .container-preloader .animation-preloader .spinner {
+        height: 7em;
+        width: 7em;
+      }
+
+      .container-preloader .animation-preloader .txt-loading {
+        font: bold 2em "Montserrat", sans-serif;
+      }
+    }
+    @media (max-width: 767px) {
+      .header-top .inner-container {
+        min-height: 40px;
+        padding: 0 12px;
+        gap: 8px;
+      }
+      .header-top .top-left .list-style-one li:nth-child(4) {
+        display: none;
+      }
+      .header-top .top-left .list-style-one li {
+        height: 28px;
+        font-size: 10px;
+        padding: 0 8px;
+      }
+      .header-top .top-right .useful-links li a {
+        height: 28px;
+        font-size: 10px;
+        padding: 0 10px;
+      }
+      .header-top .top-left { overflow: hidden; }
+    }
+  </style>
+</head>
+
+<body class="contact-page-shell">
+  <div id="preloader">
+    <div id="container-preloader" class="container-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+          <span preloader-text="A" class="characters">A</span>
+          <span preloader-text="C" class="characters">C</span>
+          <span preloader-text="E" class="characters">E</span>
+          <span preloader-text="S" class="characters">S</span>
+          <span preloader-text="O" class="characters">O</span>
+          <span preloader-text="F" class="characters">F</span>
+          <span preloader-text="T" class="characters">T</span>
+        </div>
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- Main Header-->
+		<header class="main-header header-style-one">
+			<div class="header-top">
+				<div class="inner-container">
+					<div class="top-left">
+						<!-- Info List -->
+						<ul class="list-style-one">
+							<li>
+								<i class="fa fa-envelope"></i>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> ISO 9001 Certified
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> ISO 27001 Certified
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> HIPAA Compliant
+							</li>
+							<li>
+								<i class="fa fa-map-marker"></i>
+								<!-- <i class="fa fa-map-marker"></i> -->
+								<span class="country">
+									<svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256"
+										width="32" height="16">
+										<!-- Canada Flag -->
+										<rect width="512" height="256" fill="#fff" />
+										<rect width="128" height="256" fill="#d52b1e" />
+										<rect x="384" width="128" height="256" fill="#d52b1e" />
+										<path fill="#d52b1e"
+											d="M256 48l12 37h39l-31 22 12 37-31-22-31 22 12-37-31-22h39z" />
+									</svg>
+									Canada (+1 226 700 7030)
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<!-- India Flag -->
+										<rect fill="#f93" height="170.7" width="512" />
+										<rect fill="#fff" height="170.7" width="512" y="170.7" />
+										<rect fill="#128807" height="170.7" width="512" y="341.3" />
+										<circle cx="256" cy="256" fill="#008" r="42.7" />
+										<circle cx="256" cy="256" fill="#fff" r="35" />
+										<circle cx="256" cy="256" fill="#008" r="8.5" />
+										<g fill="#008">
+											<circle cx="256" cy="212.5" r="5" />
+											<circle cx="299.5" cy="256" r="5" />
+											<circle cx="256" cy="299.5" r="5" />
+											<circle cx="212.5" cy="256" r="5" />
+										</g>
+									</svg>
+									India
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<!-- UAE Flag -->
+										<rect fill="#00732f" height="170.7" width="512" />
+										<rect fill="#fff" height="170.7" width="512" y="170.7" />
+										<rect fill="#000" height="170.7" width="512" y="341.3" />
+										<rect fill="#f00" height="512" width="170.7" />
+									</svg>
+									UAE (+971 56 491 9389)
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<!-- USA Flag -->
+										<rect fill="#fff" height="512" width="512" />
+										<g fill="#bf0a30">
+											<rect height="39.4" width="512" y="0" />
+											<rect height="39.4" width="512" y="78.8" />
+											<rect height="39.4" width="512" y="157.5" />
+											<rect height="39.4" width="512" y="236.3" />
+											<rect height="39.4" width="512" y="315" />
+											<rect height="39.4" width="512" y="393.8" />
+											<rect height="39.4" width="512" y="472.5" />
+										</g>
+										<rect fill="#002868" height="275.7" width="275.7" />
+										<g fill="#fff">
+											<circle cx="27.6" cy="27.6" r="10" />
+											<circle cx="82.7" cy="27.6" r="10" />
+											<circle cx="137.8" cy="27.6" r="10" />
+											<circle cx="193" cy="27.6" r="10" />
+											<circle cx="248.1" cy="27.6" r="10" />
+											<circle cx="55.1" cy="55.1" r="10" />
+											<circle cx="110.3" cy="55.1" r="10" />
+											<circle cx="165.4" cy="55.1" r="10" />
+											<circle cx="220.5" cy="55.1" r="10" />
+											<circle cx="27.6" cy="82.7" r="10" />
+											<circle cx="82.7" cy="82.7" r="10" />
+											<circle cx="137.8" cy="82.7" r="10" />
+											<circle cx="193" cy="82.7" r="10" />
+											<circle cx="248.1" cy="82.7" r="10" />
+											<circle cx="55.1" cy="110.3" r="10" />
+											<circle cx="110.3" cy="110.3" r="10" />
+											<circle cx="165.4" cy="110.3" r="10" />
+											<circle cx="220.5" cy="110.3" r="10" />
+											<circle cx="27.6" cy="137.8" r="10" />
+											<circle cx="82.7" cy="137.8" r="10" />
+											<circle cx="137.8" cy="137.8" r="10" />
+											<circle cx="193" cy="137.8" r="10" />
+											<circle cx="248.1" cy="137.8" r="10" />
+											<circle cx="55.1" cy="165.4" r="10" />
+											<circle cx="110.3" cy="165.4" r="10" />
+											<circle cx="165.4" cy="165.4" r="10" />
+											<circle cx="220.5" cy="165.4" r="10" />
+											<circle cx="27.6" cy="193" r="10" />
+											<circle cx="82.7" cy="193" r="10" />
+											<circle cx="137.8" cy="193" r="10" />
+											<circle cx="193" cy="193" r="10" />
+											<circle cx="248.1" cy="193" r="10" />
+											<circle cx="55.1" cy="220.5" r="10" />
+											<circle cx="110.3" cy="220.5" r="10" />
+											<circle cx="165.4" cy="220.5" r="10" />
+											<circle cx="220.5" cy="220.5" r="10" />
+											<circle cx="27.6" cy="248.1" r="10" />
+											<circle cx="82.7" cy="248.1" r="10" />
+											<circle cx="137.8" cy="248.1" r="10" />
+											<circle cx="193" cy="248.1" r="10" />
+											<circle cx="248.1" cy="248.1" r="10" />
+										</g>
+									</svg>
+									USA,
+								</span>
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<!-- UK Flag -->
+										<rect fill="#012169" height="512" width="512" />
+										<path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="102.4" />
+										<path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="102.4" />
+										<path d="M0 0l512 512M512 0L0 512" stroke="#c8102e" stroke-width="68.3" />
+										<path d="M256 0v512M0 256h512" stroke="#c8102e" stroke-width="68.3" />
+									</svg>
+									UK (+44 2034750329)
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="top-right">
+						<ul class="useful-links">
+							<li><a href="page-contact.html">Contact</a></li>
+						</ul>
+						<!-- Social icons commented out in original code -->
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<!-- Main box -->
+				<div class="main-box">
+					<div class="logo-box">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo-2.png"
+									alt="Software Company London, Ontario, Canada" title="Tronis" /></a>
+						</div>
+					</div>
+					<!--Nav Box-->
+					<div class="nav-outer nav-outer--padding">
+						<nav class="nav main-menu">
+							<ul class="navigation">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="android-app-development.html">Details</a></li>
+								<li><a href="page-contact.html" class="acesoft-nav-current-link">Get in Touch</a></li>
+							</ul>
+						</nav>
+						<!-- Main Menu End-->
+					</div>
+					<div class="outer-box outer-box--padding">
+						<!-- <div class="ui-btn-outer">
+						<i class="icon fa fa-email"></i>
+						<small>Email us : </small>
+						<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+						</div>
+						
+						<a href="tel:+15198081000" class="info-btn">
+						<i class="icon fa fa-phone"></i>
+						<small>Give us a call</small>+1 519 808 1000
+						</a> -->
+						<!-- Mobile Nav toggler -->
+						<div class="mobile-nav-toggler">
+							<span class="icon lnr-icon-bars"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+				<nav class="menu-box">
+					<div class="upper-box">
+						<div class="nav-logo">
+							<a href="index.html"><img src="images/logo.png"
+									alt="Mobile App Development, Web application Development, Hire Developers and software engineers"
+									title="" /></a>
+						</div>
+						<div class="close-btn"><i class="icon fa fa-times"></i></div>
+					</div>
+					<ul class="navigation clearfix">
+						<!--Keep This Empty / Menu will come through Javascript-->
+					</ul>
+					<ul class="contact-list-one">
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<i class="icon lnr-icon-phone-handset"></i>
+								<span class="title">Call Now</span>
+								<a href="tel:+15198081000">+1 519 808 1000</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-envelope1"></span>
+								<span class="title">Send Email</span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-clock"></span>
+								<span class="title">Send Email</span>
+								Mon - Sat 8:00 - 6:30, Sunday - CLOSED
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<!-- End Mobile Menu -->
+			<!-- Header Search -->
+			<div class="search-popup">
+				<span class="search-back-drop"></span>
+				<button class="close-search">
+					<span class="fa fa-times"></span>
+				</button>
+				<div class="search-inner">
+					<form method="post" action="blog-showcase.html">
+						<div class="form-group">
+							<input type="search" name="search-field" value="" placeholder="Search..." required="" />
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- End Header Search -->
+			<!-- Sticky Header  -->
+			<div class="sticky-header">
+				<div class="auto-container">
+					<div class="inner-container">
+						<!--Logo-->
+						<div class="logo">
+							<a href="index.html" title=""><img src="images/logo-2.png"
+									alt="Mobile Application Development Company London Ontario" title="" /></a>
+						</div>
+						<!--Right Col-->
+						<div class="nav-outer">
+							<!-- Main Menu -->
+							<nav class="main-menu">
+								<div class="navbar-collapse show collapse clearfix">
+									<ul class="navigation clearfix">
+										<!--Keep This Empty / Menu will come through Javascript-->
+									</ul>
+								</div>
+							</nav>
+							<!-- Main Menu End-->
+							<!--Mobile Navigation Toggler-->
+							<div class="mobile-nav-toggler">
+								<span class="icon lnr-icon-bars"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Sticky Menu -->
+		</header>
+		<!--End Main Header -->
+
+    <section class="contact-hero" id="contactHero">
+      <span class="hero-orb one" aria-hidden="true"></span>
+      <span class="hero-orb two" aria-hidden="true"></span>
+      <div class="auto-container">
+        <h1 class="title">Let's Build Your Mobile App</h1>
+        <p>
+          Talk to Acesoft's mobile specialists about Android, iOS, and cross-platform app development. From idea and MVP to launch and post-release scaling, we help you ship with confidence.
+        </p>
+        <div class="contact-badges">
+          <span>Android + iOS + Flutter</span>
+          <span>UI/UX to App Store Launch</span>
+          <span>24x7 Global Delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main">
+      <div class="auto-container">
+        <div class="row text-center mb-4">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-laptop"></i></span>
+              <h5>Mobile App Development</h5>
+              <p>Custom Android, iOS, and cross-platform apps engineered for performance, scalability, and user retention.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-microchip"></i></span>
+              <h5>Product Design & Engineering</h5>
+              <p>Discovery, product strategy, UI/UX design, and agile development to move from idea to launch faster.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-handshake-o"></i></span>
+              <h5>Maintenance & App Growth</h5>
+              <p>Ongoing updates, QA, performance optimization, and feature enhancements to grow your app after release.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 mb-4">
+            <div class="contact-panel reveal-on-scroll">
+              <div class="sec-title mb-0">
+                <span class="sub-title">Need mobile experts?</span>
+                <h2>Discuss your app idea with Acesoft</h2>
+                <div class="text">
+                  Share your app concept, business goals, preferred timeline, and budget range. Our team will help you define the right technology approach, delivery roadmap, and launch plan for a successful mobile product.
+                </div>
+              </div>
+              <ul class="list-unstyled contact-details__info mt-4">
+                <li>
+                  <div class="icon"><span class="lnr-icon-phone-plus"></span></div>
+                  <div class="text">
+                    <h6>Call our team</h6>
+                    <a href="tel:+15198081000">+1 519 808 1000</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon"><span class="lnr-icon-envelope1"></span></div>
+                  <div class="text">
+                    <h6>Email us your requirements</h6>
+                    <a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+                  </div>
+                </li>
+                <li>
+                  <!-- <div class="icon"><span class="lnr-icon-location"></span></div> -->
+                  <div class="text">
+                    <h6>Office locations</h6>
+                    <div class="location-image-wrap">
+                      <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xl-7 col-lg-6 mb-4">
+            <div class="contact-form-panel reveal-on-scroll">
+              <div class="sec-title mb-4">
+                <span class="sub-title">Start your project</span>
+                <h2 class="section-title__title">Tell us about your mobile app requirements</h2>
+              </div>
+              <form id="contact_form" name="contact_form" action="includes/sendmail.php" method="post">
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                    <input name="name" class="form-control required" type="text" placeholder="Your Full Name" />
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <input name="email" class="form-control required email" type="email" placeholder="Work Email Address" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                    <input name="subject" class="form-control required" type="text" placeholder="Project Type (Android, iOS, Flutter)" />
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <input name="phone" class="form-control" type="text" placeholder="Phone / WhatsApp Number" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea name="message" class="form-control required" rows="6" placeholder="Briefly describe your app idea, target users, and expected timeline"></textarea>
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                  <div class="g-recaptcha" data-sitekey="6Let7CEpAAAAAAWcuci5SW_v6v6vc2jzb68nxvzW"></div>
+                </div>
+                <div id="captcha-error" class="text-center d-none">
+                  <div class="mb-3 text-danger">Captcha is required</div>
+                </div>
+                <div class="text-center">
+                  <input name="form_botcheck" class="form-control" type="hidden" value="" />
+                  <button id="contact-send-email-btn" type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait...">
+                    <span class="btn-title">Submit Project Inquiry</span>
+                  </button>
+                  <button type="reset" class="theme-btn btn-style-one">
+                    <span class="btn-title">Reset</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="map-panel reveal-on-scroll">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.185528943279!2d-81.2967875241529!3d43.037527792033316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882eeeff93da61db%3A0x29936c38646fd075!2s200%20Villagewalk%20Blvd%20%23304%2C%20London%2C%20ON%20N6G%200W8%2C%20Canada!5e0!3m2!1sen!2sin!4v1701115398082!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="clientele-shell reveal-on-scroll">
+      <div class="auto-container">
+      
+      </div>
+      <div class="logo-slider" id="logoSlider">
+        <div class="logo-slide">
+          <img src="images/clientele/logo-1.png" alt="logo-1" loading="lazy" />
+          <img src="images/clientele/logo-2.png" alt="logo-2" loading="lazy" />
+          <img src="images/clientele/logo-3.png" alt="logo-3" loading="lazy" />
+          <img src="images/clientele/logo-4.png" alt="logo-4" loading="lazy" />
+          <img src="images/clientele/logo-5.png" alt="logo-5" loading="lazy" />
+          <img src="images/clientele/logo-6.png" alt="logo-6" loading="lazy" />
+          <img src="images/clientele/logo-7.png" alt="logo-7" loading="lazy" />
+          <img src="images/clientele/logo-8.png" alt="logo-8" loading="lazy" />
+          <img src="images/clientele/logo-9.png" alt="logo-9" loading="lazy" />
+          <img src="images/clientele/logo-10.webp" alt="logo-10" loading="lazy" />
+          <img src="images/clientele/logo-11.jpg" alt="logo-11" loading="lazy" />
+          <img src="images/clientele/logo-12.png" alt="logo-12" loading="lazy" />
+          <img src="images/clientele/logo-14.jpeg" alt="logo-14" loading="lazy" />
+          <img src="images/clientele/logo-15.png" alt="logo-15" loading="lazy" />
+          <img src="images/clientele/logo-16.png" alt="logo-16" loading="lazy" />
+          <img src="images/clientele/logo-17.jpeg" alt="logo-17" loading="lazy" />
+          <img src="images/clientele/logo-18.png" alt="logo-18" loading="lazy" />
+          <img src="images/clientele/logo-19.png" alt="logo-19" loading="lazy" />
+          <img src="images/clientele/logo-20.png" alt="logo-20" loading="lazy" />
+          <img src="images/clientele/logo-21.jpeg" alt="logo-21" loading="lazy" />
+          <img src="images/clientele/logo-22.png" alt="logo-22" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="bg bg-pattern-9"></div>
+      <div class="auto-container"></div>
+      <div class="widgets-section">
+        <div class="auto-container">
+          <div class="row">
+            <div class="footer-column col-xl-3 col-lg-12 col-md-12">
+              <div class="footer-widget about-widget">
+                <div class="logo">
+                  <a href="index.html"><img src="images/logo.png" alt="Acesoft Inc" /></a>
+                  <img src="images/acesoft/iso-certified.png" alt="ISO Certified Software Development Company Canada" />
+                </div>
+                <div class="text">Unlocking Innovation.</div>
+              </div>
+            </div>
+            <div class="footer-column col-xl-3 col-lg-4 col-md-4">
+              <div class="footer-widget links-widget">
+                <h6 class="widget-title">Explore</h6>
+                <ul class="user-links">
+                  <li><a href="enterprise-applications-development.html">Enterprise Application Development</a></li>
+                  <li><a href="ios-android-mobile-app-development.html">Mobile Application Development</a></li>
+                  <li><a href="ai-development-company.html">Artificial Intelligence</a></li>
+                  <li><a href="business-process-outsourcing-company-bpo-services.html">BPO Services</a></li>
+                  <li><a href="bpo-backoffice-support-company.html">Customer Service</a></li>
+                  <li><a href="hire-software-developers-team.html">Hire Software Developers</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-column col-xl-3 col-lg-4 col-md-4 col-sm-8">
+              <div class="footer-widget gallery-widget">
+                <h6 class="widget-title">Office locations : 24 X 7 X 365</h6>
+                <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+              </div>
+            </div>
+            <div class="footer-column col-xl-3 col-lg-4 col-md-4">
+              <div class="footer-widget contacts-widget">
+                <h6 class="widget-title">Contact</h6>
+                <div class="text">200 Villagewalk Blvd Suite 304, London, ON N6G 0W8</div>
+                <ul class="contact-info">
+                  <li><i class="fa fa-envelope"></i> <a href="mailto:info@acesoft.ca">info@acesoft.ca</a><br /></li>
+                  <li><i class="fa fa-phone-square"></i> <a href="tel:+15198081000">+1 519 808 1000</a><br /></li>
+                </ul>
+                <div class="btn-box animate-3">
+                  <a href="page-contact.html" class="theme-btn btn-style-one"><span class="btn-title">Contact Us</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="auto-container">
+          <div class="inner-container">
+            <div class="copyright-text">&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.fancybox.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/appear.js"></script>
+  <script src="js/select2.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/owl.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.form.min.js"></script>
+
+  <script>
+    var currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").innerText = currentYear;
+  </script>
+
+  <script>
+    (function ($) {
+      $("#contact_form").validate({
+        submitHandler: function (form) {
+          var response = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "ok";
+          var isRecaptchaChecked = response.length !== 0;
+          if (!isRecaptchaChecked) {
+            $("#captcha-error").removeClass("d-none");
+            return;
+          }
+          $("#captcha-error").addClass("d-none");
+
+          var form_btn = $(form).find('button[type="submit"]');
+          var form_result_div = "#form-result";
+          $(form_result_div).remove();
+          form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display:none;"></div>');
+          var form_btn_old_msg = form_btn.html();
+          form_btn.html(form_btn.prop("disabled", true).data("loading-text"));
+
+          $(form).ajaxSubmit({
+            dataType: "json",
+            success: function (data) {
+              if (data.status == "true") {
+                $(form).find(".form-control").val("");
+                if (typeof grecaptcha !== "undefined") {
+                  grecaptcha.reset();
+                }
+              }
+              form_btn.prop("disabled", false).html(form_btn_old_msg);
+              $(form_result_div).html(data.message).fadeIn("slow");
+              setTimeout(function () {
+                $(form_result_div).fadeOut("slow");
+              }, 6000);
+            },
+          });
+        },
+      });
+    })(jQuery);
+  </script>
+
+  <script>
+    (function () {
+      var hero = document.getElementById("contactHero");
+      if (!hero) return;
+
+      var orbs = hero.querySelectorAll(".hero-orb");
+      var cards = document.querySelectorAll(".js-tilt-card");
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        hero.addEventListener("mousemove", function (e) {
+          var rect = hero.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          for (var i = 0; i < orbs.length; i++) {
+            var speed = i === 0 ? 26 : 18;
+            orbs[i].style.transform = "translate3d(" + x * speed + "px," + y * speed + "px,0)";
+          }
+        });
+      }
+
+      for (var c = 0; c < cards.length; c++) {
+        (function (card) {
+          card.addEventListener("mousemove", function (e) {
+            if (reduceMotion || window.innerWidth < 992) return;
+            var r = card.getBoundingClientRect();
+            var rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
+            var ry = ((e.clientX - r.left) / r.width - 0.5) * 8;
+            card.style.transform = "perspective(800px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) translateY(-8px)";
+          });
+          card.addEventListener("mouseleave", function () {
+            card.style.transform = "";
+          });
+        })(cards[c]);
+      }
+
+      var revealItems = document.querySelectorAll(".reveal-on-scroll");
+      if (!reduceMotion && "IntersectionObserver" in window && revealItems.length) {
+        var observer = new IntersectionObserver(function (entries, obs) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add("is-visible");
+              obs.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.2 });
+
+        for (var j = 0; j < revealItems.length; j++) {
+          observer.observe(revealItems[j]);
+        }
+      } else {
+        for (var k = 0; k < revealItems.length; k++) {
+          revealItems[k].classList.add("is-visible");
+        }
+      }
+
+      var logoSlider = document.getElementById("logoSlider");
+      if (logoSlider && !logoSlider.getAttribute("data-loop-ready")) {
+        var firstSlide = logoSlider.querySelector(".logo-slide");
+        if (firstSlide) {
+          logoSlider.appendChild(firstSlide.cloneNode(true));
+          logoSlider.setAttribute("data-loop-ready", "true");
+        }
+      }
+    })();
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      var preloader = document.getElementById("preloader");
+      var container = document.getElementById("container-preloader");
+      if (!preloader || !container) return;
+      container.classList.add("loaded");
+      window.setTimeout(function () {
+        preloader.style.display = "none";
+      }, 1100);
+    });
+  </script>
+</body>
+
+</html>
