@@ -2,19 +2,20 @@
 <html lang="en">
 
 <head>
-	<!-- Performance: critical CSS + purged deferred stylesheets -->
+	  <!-- Performance: critical CSS + purged deferred stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
 /* Critical above-the-fold — keep small; full theme loads deferred */
 *,*::before,*::after{box-sizing:border-box}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:#1a2444}
 img{max-width:100%;height:auto}
 svg.flag-icon{width:20px;height:15px;max-width:20px;flex-shrink:0;display:inline-block;vertical-align:middle}
 .country{display:inline-flex;align-items:center;white-space:nowrap}
 .page-wrapper{min-height:100vh}
-html:not(.loaded) .page-wrapper{visibility:hidden}
+html:has(#preloader):not(.loaded) .page-wrapper{visibility:hidden}
 #preloader{position:fixed;inset:0;z-index:99999;background:#fff}
 .container-preloader{align-items:center;display:flex;height:100%;justify-content:center;position:fixed;inset:0;width:100%;z-index:100000;background:#fff}
 .container-preloader .loader-section{background:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}
@@ -22,12 +23,11 @@ html:not(.loaded) .page-wrapper{visibility:hidden}
 .container-preloader .loader-section.section-right{right:0}
 .main-header{position:relative;z-index:100}
 .main-header .logo img,.sticky-header .logo img{width:auto;height:auto}
-.sticky-header .logo img{max-height:40px}
 .acesoft-ai-hero{position:relative;min-height:720px;overflow:hidden;display:flex;align-items:center;background:#040c22}
 #ai-banner-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
 .hero-container{position:relative;z-index:3;width:100%;max-width:1260px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .hero-headline{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.04;color:#f0f6ff;margin:0 0 22px}
-.hero-desc{font-size:16.5px;line-height:1.72;color:#c8ddff;max-width:520px;margin:0 0 32px}
+.hero-desc{font-size:16.5px;line-height:1.72;color:rgba(200,220,255,.82);max-width:520px;margin:0 0 32px}
 .btn-primary,.btn-ghost{display:inline-flex;align-items:center;text-decoration:none}
 /* Acesoft top utility bar — matches site design reference */
 .main-header .acesoft-top-header {
@@ -195,7 +195,61 @@ display: none;
 display: none;
 }
 }
-</style>
+/* Sticky header — critical on all pages; keep in sync with style.css */
+.sticky-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 99999;
+background: #ffffff;
+box-shadow: 0 4px 24px rgba(10, 22, 56, 0.08);
+opacity: 0;
+visibility: hidden;
+transform: translate3d(0, -100%, 0);
+transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s;
+pointer-events: none;
+will-change: transform, opacity;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
+transform: translate3d(0, 0, 0);
+pointer-events: auto;
+}
+.sticky-header .logo {
+padding: 10px 0;
+}
+.sticky-header .logo img {
+max-height: 40px;
+width: auto;
+height: auto;
+}
+.sticky-header .main-menu .navigation > li > a {
+color: #1a2444 !important;
+}
+.sticky-header .main-menu .navigation > li.dropdown > a:after {
+color: #1a2444;
+}
+.sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a {
+color: #ff4b63 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+.sticky-header {
+transition: none;
+transform: none;
+}
+.sticky-header:not(.fixed-header) {
+opacity: 0;
+visibility: hidden;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
+}
+}
+  </style>
   <script src="js/loadcss-polyfill.js"></script>
   <link rel="preload" href="css/purged-home/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="css/purged-home/bootstrap.min.css"></noscript>
@@ -219,7 +273,6 @@ display: none;
   <noscript><link rel="stylesheet" href="css/purged-home/index-page.css"></noscript>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
-
 <link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon">
 	<link rel="icon" href="images/logo-2.png" type="image/x-icon">
 
@@ -572,8 +625,8 @@ display: none;
 				<div class="main-box">
 					<div class="logo-box">
 						<div class="logo">
-							<a href="index.html"><img src="images/logo-2.png" width="160" height="140" decoding="async" fetchpriority="high"
-									alt="Acesoft - AI Development Company London Ontario Canada" title="Acesoft - London Ontario AI Development" /></a>
+							<a href="index.html"><span class="visually-hidden">Acesoft home — AI development company London Ontario</span><img src="images/logo-2.png" width="160" height="140" decoding="async" fetchpriority="high"
+									alt="" title="Acesoft - London Ontario AI Development" /></a>
 						</div>
 					</div>
 					<!--Nav Box-->
@@ -611,8 +664,8 @@ display: none;
 				<nav class="menu-box">
 					<div class="upper-box">
 						<div class="nav-logo">
-							<a href="index.html"><img src="images/logo.png" width="160" height="140" decoding="async"
-									alt="AI Development Company London Ontario - Enterprise AI, LLM, Generative AI & ML"
+							<a href="index.html"><span class="visually-hidden">Acesoft home — AI development company London Ontario</span><img src="images/logo.png" width="160" height="140" decoding="async"
+									alt=""
 									title="Acesoft - London Ontario" /></a>
 						</div>
 						<div class="close-btn"><i class="icon fa fa-times"></i></div>
@@ -666,8 +719,8 @@ display: none;
 				<div class="auto-container">
 					<div class="inner-container">
 						<div class="logo">
-							<a href="index.html" title="Acesoft - AI Development Company London Ontario"><img src="images/logo-2.png" width="160" height="140" decoding="async"
-									alt="AI Development Company London Ontario Canada" title="Acesoft London Ontario" /></a>
+							<a href="index.html" title="Acesoft - AI Development Company London Ontario"><span class="visually-hidden">Acesoft home — AI development company London Ontario</span><img src="images/logo-2.png" width="160" height="140" decoding="async"
+									alt="" title="Acesoft London Ontario" /></a>
 						</div>
 						<div class="nav-outer">
 							<nav class="main-menu">
@@ -854,7 +907,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="2" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="2" y="14" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M14 19h10M19 14v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
 						<h3 class="as-card-title">AI Strategy &amp; Use-Case Discovery</h3>
 						<p class="as-card-desc">Identify high-value AI opportunities for your Ontario business, define measurable outcomes, and build a practical roadmap aligned with business priorities.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">AI Opportunity Mapping</span><span class="as-deliver-tag">Data Readiness Review</span><span class="as-deliver-tag">ROI Prioritization</span><span class="as-deliver-tag">Delivery Roadmap</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">AI Opportunity Mapping</span><span class="as-deliver-tag">Data Readiness Review</span><span class="as-deliver-tag">ROI Prioritization</span><span class="as-deliver-tag">Delivery Roadmap</span></div><a href="ai-development-services.html" class="as-card-link">Explore AI strategy services<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 					<div class="as-card theme-violet" data-filter="all startup design" data-visible="true">
 						<div class="as-card-accent"></div><span class="as-card-phase">02</span>
@@ -862,7 +915,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><circle cx="13" cy="13" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M8 13h10M13 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="13" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
 						<h3 class="as-card-title">AI Product UX &amp; Conversation Design</h3>
 						<p class="as-card-desc">Design intuitive AI interactions, prompt flows, and human-in-the-loop experiences that improve trust and adoption across Canadian audiences.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Conversation Flows</span><span class="as-deliver-tag">Prompt Patterns</span><span class="as-deliver-tag">UX Prototypes</span><span class="as-deliver-tag">Usability Testing</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Conversation Flows</span><span class="as-deliver-tag">Prompt Patterns</span><span class="as-deliver-tag">UX Prototypes</span><span class="as-deliver-tag">Usability Testing</span></div><a href="ai-development-services.html" class="as-card-link">Explore AI UX &amp; conversation design<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 					<div class="as-card theme-teal" data-filter="all enterprise" data-visible="true">
 						<div class="as-card-accent"></div><span class="as-card-phase">03</span>
@@ -870,7 +923,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="7" y="2" width="12" height="22" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="20" r="1" fill="currentColor"/><path d="M10 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
 						<h3 class="as-card-title">LLM Apps, RAG &amp; Enterprise Copilots</h3>
 						<p class="as-card-desc">Build secure AI assistants and knowledge copilots connected to your internal data, docs, and enterprise workflows &mdash; built in London, Ontario.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">LLM Integration</span><span class="as-deliver-tag">RAG Pipelines</span><span class="as-deliver-tag">Vector Search</span><span class="as-deliver-tag">Copilot UX</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">LLM Integration</span><span class="as-deliver-tag">RAG Pipelines</span><span class="as-deliver-tag">Vector Search</span><span class="as-deliver-tag">Copilot UX</span></div><a href="ai-development-services.html" class="as-card-link">Explore LLM apps &amp; enterprise copilots<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 					<div class="as-card theme-amber" data-filter="all startup enterprise" data-visible="true">
 						<div class="as-card-accent"></div><span class="as-card-phase">04</span>
@@ -878,7 +931,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M5 13h16M13 5l8 8-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
 						<h3 class="as-card-title">AI Agents &amp; Workflow Orchestration</h3>
 						<p class="as-card-desc">Automate multi-step operations across CRM, ERP, support, and internal tools using reliable AI agent workflows for Ontario businesses.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Agent Workflows</span><span class="as-deliver-tag">Tool Integration</span><span class="as-deliver-tag">Process Automation</span><span class="as-deliver-tag">Human Approval Loops</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Agent Workflows</span><span class="as-deliver-tag">Tool Integration</span><span class="as-deliver-tag">Process Automation</span><span class="as-deliver-tag">Human Approval Loops</span></div><a href="ai-development-services.html" class="as-card-link">Explore AI agents &amp; workflow automation<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 					<div class="as-card theme-coral" data-filter="all enterprise" data-visible="true">
 						<div class="as-card-accent"></div><span class="as-card-phase">05</span>
@@ -886,7 +939,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M4 6h18M4 13h12M4 20h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="19" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M22.5 21.5l2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
 						<h3 class="as-card-title">AI Evaluation, Guardrails &amp; Security</h3>
 						<p class="as-card-desc">Validate model quality, reduce hallucinations, enforce policy controls, and secure AI systems for Canadian enterprise production environments.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Evaluation</span><span class="as-deliver-tag">Safety Guardrails</span><span class="as-deliver-tag">Prompt Security</span><span class="as-deliver-tag">Compliance Checks</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Evaluation</span><span class="as-deliver-tag">Safety Guardrails</span><span class="as-deliver-tag">Prompt Security</span><span class="as-deliver-tag">Compliance Checks</span></div><a href="ai-development-services.html" class="as-card-link">Explore AI guardrails &amp; security<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 					<div class="as-card theme-indigo" data-filter="all startup enterprise" data-visible="true">
 						<div class="as-card-accent"></div><span class="as-card-phase">06</span>
@@ -894,7 +947,7 @@ display: none;
 						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M3 20l6-6 4 4 10-12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="4" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></div>
 						<h3 class="as-card-title">MLOps, Monitoring &amp; Optimization</h3>
 						<p class="as-card-desc">Scale and improve AI systems with model observability, drift tracking, retraining loops, and ongoing performance tuning.</p>
-						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Monitoring</span><span class="as-deliver-tag">Drift Detection</span><span class="as-deliver-tag">Retraining Pipelines</span><span class="as-deliver-tag">Cost Optimization</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Monitoring</span><span class="as-deliver-tag">Drift Detection</span><span class="as-deliver-tag">Retraining Pipelines</span><span class="as-deliver-tag">Cost Optimization</span></div><a href="ai-development-services.html" class="as-card-link">Explore MLOps &amp; monitoring<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 					</div>
 				</div>
 
@@ -1141,7 +1194,7 @@ display: none;
         <div class="footer-column col-lg-3 col-md-12">
           <div class="footer-widget about-widget">
             <div class="logo">
-              <a href="index.html"><img src="images/logo.png" width="160" height="140" decoding="async" alt="Acesoft Inc - AI Development Company London Ontario" /></a>
+              <a href="index.html"><span class="visually-hidden">Acesoft home — AI development company London Ontario</span><img src="images/logo.png" width="160" height="140" decoding="async" alt="" /></a>
               <img src="images/acesoft/iso-certified.png" width="250" height="123" loading="lazy" decoding="async" alt="ISO Certified AI Development Company London Ontario Canada" />
             </div>
             <div class="text">AI-First Digital Engineering &middot; London, Ontario.</div>
@@ -1301,45 +1354,9 @@ display: none;
 	<!-- Scroll To Top -->
 	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
-	<script>
-		(function () {
-			var coreScriptsLoaded = false;
-
-			function loadCoreScripts() {
-				if (coreScriptsLoaded) return;
-				coreScriptsLoaded = true;
-				var jq = document.createElement("script");
-				jq.src = "js/jquery.js";
-				jq.defer = true;
-				jq.onload = function () {
-					var app = document.createElement("script");
-					app.src = "js/script.js";
-					app.defer = true;
-					document.body.appendChild(app);
-				};
-				document.body.appendChild(jq);
-			}
-
-			function triggerCoreScriptsLoad() {
-				loadCoreScripts();
-				window.removeEventListener("pointerdown", triggerCoreScriptsLoad);
-				window.removeEventListener("keydown", triggerCoreScriptsLoad);
-				window.removeEventListener("touchstart", triggerCoreScriptsLoad);
-			}
-
-			window.addEventListener("pointerdown", triggerCoreScriptsLoad, { once: true, passive: true });
-			window.addEventListener("keydown", triggerCoreScriptsLoad, { once: true });
-			window.addEventListener("touchstart", triggerCoreScriptsLoad, { once: true, passive: true });
-
-			window.addEventListener("load", function () {
-				if ("requestIdleCallback" in window) {
-					requestIdleCallback(loadCoreScripts, { timeout: 2500 });
-				} else {
-					setTimeout(loadCoreScripts, 1200);
-				}
-			}, { once: true });
-		})();
-	</script>
+	<script defer src="js/page-ready.js"></script>
+	<script defer src="js/jquery.js"></script>
+	<script defer src="js/script.js"></script>
 	<script>
 		var currentYear = new Date().getFullYear();
 		document.getElementById("currentYear").innerText = currentYear;
@@ -1695,18 +1712,6 @@ display: none;
 			logoSlider.appendChild(clone);
 			logoSlider.setAttribute("data-loop-ready", "true");
 		})();
-	</script>
-	<script>
-		window.addEventListener("load", function () {
-			var preloader = document.getElementById("preloader");
-			var container = document.getElementById("container-preloader");
-			if (!preloader || !container) return;
-			document.documentElement.classList.add("loaded");
-			container.classList.add("loaded");
-			window.setTimeout(function () {
-				preloader.style.display = "none";
-			}, 1100);
-		});
 	</script>
 </body>
 

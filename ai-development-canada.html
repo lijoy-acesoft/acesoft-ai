@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  
-      <!-- Performance: critical CSS + purged deferred stylesheets -->
+          <!-- Performance: critical CSS + purged deferred stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -10,10 +10,24 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:#1a2444}
-img,svg{max-width:100%;height:auto}
+img{max-width:100%;height:auto}
+svg.flag-icon{width:20px;height:15px;max-width:20px;flex-shrink:0;display:inline-block;vertical-align:middle}
+.country{display:inline-flex;align-items:center;white-space:nowrap}
 .page-wrapper{min-height:100vh}
-#preloader{position:fixed;inset:0;z-index:9999}
+html:has(#preloader):not(.loaded) .page-wrapper{visibility:hidden}
+#preloader{position:fixed;inset:0;z-index:99999;background:#fff}
+.container-preloader{align-items:center;display:flex;height:100%;justify-content:center;position:fixed;inset:0;width:100%;z-index:100000;background:#fff}
+.container-preloader .loader-section{background:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}
+.container-preloader .loader-section.section-left{left:0}
+.container-preloader .loader-section.section-right{right:0}
 .main-header{position:relative;z-index:100}
+.main-header .logo img,.sticky-header .logo img{width:auto;height:auto}
+.acesoft-ai-hero{position:relative;min-height:720px;overflow:hidden;display:flex;align-items:center;background:#040c22}
+#ai-banner-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero-container{position:relative;z-index:3;width:100%;max-width:1260px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-headline{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.04;color:#f0f6ff;margin:0 0 22px}
+.hero-desc{font-size:16.5px;line-height:1.72;color:rgba(200,220,255,.82);max-width:520px;margin:0 0 32px}
+.btn-primary,.btn-ghost{display:inline-flex;align-items:center;text-decoration:none}
 /* Acesoft top utility bar — matches site design reference */
 .main-header .acesoft-top-header {
 background: #0a0b10 !important;
@@ -178,6 +192,60 @@ display: none;
 }
 .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--canada {
 display: none;
+}
+}
+/* Sticky header — critical on all pages; keep in sync with style.css */
+.sticky-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 99999;
+background: #ffffff;
+box-shadow: 0 4px 24px rgba(10, 22, 56, 0.08);
+opacity: 0;
+visibility: hidden;
+transform: translate3d(0, -100%, 0);
+transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s;
+pointer-events: none;
+will-change: transform, opacity;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
+transform: translate3d(0, 0, 0);
+pointer-events: auto;
+}
+.sticky-header .logo {
+padding: 10px 0;
+}
+.sticky-header .logo img {
+max-height: 40px;
+width: auto;
+height: auto;
+}
+.sticky-header .main-menu .navigation > li > a {
+color: #1a2444 !important;
+}
+.sticky-header .main-menu .navigation > li.dropdown > a:after {
+color: #1a2444;
+}
+.sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a {
+color: #ff4b63 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+.sticky-header {
+transition: none;
+transform: none;
+}
+.sticky-header:not(.fixed-header) {
+opacity: 0;
+visibility: hidden;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
 }
 }
   </style>
@@ -1702,7 +1770,8 @@ display: none;
 
   </div><!-- /page-wrapper -->
 
-  <script src="js/jquery.js"></script>
+    <script defer src="js/page-ready.js"></script>
+<script src="js/jquery.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.fancybox.js"></script>
@@ -1757,13 +1826,7 @@ display: none;
     })();
 
     // Preloader
-    window.addEventListener("load", function () {
-      var preloader = document.getElementById("preloader");
-      var container = document.getElementById("container-preloader");
-      if (!preloader || !container) return;
-      container.classList.add("loaded");
-      window.setTimeout(function () { preloader.style.display = "none"; }, 1100);
-    });
+
   </script>
 </body>
 </html>

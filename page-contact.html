@@ -2,18 +2,33 @@
 <html lang="en">
 
 <head>
-      <!-- Performance: critical CSS + purged deferred stylesheets -->
+          <!-- Performance: critical CSS + purged deferred stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
 /* Critical above-the-fold — keep small; full theme loads deferred */
 *,*::before,*::after{box-sizing:border-box}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:#1a2444}
-img,svg{max-width:100%;height:auto}
+img{max-width:100%;height:auto}
+svg.flag-icon{width:20px;height:15px;max-width:20px;flex-shrink:0;display:inline-block;vertical-align:middle}
+.country{display:inline-flex;align-items:center;white-space:nowrap}
 .page-wrapper{min-height:100vh}
-#preloader{position:fixed;inset:0;z-index:9999}
+html:has(#preloader):not(.loaded) .page-wrapper{visibility:hidden}
+#preloader{position:fixed;inset:0;z-index:99999;background:#fff}
+.container-preloader{align-items:center;display:flex;height:100%;justify-content:center;position:fixed;inset:0;width:100%;z-index:100000;background:#fff}
+.container-preloader .loader-section{background:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}
+.container-preloader .loader-section.section-left{left:0}
+.container-preloader .loader-section.section-right{right:0}
 .main-header{position:relative;z-index:100}
+.main-header .logo img,.sticky-header .logo img{width:auto;height:auto}
+.acesoft-ai-hero{position:relative;min-height:720px;overflow:hidden;display:flex;align-items:center;background:#040c22}
+#ai-banner-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero-container{position:relative;z-index:3;width:100%;max-width:1260px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-headline{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.04;color:#f0f6ff;margin:0 0 22px}
+.hero-desc{font-size:16.5px;line-height:1.72;color:rgba(200,220,255,.82);max-width:520px;margin:0 0 32px}
+.btn-primary,.btn-ghost{display:inline-flex;align-items:center;text-decoration:none}
 /* Acesoft top utility bar — matches site design reference */
 .main-header .acesoft-top-header {
 background: #0a0b10 !important;
@@ -180,6 +195,60 @@ display: none;
 display: none;
 }
 }
+/* Sticky header — critical on all pages; keep in sync with style.css */
+.sticky-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 99999;
+background: #ffffff;
+box-shadow: 0 4px 24px rgba(10, 22, 56, 0.08);
+opacity: 0;
+visibility: hidden;
+transform: translate3d(0, -100%, 0);
+transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s;
+pointer-events: none;
+will-change: transform, opacity;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
+transform: translate3d(0, 0, 0);
+pointer-events: auto;
+}
+.sticky-header .logo {
+padding: 10px 0;
+}
+.sticky-header .logo img {
+max-height: 40px;
+width: auto;
+height: auto;
+}
+.sticky-header .main-menu .navigation > li > a {
+color: #1a2444 !important;
+}
+.sticky-header .main-menu .navigation > li.dropdown > a:after {
+color: #1a2444;
+}
+.sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a {
+color: #ff4b63 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+.sticky-header {
+transition: none;
+transform: none;
+}
+.sticky-header:not(.fixed-header) {
+opacity: 0;
+visibility: hidden;
+}
+.sticky-header.fixed-header {
+opacity: 1;
+visibility: visible;
+}
+}
   </style>
   <script src="js/loadcss-polyfill.js"></script>
   <link rel="preload" href="css/purged/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -200,18 +269,15 @@ display: none;
   <noscript><link rel="stylesheet" href="css/purged/tm-bs-mp.css"></noscript>
   <link rel="preload" href="css/purged/tm-utility-classes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="css/purged/tm-utility-classes.css"></noscript>
+  <link rel="preload" href="css/contact-page.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/contact-page.css"></noscript>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
 <link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon" />
   <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://www.google.com/recaptcha/enterprise.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
-
-  <!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta charset="utf-8">
 
 <title>Contact Acesoft | AI Development Company in Canada</title>
 
@@ -904,8 +970,8 @@ display: none;
 				<div class="main-box">
 					<div class="logo-box">
 						<div class="logo">
-							<a href="index.html"><img src="images/logo-2.png"
-									alt="Software Company London, Ontario, Canada" title="Tronis" /></a>
+							<a href="index.html"><span class="visually-hidden">Acesoft home — AI development company London Ontario</span><img src="images/logo-2.png"
+									alt="" title="Acesoft - London Ontario" /></a>
 						</div>
 					</div>
 					<!--Nav Box-->
@@ -1121,43 +1187,74 @@ display: none;
 
           <div class="col-xl-7 col-lg-6 mb-4">
             <div class="contact-form-panel reveal-on-scroll">
-              <div class="sec-title mb-4">
+              <div class="contact-form-intro">
                 <span class="sub-title">Start your project</span>
                 <h2 class="section-title__title">Tell us about your AI development requirements</h2>
+                <p class="contact-form-lead">Fields marked with <span class="required">*</span> are required. We typically respond within one business day.</p>
               </div>
-              <form id="contact_form" name="contact_form" action="includes/sendmail.php" method="post">
+              <form id="contact_form" name="contact_form" action="includes/sendmail.php" method="post" novalidate>
+                <div id="form-result" class="contact-form-alert" role="alert" aria-live="polite"></div>
                 <div class="row">
-                  <div class="col-sm-6 form-group">
-                    <input name="name" class="form-control required" type="text" placeholder="Your Full Name" />
+                  <div class="col-sm-6">
+                    <div class="contact-field">
+                      <label for="contact_name">Full name <span class="required" aria-hidden="true">*</span></label>
+                      <input id="contact_name" name="name" class="form-control" type="text" autocomplete="name" required aria-required="true" maxlength="80" placeholder="Jane Smith" />
+                      <span class="field-error" id="contact_name-error"></span>
+                    </div>
                   </div>
-                  <div class="col-sm-6 form-group">
-                    <input name="email" class="form-control required email" type="email" placeholder="Work Email Address" />
+                  <div class="col-sm-6">
+                    <div class="contact-field">
+                      <label for="contact_email">Work email <span class="required" aria-hidden="true">*</span></label>
+                      <input id="contact_email" name="email" class="form-control" type="email" autocomplete="email" required aria-required="true" maxlength="120" placeholder="you@company.com" />
+                      <span class="field-error" id="contact_email-error"></span>
+                    </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 form-group">
-                    <input name="subject" class="form-control required" type="text" placeholder="Project Type (AI Chatbot, ML Model, AI Automation)" />
+                  <div class="col-sm-6">
+                    <div class="contact-field">
+                      <label for="contact_subject">Project type <span class="required" aria-hidden="true">*</span></label>
+                      <select id="contact_subject" name="subject" class="form-control" required aria-required="true">
+                        <option value="" disabled selected>Select an AI service</option>
+                        <option value="AI Strategy &amp; Discovery">AI Strategy &amp; Discovery</option>
+                        <option value="LLM Apps, RAG &amp; Copilots">LLM Apps, RAG &amp; Copilots</option>
+                        <option value="AI Agents &amp; Automation">AI Agents &amp; Automation</option>
+                        <option value="Generative AI Development">Generative AI Development</option>
+                        <option value="Machine Learning / MLOps">Machine Learning / MLOps</option>
+                        <option value="AI Chatbot Development">AI Chatbot Development</option>
+                        <option value="AI Staffing / Team Augmentation">AI Staffing / Team Augmentation</option>
+                        <option value="Other AI Project">Other AI Project</option>
+                      </select>
+                      <span class="field-error" id="contact_subject-error"></span>
+                    </div>
                   </div>
-                  <div class="col-sm-6 form-group">
-                    <input name="phone" class="form-control" type="text" placeholder="Phone / WhatsApp Number" />
+                  <div class="col-sm-6">
+                    <div class="contact-field">
+                      <label for="contact_phone">Phone / WhatsApp <span class="optional-hint">(optional)</span></label>
+                      <input id="contact_phone" name="phone" class="form-control" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="+1 519 808 1000" />
+                      <span class="field-error" id="contact_phone-error"></span>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <textarea name="message" class="form-control required" rows="6" placeholder="Briefly describe your AI use case, target users, data context, and expected timeline"></textarea>
+                <div class="contact-field">
+                  <label for="contact_message">Project details <span class="required" aria-hidden="true">*</span></label>
+                  <textarea id="contact_message" name="message" class="form-control" rows="6" required aria-required="true" minlength="20" maxlength="5000" placeholder="Describe your AI use case, goals, data sources, timeline, and budget range (minimum 20 characters)."></textarea>
+                  <span class="field-error" id="contact_message-error"></span>
                 </div>
-                <div class="d-flex justify-content-center mb-3">
+                <div class="contact-captcha-wrap">
+                  <p class="captcha-hint">Complete verification before submitting.</p>
                   <div id="recaptcha-widget"></div>
                 </div>
-                <div id="captcha-error" class="text-center d-none">
-                  <div class="mb-3 text-danger">Captcha verification failed. Please try again.</div>
+                <div id="captcha-error" class="text-center d-none" role="alert">
+                  <p class="mb-0 text-danger captcha-error-text">Captcha verification failed. Please try again.</p>
                 </div>
-                <div class="text-center">
-                  <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                  <button id="contact-send-email-btn" type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait...">
-                    <span class="btn-title">Submit Project Inquiry</span>
+                <input name="form_botcheck" type="hidden" value="" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <div class="contact-form-actions">
+                  <button id="contact-send-email-btn" type="submit" class="theme-btn btn-style-one" data-loading-text="Sending your inquiry…">
+                    <span class="btn-title">Submit project inquiry</span>
                   </button>
-                  <button type="reset" class="theme-btn btn-style-one">
-                    <span class="btn-title">Reset</span>
+                  <button type="reset" class="theme-btn btn-style-one btn-reset">
+                    <span class="btn-title">Clear form</span>
                   </button>
                 </div>
               </form>
@@ -1267,7 +1364,8 @@ display: none;
 
   <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
-  <script src="js/jquery.js"></script>
+    <script defer src="js/page-ready.js"></script>
+<script src="js/jquery.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.fancybox.js"></script>
@@ -1286,54 +1384,14 @@ display: none;
     document.getElementById("currentYear").innerText = currentYear;
   </script>
 
-  <script>
-    (function ($) {
-      $("#contact_form").validate({
-        submitHandler: function (form) {
-          if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise || window.recaptchaWidgetId === null) {
-            $("#captcha-error").removeClass("d-none");
-            return;
-          }
-
-          var response = grecaptcha.enterprise.getResponse(window.recaptchaWidgetId);
-          if (!response) {
-            $("#captcha-error").removeClass("d-none");
-            return;
-          }
-          $("#captcha-error").addClass("d-none");
-
-          var form_btn = $(form).find('button[type="submit"]');
-          var form_result_div = "#form-result";
-          $(form_result_div).remove();
-          form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display:none;"></div>');
-          var form_btn_old_msg = form_btn.html();
-          form_btn.html(form_btn.prop("disabled", true).data("loading-text"));
-
-          $(form).ajaxSubmit({
-            dataType: "json",
-            success: function (data) {
-              if (data.status == "true") {
-                $(form).find(".form-control").val("");
-                grecaptcha.enterprise.reset(window.recaptchaWidgetId);
-              }
-              form_btn.prop("disabled", false).html(form_btn_old_msg);
-              $(form_result_div).html(data.message).fadeIn("slow");
-              setTimeout(function () {
-                $(form_result_div).fadeOut("slow");
-              }, 6000);
-            },
-          });
-        },
-      });
-    })(jQuery);
-  </script>
+  <script src="js/contact-form.js"></script>
 
   <script>
     window.recaptchaWidgetId = null;
     function onRecaptchaLoad() {
       if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) return;
       window.recaptchaWidgetId = grecaptcha.enterprise.render("recaptcha-widget", {
-        sitekey: "6Le60LgsAAAAAMhd4E5vf-dhzxCwbqMkGSrIA-jm"
+        sitekey: "6LdlyvUsAAAAADnXESJ0Bd88po84L_FMnMT0Wmx6"
       });
     }
   </script>
@@ -1403,17 +1461,6 @@ display: none;
         }
       }
     })();
-  </script>
-  <script>
-    window.addEventListener("load", function () {
-      var preloader = document.getElementById("preloader");
-      var container = document.getElementById("container-preloader");
-      if (!preloader || !container) return;
-      container.classList.add("loaded");
-      window.setTimeout(function () {
-        preloader.style.display = "none";
-      }, 1100);
-    });
   </script>
 </body>
 

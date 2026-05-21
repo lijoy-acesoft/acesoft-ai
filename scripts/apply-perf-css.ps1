@@ -4,7 +4,8 @@ $utf8 = New-Object System.Text.UTF8Encoding $false
 
 $critical = [System.IO.File]::ReadAllText((Join-Path $root 'css\critical.css'), $utf8).Trim()
 $topHeader = [System.IO.File]::ReadAllText((Join-Path $root 'css\top-header-bar.css'), $utf8).Trim()
-$criticalInline = ($critical + "`n" + $topHeader) -replace '(?m)^\s*', '' -replace '(?m)\s+$', ''
+$stickyHeader = [System.IO.File]::ReadAllText((Join-Path $root 'css\sticky-header.css'), $utf8).Trim()
+$criticalInline = ($critical + "`n" + $topHeader + "`n" + $stickyHeader) -replace '(?m)^\s*', '' -replace '(?m)\s+$', ''
 
 $fontUrl = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap'
 
@@ -62,6 +63,9 @@ function Get-PageCssList([string]$fileName) {
   }
   $list = [System.Collections.Generic.List[string]]::new()
   foreach ($c in $coreCss) { [void]$list.Add([string]$c) }
+  if ($fileName -eq 'page-contact.html') {
+    $list.Add('css/contact-page.css')
+  }
   if ($serviceLanding -contains $fileName) {
     $list.Add('css/seo-service-landing.css')
   }

@@ -11,7 +11,7 @@ if (-not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir | Out
 
 Push-Location $cssDir
 try {
-  npx purgecss --css style.css bootstrap.min.css responsive.css footer-component.css linear.css flaticon.css tm-bs-mp.css tm-utility-classes.css index-page.css --content $indexHtml --output purged-home
+  npx purgecss --css style.css bootstrap.min.css responsive.css footer-component.css linear.css flaticon.css tm-bs-mp.css tm-utility-classes.css index-page.css --content $indexHtml --output purged-home --safelist fixed-header slideInDown animated mobile-menu-visible moblie-search-active is-regions-open acesoft-wa-prompt-hidden loaded
   Get-ChildItem (Join-Path $outDir '*.css') | ForEach-Object {
     npx cleancss -O1 --output $_.FullName $_.FullName | Out-Null
   }

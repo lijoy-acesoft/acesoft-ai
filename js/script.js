@@ -38,18 +38,14 @@ var THEMEMASCOT = {};
 			var siteHeader = $('.header-style-one');
 			var scrollLink = $('.scroll-to-top');
 			var sticky_header = $('.main-header .sticky-header');
-			if (windowpos > 100) {
-				sticky_header.addClass("fixed-header animated slideInDown");
-				scrollLink.fadeIn(300);
-			}else {
-				sticky_header.removeClass("fixed-header animated slideInDown");
-				scrollLink.fadeOut(300);
+			var showSticky = windowpos > 80;
+			sticky_header.toggleClass("fixed-header", showSticky);
+			if (showSticky) {
+				scrollLink.stop(true, true).fadeIn(200);
+			} else {
+				scrollLink.stop(true, true).fadeOut(200);
 			}
-			if (windowpos > 1) {
-				siteHeader.addClass("fixed-header");
-			}else {
-				siteHeader.removeClass("fixed-header");
-			}
+			siteHeader.toggleClass("fixed-header", windowpos > 1);
 		}
 	}
 	headerStyle();
@@ -784,8 +780,16 @@ var THEMEMASCOT = {};
    When document is Scrollig, do
    ========================================================================== */
 	
+	var headerTicking = false;
 	$(window).on('scroll', function() {
-		headerStyle();
+		if (headerTicking) {
+			return;
+		}
+		headerTicking = true;
+		window.requestAnimationFrame(function() {
+			headerStyle();
+			headerTicking = false;
+		});
 	});
 	
 /* ==========================================================================

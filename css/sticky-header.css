@@ -1,0 +1,63 @@
+/* Sticky header — critical on all pages; keep in sync with style.css */
+.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99999;
+	background: #ffffff;
+	box-shadow: 0 4px 24px rgba(10, 22, 56, 0.08);
+	opacity: 0;
+	visibility: hidden;
+	transform: translate3d(0, -100%, 0);
+	transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s;
+	pointer-events: none;
+	will-change: transform, opacity;
+}
+
+.sticky-header.fixed-header {
+	opacity: 1;
+	visibility: visible;
+	transform: translate3d(0, 0, 0);
+	pointer-events: auto;
+}
+
+.sticky-header .logo {
+	padding: 10px 0;
+}
+
+.sticky-header .logo img {
+	max-height: 40px;
+	width: auto;
+	height: auto;
+}
+
+.sticky-header .main-menu .navigation > li > a {
+	color: #1a2444 !important;
+}
+
+.sticky-header .main-menu .navigation > li.dropdown > a:after {
+	color: #1a2444;
+}
+
+.sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a {
+	color: #ff4b63 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sticky-header {
+		transition: none;
+		transform: none;
+	}
+
+	.sticky-header:not(.fixed-header) {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.sticky-header.fixed-header {
+		opacity: 1;
+		visibility: visible;
+	}
+}

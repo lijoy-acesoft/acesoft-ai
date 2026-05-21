@@ -290,6 +290,12 @@
   opacity: 0 !important;
   margin-top: 30px !important;
 }
+.main-header .main-menu .navigation > li.acesoft-regions-nav.is-regions-open > ul,
+.sticky-header .main-menu .navigation > li.acesoft-regions-nav.is-regions-open > ul {
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 0 !important;
+}
 
 /* WhatsApp floating widget */
 .acesoft-wa-widget {
@@ -358,6 +364,11 @@
   text-align: center;
   cursor: pointer;
   padding: 0;
+}
+
+.acesoft-wa-widget.acesoft-wa-prompt-hidden .acesoft-wa-prompt,
+.acesoft-wa-widget.acesoft-wa-prompt-hidden .acesoft-wa-prompt-close {
+  display: none;
 }
 
 @media (max-width: 767px) {

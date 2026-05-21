@@ -2,7 +2,7 @@
   "name": "acesoft-ai-site",
   "private": true,
   "scripts": {
-    "build:css": "cd css && purgecss --css style.css bootstrap.min.css responsive.css animate.css tm-bs-mp.css tm-utility-classes.css linear.css flaticon.css owl.css jquery.fancybox.min.css --content \"../**/*.html\" --output purged && cd .. && powershell -ExecutionPolicy Bypass -File scripts/build-fontawesome-subset.ps1 && powershell -ExecutionPolicy Bypass -File scripts/build-index-home-css.ps1",
+    "build:css": "cd css && purgecss --css style.css bootstrap.min.css responsive.css animate.css tm-bs-mp.css tm-utility-classes.css linear.css flaticon.css owl.css jquery.fancybox.min.css --content \"../**/*.html\" --output purged --safelist fixed-header slideInDown animated mobile-menu-visible moblie-search-active is-regions-open acesoft-wa-prompt-hidden loaded && cd .. && powershell -ExecutionPolicy Bypass -File scripts/build-fontawesome-subset.ps1 && powershell -ExecutionPolicy Bypass -File scripts/build-index-home-css.ps1",
     "build:index-css": "powershell -ExecutionPolicy Bypass -File scripts/build-index-home-css.ps1",
     "build:home-images": "powershell -ExecutionPolicy Bypass -File scripts/build-home-image-variants.ps1",
     "perf:css": "powershell -ExecutionPolicy Bypass -File scripts/apply-perf-css.ps1"
