@@ -145,18 +145,18 @@
 }
 
 .contact-captcha-wrap {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 10px;
 	margin-bottom: 8px;
+	padding: 12px 14px;
+	border-radius: 10px;
+	background: #f6f9ff;
+	border: 1px solid #e2e9f8;
 }
 
 .contact-captcha-wrap .captcha-hint {
-	font-size: 13px;
+	font-size: 12px;
 	color: #4a5780;
 	margin: 0;
-	text-align: center;
+	line-height: 1.5;
 }
 
 #captcha-error.is-visible {
