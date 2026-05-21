@@ -112,13 +112,13 @@
 			hideAlert();
 			$captchaError.removeClass("is-visible d-none").addClass("d-none");
 
-			if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise || window.recaptchaWidgetId === null) {
+			if (typeof grecaptcha === "undefined" || window.recaptchaWidgetId === null) {
 				$captchaError.removeClass("d-none").addClass("is-visible");
 				$captchaError.find(".captcha-error-text").text("Captcha is still loading. Please wait a moment and try again.");
 				return false;
 			}
 
-			var captchaResponse = grecaptcha.enterprise.getResponse(window.recaptchaWidgetId);
+			var captchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
 			if (!captchaResponse) {
 				$captchaError.removeClass("d-none").addClass("is-visible");
 				$captchaError.find(".captcha-error-text").text("Please complete the captcha verification.");
@@ -139,8 +139,8 @@
 						form.reset();
 						$form.find(".form-control").removeClass("is-valid is-invalid").attr("aria-invalid", "false");
 						$form.find(".field-error").empty();
-						if (grecaptcha.enterprise) {
-							grecaptcha.enterprise.reset(window.recaptchaWidgetId);
+						if (typeof grecaptcha.reset === "function") {
+							grecaptcha.reset(window.recaptchaWidgetId);
 						}
 					} else {
 						showAlert("error", (data && data.message) || "Something went wrong. Please try again or email info@acesoft.ca.");
@@ -167,8 +167,8 @@
 		$captchaError.addClass("d-none").removeClass("is-visible");
 		$form.find(".form-control").removeClass("is-valid is-invalid").attr("aria-invalid", "false");
 		$form.find(".field-error").empty();
-		if (typeof grecaptcha !== "undefined" && grecaptcha.enterprise && window.recaptchaWidgetId !== null) {
-			grecaptcha.enterprise.reset(window.recaptchaWidgetId);
+		if (typeof grecaptcha !== "undefined" && typeof grecaptcha.reset === "function" && window.recaptchaWidgetId !== null) {
+			grecaptcha.reset(window.recaptchaWidgetId);
 		}
 	});
 })(jQuery);

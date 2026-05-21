@@ -277,7 +277,7 @@ visibility: visible;
   <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://www.google.com/recaptcha/enterprise.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 
 <title>Contact Acesoft | AI Development Company in Canada</title>
 
@@ -1389,8 +1389,8 @@ visibility: visible;
   <script>
     window.recaptchaWidgetId = null;
     function onRecaptchaLoad() {
-      if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) return;
-      window.recaptchaWidgetId = grecaptcha.enterprise.render("recaptcha-widget", {
+      if (typeof grecaptcha === "undefined" || typeof grecaptcha.render !== "function") return;
+      window.recaptchaWidgetId = grecaptcha.render("recaptcha-widget", {
         sitekey: "6LdlyvUsAAAAADnXESJ0Bd88po84L_FMnMT0Wmx6"
       });
     }
