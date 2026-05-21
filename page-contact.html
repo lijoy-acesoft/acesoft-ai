@@ -277,7 +277,7 @@ visibility: visible;
   <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdlyvUsAAAAADnXESJOBd88po84L_FMnMT0Wmx6" async defer></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 
 <title>Contact Acesoft | AI Development Company in Canada</title>
 
@@ -960,7 +960,7 @@ visibility: visible;
 					</div>
 					<div class="top-right">
 						<ul class="useful-links">
-							<li><a href="page-contact.html" class="acesoft-top-contact-btn">Contactsdf</a></li>
+							<li><a href="page-contact.html" class="acesoft-top-contact-btn">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -1242,8 +1242,8 @@ visibility: visible;
                   <span class="field-error" id="contact_message-error"></span>
                 </div>
                 <div class="contact-captcha-wrap">
-                  <p class="captcha-hint">Protected by Google reCAPTCHA v3 when you submit.</p>
-                  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="" />
+                  <p class="captcha-hint">Complete verification before submitting.</p>
+                  <div id="recaptcha-widget"></div>
                 </div>
                 <div id="captcha-error" class="text-center d-none" role="alert">
                   <p class="mb-0 text-danger captcha-error-text">Captcha verification failed. Please try again.</p>
@@ -1385,6 +1385,16 @@ visibility: visible;
   </script>
 
   <script src="js/contact-form.js"></script>
+
+  <script>
+    window.recaptchaWidgetId = null;
+    function onRecaptchaLoad() {
+      if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) return;
+      window.recaptchaWidgetId = grecaptcha.enterprise.render("recaptcha-widget", {
+        sitekey: "6Lfy0_UsAAAAAKlvXOyYpST0xrBQ74EnnZZbhLet"
+      });
+    }
+  </script>
 
   <script>
     (function () {
