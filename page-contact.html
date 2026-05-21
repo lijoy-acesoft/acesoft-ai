@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <!-- Performance: critical CSS + purged deferred stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+/* Critical above-the-fold — keep small; full theme loads deferred */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#1a2444}
+img,svg{max-width:100%;height:auto}
+.page-wrapper{min-height:100vh}
+#preloader{position:fixed;inset:0;z-index:9999}
+.main-header{position:relative;z-index:100}
+/* Acesoft top utility bar — matches site design reference */
+.main-header .acesoft-top-header {
+background: #0a0b10 !important;
+border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+backdrop-filter: none !important;
+box-shadow: none !important;
+}
+.main-header .acesoft-top-header .inner-container {
+min-height: 40px;
+max-width: none;
+margin: 0 auto;
+padding: 6px 20px !important;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+width: 100%;
+}
+.main-header .acesoft-top-header .top-left {
+display: flex;
+align-items: center;
+flex: 1 1 auto;
+min-width: 0;
+overflow: hidden;
+}
+.main-header .acesoft-top-header .top-right {
+display: flex;
+align-items: center;
+flex: 0 0 auto;
+margin-left: auto;
+}
+.main-header .acesoft-top-header .acesoft-top-bar {
+display: flex;
+align-items: center;
+gap: 8px;
+margin: 0;
+padding: 0;
+list-style: none;
+flex-wrap: nowrap;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.main-header .acesoft-top-header .acesoft-top-bar::-webkit-scrollbar {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+height: 28px;
+padding: 0 10px;
+border-radius: 5px;
+background: #1e2128;
+border: 1px solid #33363d;
+color: #ffffff;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 500;
+line-height: 1;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a {
+color: #ffffff;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a:hover {
+color: #93c5fd;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-icon,
+.main-header .acesoft-top-header .acesoft-top-pill--email .fa-envelope {
+color: #3b82f6;
+font-size: 12px;
+line-height: 1;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-cert-icon {
+width: 14px;
+height: 14px;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-flag-icon {
+display: inline-block;
+width: 18px;
+height: 12px;
+border-radius: 2px;
+flex-shrink: 0;
+vertical-align: middle;
+}
+.main-header .acesoft-top-header .useful-links {
+margin: 0;
+padding: 0 !important;
+list-style: none;
+display: flex;
+align-items: center;
+}
+.main-header .acesoft-top-header .useful-links li {
+margin: 0;
+padding: 0;
+}
+.main-header .acesoft-top-header .useful-links li::before {
+display: none !important;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+height: 28px;
+padding: 0 16px;
+border-radius: 5px;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #ffffff !important;
+background: #3b82f6 !important;
+border: none !important;
+box-shadow: none !important;
+text-decoration: none;
+transition: background 0.2s ease, opacity 0.2s ease;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn:hover {
+background: #2563eb !important;
+color: #ffffff !important;
+opacity: 1;
+transform: none;
+}
+@media (max-width: 1280px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--india {
+display: none;
+}
+}
+@media (max-width: 1100px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uae {
+display: none;
+}
+}
+@media (max-width: 992px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uk {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--hipaa {
+display: none;
+}
+}
+@media (max-width: 768px) {
+.main-header .acesoft-top-header .inner-container {
+padding: 6px 12px;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso27001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--usa {
+display: none;
+}
+}
+@media (max-width: 576px) {
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso9001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--canada {
+display: none;
+}
+}
+  </style>
+  <script src="js/loadcss-polyfill.js"></script>
+  <link rel="preload" href="css/purged/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/bootstrap.min.css"></noscript>
+  <link rel="preload" href="css/purged/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/style.css"></noscript>
+  <link rel="preload" href="css/purged/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/responsive.css"></noscript>
+  <link rel="preload" href="css/footer-component.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/footer-component.css"></noscript>
+  <link rel="preload" href="css/purged/linear.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/linear.css"></noscript>
+  <link rel="preload" href="css/fontawesome-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/fontawesome-subset.css"></noscript>
+  <link rel="preload" href="css/purged/flaticon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/flaticon.css"></noscript>
+  <link rel="preload" href="css/purged/tm-bs-mp.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/tm-bs-mp.css"></noscript>
+  <link rel="preload" href="css/purged/tm-utility-classes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/tm-utility-classes.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+<link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon" />
+  <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <script src="https://www.google.com/recaptcha/enterprise.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+
+  <!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+
+<title>Contact Acesoft | AI Development Company in Canada</title>
+
+<meta name="description"
+	content="Contact Acesoft to discuss your AI development project in Canada, including custom AI solutions, machine learning systems, automation, and enterprise AI implementation.">
+<meta name="author" content="Acesoft Inc">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+
+<link rel="canonical" href="https://www.aidevelopers.ca/page-contact.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.aidevelopers.ca/sitemap.xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Acesoft | AI Development Company in Canada">
+<meta property="og:description" content="Contact Acesoft to discuss your AI development project in Canada, including custom AI solutions, machine learning systems, automation, and enterprise AI implementation.">
+<meta property="og:url" content="https://www.aidevelopers.ca/page-contact.html">
+<meta property="og:site_name" content="Acesoft Inc">
+<meta property="og:image"
+	content="https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png">
+<meta property="og:image:alt"
+	content="AI development services in Canada and USA">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Acesoft | AI Development Company in Canada">
+<meta name="twitter:description" content="Contact Acesoft to discuss your AI development project in Canada, including custom AI solutions, machine learning systems, automation, and enterprise AI implementation.">
+<meta name="twitter:image"
+	content="https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png">
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+	{
+	  "@type": "Organization",
+	  "@id": "https://www.aidevelopers.ca/#organization",
+	  "name": "Acesoft Inc",
+	  "url": "https://www.aidevelopers.ca/",
+	  "logo": "https://www.aidevelopers.ca/images/logo-2.png",
+	  "email": "info@acesoft.ca",
+	  "telephone": "+1-519-808-1000"
+	},
+	{
+	  "@type": "LocalBusiness",
+	  "@id": "https://www.aidevelopers.ca/#localbusiness",
+	  "name": "Acesoft Inc",
+	  "url": "https://www.aidevelopers.ca/",
+	  "image": "https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png",
+	  "telephone": "+1-519-808-1000",
+	  "email": "info@acesoft.ca",
+	  "areaServed": [
+		"London, Ontario",
+		"Toronto, Ontario",
+		"Kitchener, Ontario",
+		"Waterloo, Ontario",
+		"Windsor, Ontario",
+		"Canada",
+		"United States"
+	  ],
+	  "address": {
+		"@type": "PostalAddress",
+		"addressCountry": "CA",
+		"addressRegion": "Ontario",
+		"addressLocality": "London"
+	  }
+	},
+	{
+	  "@type": "Service",
+	  "@id": "https://www.aidevelopers.ca/#service",
+	  "serviceType": "AI Development & Consulting Services",
+	  "provider": {
+		"@id": "https://www.aidevelopers.ca/#organization"
+	  },
+	  "areaServed": [
+		"London, Ontario",
+		"Toronto, Ontario",
+		"Kitchener, Ontario",
+		"Waterloo, Ontario",
+		"Windsor, Ontario",
+		"Canada",
+		"United States"
+	  ],
+	  "hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "AI Services",
+		"itemListElement": [
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Development Services" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Solutions" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Integration Services" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consulting Services" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI Development" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Chatbot Development" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Machine Learning Development Services" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation Services" } }
+		]
+	  }
+	}
+  ]
+}
+</script>
+
+  <style>
+    .flag-icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 15px;
+      margin-right: 5px;
+    }
+    .country {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .main-header.header-style-one .main-box {
+      background: rgba(8, 12, 24, 0.46);
+      /* border: 1px solid rgba(255, 255, 255, 0.1); */
+      backdrop-filter: blur(8px);
+      min-height: 96px;
+    }
+    .main-header.header-style-one {
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, #23429f 0%, #101b43 40%, #070d21 80%, #040812 100%);
+      z-index: 20;
+    }
+    .main-header.header-style-one .logo-box { padding: 14px 0; }
+    .main-header.header-style-one .logo img {
+      max-height: 66px;
+      width: auto;
+    }
+    .main-header.header-style-one .main-menu .navigation > li > a { color: rgba(230, 238, 255, 0.9); }
+    .main-header.header-style-one .main-menu .navigation > li:hover > a,
+    .main-header.header-style-one .main-menu .navigation > li.current > a { color: #ffffff; }
+    .sticky-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e8edf7;
+    }
+    .sticky-header .logo img {
+      max-height: 52px;
+      width: auto;
+    }
+    .sticky-header .main-menu .navigation > li > a { color: #1a2444 !important; }
+    .sticky-header .main-menu .navigation > li.dropdown > a:after { color: #1a2444; }
+    .sticky-header .main-menu .navigation > li.current > a,
+    .sticky-header .main-menu .navigation > li:hover > a { color: #ff4b63 !important; }
+
+    .contact-page-shell {
+      background:
+        radial-gradient(circle at 88% 10%, rgba(66, 114, 255, 0.12) 0%, rgba(66, 114, 255, 0) 42%),
+        radial-gradient(circle at 8% 92%, rgba(255, 76, 110, 0.1) 0%, rgba(255, 76, 110, 0) 45%),
+        #f3f7ff;
+    }
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 25px 0 88px;
+      background: linear-gradient(130deg, #0c1733 0%, #121f43 45%, #0f2f68 100%);
+      color: #fff;
+    }
+
+    .contact-hero .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+      transition: transform 0.25s ease-out;
+    }
+
+    .contact-hero .hero-orb.one {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle at 30% 30%, rgba(12, 236, 255, 0.35), rgba(12, 236, 255, 0));
+      top: -140px;
+      left: -120px;
+    }
+
+    .contact-hero .hero-orb.two {
+      width: 330px;
+      height: 330px;
+      background: radial-gradient(circle at 60% 45%, rgba(70, 120, 255, 0.34), rgba(70, 120, 255, 0));
+      right: -100px;
+      bottom: -110px;
+    }
+
+    .contact-hero .title {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-hero p {
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 17px;
+      margin-bottom: 24px;
+    }
+
+    .contact-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-badges span {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .contact-main {
+      margin-top: -54px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 82px;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-offering-card {
+      height: 100%;
+      border-radius: 18px;
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      box-shadow: 0 14px 35px rgba(20, 34, 73, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-offering-card:hover {
+      transform: translateY(-8px);
+      border-color: #9db8ff;
+      box-shadow: 0 22px 40px rgba(24, 45, 100, 0.14);
+    }
+
+    .contact-offering-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: linear-gradient(160deg, #e7eeff, #d6f7ff);
+      color: #153377;
+      font-size: 22px;
+    }
+
+    .contact-offering-card h5 {
+      margin-bottom: 10px;
+    }
+
+    .contact-panel,
+    .contact-form-panel {
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      border-radius: 24px;
+      box-shadow: 0 15px 42px rgba(20, 34, 73, 0.1);
+    }
+
+    .contact-panel {
+      padding: 36px;
+      height: 100%;
+    }
+
+    .contact-panel .text {
+      color: #56607a;
+      margin-bottom: 0;
+    }
+
+    .contact-panel .contact-details__info li {
+      border-bottom: 1px dashed #e5eaf3;
+      padding: 16px 0;
+      margin-bottom: 0;
+    }
+
+    .contact-panel .contact-details__info li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .location-image-wrap {
+      margin-top: 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #d9e1ef;
+    }
+
+    .location-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-form-panel {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-panel::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60, 118, 255, 0.2), rgba(60, 118, 255, 0));
+      pointer-events: none;
+    }
+
+    .contact-form-panel .form-control {
+      min-height: 54px;
+      border-radius: 12px;
+      border: 1px solid #d8dfec;
+      box-shadow: none;
+      color: #102147;
+      background: #fbfcff;
+    }
+
+    .contact-form-panel textarea.form-control {
+      min-height: 160px;
+      resize: vertical;
+      padding-top: 14px;
+    }
+
+    .contact-form-panel .form-control:focus {
+      border-color: #3b6fff;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(59, 111, 255, 0.14);
+    }
+
+    .contact-form-panel .theme-btn {
+      min-width: 158px;
+    }
+
+    .map-panel {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #dfe6f3;
+      box-shadow: 0 15px 40px rgba(20, 34, 73, 0.1);
+      margin-top: 26px;
+    }
+
+    .map-panel iframe {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .clientele-head {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .clientele-head h4 {
+      margin: 0;
+      color: #132957;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 20px 0;
+      background: #fff;
+      border-top: 1px solid #e3e9f4;
+      border-bottom: 1px solid #e3e9f4;
+      /* box-shadow: 0 10px 30px rgba(20, 34, 73, 0.06); */
+      /* mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); */
+      /* -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); */
+    }
+
+    .logo-slide {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      min-width: 100%;
+      width: max-content;
+      animation: logoSlide 26s linear infinite;
+      will-change: transform;
+      flex-shrink: 0;
+      padding-right: 42px;
+    }
+
+    .logo-slider:hover .logo-slide {
+      animation-play-state: paused;
+    }
+
+    .logo-slide img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+      transition: transform 0.25s ease;
+    }
+
+    .logo-slide img:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Reference-style preloader */
+    .container-preloader {
+      align-items: center;
+      cursor: none;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 900;
+    }
+
+    .container-preloader .animation-preloader {
+      position: absolute;
+      z-index: 100;
+    }
+
+    .container-preloader .animation-preloader .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      border: 10px solid rgba(0, 0, 0, 0.2);
+      border-top-color: #ed1c24;
+      height: 9em;
+      margin: 0 auto 3.5em auto;
+      width: 9em;
+    }
+
+    .container-preloader .animation-preloader .txt-loading {
+      font: bold 5em "Montserrat", sans-serif;
+      text-align: center;
+      user-select: none;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters {
+      color: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:before {
+      animation: characters 4s infinite;
+      color: #101933;
+      content: attr(preloader-text);
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform: rotateY(-90deg);
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(2):before {
+      animation-delay: 0.2s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(3):before {
+      animation-delay: 0.4s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(4):before {
+      animation-delay: 0.6s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(5):before {
+      animation-delay: 0.8s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(6):before {
+      animation-delay: 1s;
+    }
+
+    .container-preloader .animation-preloader .txt-loading .characters:nth-child(7):before {
+      animation-delay: 1.2s;
+    }
+
+    .container-preloader .loader-section {
+      background-color: #ffffff;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      width: calc(50% + 1px);
+    }
+
+    .container-preloader .loader-section.section-left {
+      left: 0;
+    }
+
+    .container-preloader .loader-section.section-right {
+      right: 0;
+    }
+
+    .loaded .animation-preloader {
+      opacity: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .loaded .loader-section.section-left {
+      transform: translateX(-101%);
+      transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1);
+    }
+
+    .loaded .loader-section.section-right {
+      transform: translateX(101%);
+      transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1);
+    }
+
+    @keyframes spinner {
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    @keyframes characters {
+      0%,
+      75%,
+      100% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+      }
+
+      25%,
+      50% {
+        opacity: 1;
+        transform: rotateY(0deg);
+      }
+    }
+
+    @keyframes logoSlide {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .contact-hero {
+        padding: 104px 0 80px;
+      }
+
+      .contact-main {
+        margin-top: -42px;
+      }
+
+      .contact-panel,
+      .contact-form-panel {
+        padding: 26px;
+      }
+
+      .logo-slide {
+        gap: 28px;
+      }
+
+      .logo-slide img {
+        height: 30px;
+      }
+
+      .container-preloader .animation-preloader .spinner {
+        height: 8em;
+        width: 8em;
+      }
+
+      .container-preloader .animation-preloader .txt-loading {
+        font: bold 3.5em "Montserrat", sans-serif;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .container-preloader .animation-preloader .spinner {
+        height: 7em;
+        width: 7em;
+      }
+
+      .container-preloader .animation-preloader .txt-loading {
+        font: bold 2em "Montserrat", sans-serif;
+      }
+    }
+    @media (max-width: 767px) {
+
+    }
+  </style>
+</head>
+
+<body class="contact-page-shell">
+  <div id="preloader">
+    <div id="container-preloader" class="container-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+          <span preloader-text="A" class="characters">A</span>
+          <span preloader-text="C" class="characters">C</span>
+          <span preloader-text="E" class="characters">E</span>
+          <span preloader-text="S" class="characters">S</span>
+          <span preloader-text="O" class="characters">O</span>
+          <span preloader-text="F" class="characters">F</span>
+          <span preloader-text="T" class="characters">T</span>
+        </div>
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- Main Header-->
+		<header class="main-header header-style-one">
+						<div class="header-top acesoft-top-header">
+				<div class="inner-container">
+					<div class="top-left">
+						<ul class="acesoft-top-bar">
+							<li class="acesoft-top-pill acesoft-top-pill--email">
+								<span class="acesoft-top-icon" aria-hidden="true"><i class="fa fa-envelope"></i></span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--iso9001">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								ISO 9001 Certified
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--iso27001">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								ISO 27001 Certified
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--hipaa">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								HIPAA Compliant
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--canada">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="512" height="256" fill="#fff"/><rect width="128" height="256" fill="#d52b1e"/><rect x="384" width="128" height="256" fill="#d52b1e"/><path fill="#d52b1e" d="M256 48l12 37h39l-31 22 12 37-31-22-31 22 12-37-31-22h39z"/></svg>
+								Canada
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--usa">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#fff" width="512" height="512"/><g fill="#bf0a30"><rect height="39.4" width="512"/><rect height="39.4" width="512" y="78.8"/><rect height="39.4" width="512" y="157.5"/><rect height="39.4" width="512" y="236.3"/><rect height="39.4" width="512" y="315"/><rect height="39.4" width="512" y="393.8"/><rect height="39.4" width="512" y="472.5"/></g><rect fill="#002868" height="275.7" width="275.7"/></svg>
+								USA
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--uk">
+								<svg class="acesoft-flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+								UK
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--uae">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#00732f" height="170.7" width="512"/><rect fill="#fff" height="170.7" width="512" y="170.7"/><rect fill="#000" height="170.7" width="512" y="341.3"/><rect fill="#f00" height="512" width="170.7"/></svg>
+								UAE
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--india">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#f93" height="170.7" width="512"/><rect fill="#fff" height="170.7" width="512" y="170.7"/><rect fill="#128807" height="170.7" width="512" y="341.3"/><circle cx="256" cy="256" fill="#008" r="42.7"/><circle cx="256" cy="256" fill="#fff" r="35"/><circle cx="256" cy="256" fill="#008" r="8.5"/></svg>
+								India
+							</li>
+						</ul>
+					</div>
+					<div class="top-right">
+						<ul class="useful-links">
+							<li><a href="page-contact.html" class="acesoft-top-contact-btn">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<!-- Main box -->
+				<div class="main-box">
+					<div class="logo-box">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo-2.png"
+									alt="Software Company London, Ontario, Canada" title="Tronis" /></a>
+						</div>
+					</div>
+					<!--Nav Box-->
+					<div class="nav-outer nav-outer--padding">
+						<nav class="nav main-menu">
+														<ul class="navigation">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="ai-development-services.html">AI Development</a></li>
+								<li><a href="ai-staffing.html">AI Staffing</a></li>
+								<li><a href="ai-industries.html">Industries</a></li>
+								<li class="dropdown acesoft-regions-nav">
+									<a href="ai-development-canada.html" class="acesoft-regions-toggle">Regions</a>
+									<ul class="acesoft-regions-menu">
+										<li><a href="ai-development-canada.html">AI Development Canada</a></li>
+										<li><a href="ai-development-usa.html">AI Development USA</a></li>
+									</ul>
+								</li>
+								<li><a href="ai-consultation.html">AI Consultation</a></li>
+								<li><a href="page-contact.html" class="acesoft-nav-current-link">Get in Touch</a></li>
+							</ul></nav>
+						<!-- Main Menu End-->
+					</div>
+					<div class="outer-box outer-box--padding">
+						<!-- <div class="ui-btn-outer">
+						<i class="icon fa fa-email"></i>
+						<small>Email us : </small>
+						<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+						</div>
+						
+						<a href="tel:+15198081000" class="info-btn">
+						<i class="icon fa fa-phone"></i>
+						<small>Give us a call</small>+1 519 808 1000
+						</a> -->
+						<!-- Mobile Nav toggler -->
+						<div class="mobile-nav-toggler">
+							<span class="icon lnr-icon-bars"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+				<nav class="menu-box">
+					<div class="upper-box">
+						<div class="nav-logo">
+							<a href="index.html"><img src="images/logo.png"
+									alt="AI Development, Machine Learning Solutions, and Intelligent Software Engineering"
+									title="" /></a>
+						</div>
+						<div class="close-btn"><i class="icon fa fa-times"></i></div>
+					</div>
+					<ul class="navigation clearfix">
+						<!--Keep This Empty / Menu will come through Javascript-->
+					</ul>
+					<ul class="contact-list-one">
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<i class="icon lnr-icon-phone-handset"></i>
+								<span class="title">Call Now</span>
+								<a href="tel:+15198081000">+1 519 808 1000</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-envelope1"></span>
+								<span class="title">Send Email</span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-clock"></span>
+								<span class="title">Send Email</span>
+								Mon - Sat 8:00 - 6:30, Sunday - CLOSED
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<!-- End Mobile Menu -->
+			<!-- Header Search -->
+			<div class="search-popup">
+				<span class="search-back-drop"></span>
+				<button class="close-search">
+					<span class="fa fa-times"></span>
+				</button>
+				<div class="search-inner">
+					<form method="post" action="blog-showcase.html">
+						<div class="form-group">
+							<input type="search" name="search-field" value="" placeholder="Search..." required="" />
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- End Header Search -->
+			<!-- Sticky Header  -->
+			<div class="sticky-header">
+				<div class="auto-container">
+					<div class="inner-container">
+						<!--Logo-->
+						<div class="logo">
+							<a href="index.html" title=""><img src="images/logo-2.png"
+									alt="AI Development Company London Ontario" title="" /></a>
+						</div>
+						<!--Right Col-->
+						<div class="nav-outer">
+							<!-- Main Menu -->
+							<nav class="main-menu">
+								<div class="navbar-collapse show collapse clearfix">
+									<ul class="navigation clearfix">
+										<!--Keep This Empty / Menu will come through Javascript-->
+									</ul>
+								</div>
+							</nav>
+							<!-- Main Menu End-->
+							<!--Mobile Navigation Toggler-->
+							<div class="mobile-nav-toggler">
+								<span class="icon lnr-icon-bars"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Sticky Menu -->
+		</header>
+		<!--End Main Header -->
+
+    <section class="contact-hero" id="contactHero">
+      <span class="hero-orb one" aria-hidden="true"></span>
+      <span class="hero-orb two" aria-hidden="true"></span>
+      <div class="auto-container">
+        <h1 class="title">Let's Build Your AI Solution</h1>
+        <p>
+          Talk to Acesoft's AI specialists about generative AI, machine learning, and intelligent automation. From discovery and proof of concept to deployment and optimization, we help you launch with confidence.
+        </p>
+        <div class="contact-badges">
+          <span>Generative AI + ML + Automation</span>
+          <span>Discovery to Production Deployment</span>
+          <span>24x7 Global Delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main">
+      <div class="auto-container">
+        <div class="row text-center mb-4">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-laptop"></i></span>
+              <h5>Custom AI Development</h5>
+              <p>Tailored AI systems, copilots, and intelligent features engineered for accuracy, scalability, and measurable business outcomes.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-microchip"></i></span>
+              <h5>AI Product Strategy & Engineering</h5>
+              <p>Use-case discovery, model strategy, UX design, and agile delivery to move from concept to production faster.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-offering-card js-tilt-card reveal-on-scroll">
+              <span class="icon"><i class="fa fa-handshake-o"></i></span>
+              <h5>AI Operations & Optimization</h5>
+              <p>Continuous monitoring, model evaluation, guardrails, and performance tuning to keep your AI products reliable and improving.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 mb-4">
+            <div class="contact-panel reveal-on-scroll">
+              <div class="sec-title mb-0">
+                <span class="sub-title">Need AI experts?</span>
+                <h2>Discuss your AI initiative with Acesoft</h2>
+                <div class="text">
+                  Share your use case, business goals, timeline, and budget range. Our team will help you define the right AI architecture, delivery roadmap, and implementation plan for a successful outcome.
+                </div>
+              </div>
+              <ul class="list-unstyled contact-details__info mt-4">
+                <li>
+                  <div class="icon"><span class="lnr-icon-phone-plus"></span></div>
+                  <div class="text">
+                    <h6>Call our team</h6>
+                    <a href="tel:+15198081000">+1 519 808 1000</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon"><span class="lnr-icon-envelope1"></span></div>
+                  <div class="text">
+                    <h6>Email us your requirements</h6>
+                    <a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+                  </div>
+                </li>
+                <li>
+                  <!-- <div class="icon"><span class="lnr-icon-location"></span></div> -->
+                  <div class="text">
+                    <h6>Office locations</h6>
+                    <div class="location-image-wrap">
+                      <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xl-7 col-lg-6 mb-4">
+            <div class="contact-form-panel reveal-on-scroll">
+              <div class="sec-title mb-4">
+                <span class="sub-title">Start your project</span>
+                <h2 class="section-title__title">Tell us about your AI development requirements</h2>
+              </div>
+              <form id="contact_form" name="contact_form" action="includes/sendmail.php" method="post">
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                    <input name="name" class="form-control required" type="text" placeholder="Your Full Name" />
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <input name="email" class="form-control required email" type="email" placeholder="Work Email Address" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                    <input name="subject" class="form-control required" type="text" placeholder="Project Type (AI Chatbot, ML Model, AI Automation)" />
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <input name="phone" class="form-control" type="text" placeholder="Phone / WhatsApp Number" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea name="message" class="form-control required" rows="6" placeholder="Briefly describe your AI use case, target users, data context, and expected timeline"></textarea>
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                  <div id="recaptcha-widget"></div>
+                </div>
+                <div id="captcha-error" class="text-center d-none">
+                  <div class="mb-3 text-danger">Captcha verification failed. Please try again.</div>
+                </div>
+                <div class="text-center">
+                  <input name="form_botcheck" class="form-control" type="hidden" value="" />
+                  <button id="contact-send-email-btn" type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait...">
+                    <span class="btn-title">Submit Project Inquiry</span>
+                  </button>
+                  <button type="reset" class="theme-btn btn-style-one">
+                    <span class="btn-title">Reset</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="map-panel reveal-on-scroll">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.185528943279!2d-81.2967875241529!3d43.037527792033316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882eeeff93da61db%3A0x29936c38646fd075!2s200%20Villagewalk%20Blvd%20%23304%2C%20London%2C%20ON%20N6G%200W8%2C%20Canada!5e0!3m2!1sen!2sin!4v1701115398082!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="clientele-shell reveal-on-scroll">
+      <div class="auto-container">
+      
+      </div>
+      <div class="logo-slider" id="logoSlider">
+        <div class="logo-slide">
+          <img src="images/clientele/logo-1.png" alt="logo-1" loading="lazy" />
+          <img src="images/clientele/logo-2.png" alt="logo-2" loading="lazy" />
+          <img src="images/clientele/logo-3.png" alt="logo-3" loading="lazy" />
+          <img src="images/clientele/logo-4.png" alt="logo-4" loading="lazy" />
+          <img src="images/clientele/logo-5.png" alt="logo-5" loading="lazy" />
+          <img src="images/clientele/logo-6.png" alt="logo-6" loading="lazy" />
+          <img src="images/clientele/logo-7.png" alt="logo-7" loading="lazy" />
+          <img src="images/clientele/logo-8.png" alt="logo-8" loading="lazy" />
+          <img src="images/clientele/logo-9.png" alt="logo-9" loading="lazy" />
+          <img src="images/clientele/logo-10.webp" alt="logo-10" loading="lazy" />
+          <img src="images/clientele/logo-11.jpg" alt="logo-11" loading="lazy" />
+          <img src="images/clientele/logo-12.png" alt="logo-12" loading="lazy" />
+          <img src="images/clientele/logo-14.jpeg" alt="logo-14" loading="lazy" />
+          <img src="images/clientele/logo-15.png" alt="logo-15" loading="lazy" />
+          <img src="images/clientele/logo-16.png" alt="logo-16" loading="lazy" />
+          <img src="images/clientele/logo-17.jpeg" alt="logo-17" loading="lazy" />
+          <img src="images/clientele/logo-18.png" alt="logo-18" loading="lazy" />
+          <img src="images/clientele/logo-19.png" alt="logo-19" loading="lazy" />
+          <img src="images/clientele/logo-20.png" alt="logo-20" loading="lazy" />
+          <img src="images/clientele/logo-21.jpeg" alt="logo-21" loading="lazy" />
+          <img src="images/clientele/logo-22.png" alt="logo-22" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-root">
+      <footer class="main-footer">
+        <div class="bg bg-pattern-9"></div>
+        <div class="widgets-section">
+          <div class="auto-container">
+            <div class="row">
+              <div class="footer-column col-xl-3 col-lg-12 col-md-12">
+                <div class="footer-widget about-widget">
+                  <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="Acesoft Inc" /></a>
+                    <img src="images/acesoft/iso-certified.png" alt="ISO Certified Software Development Company Canada" />
+                  </div>
+                  <div class="text">AI-First Digital Engineering.</div>
+                  <p class="footer-about-copy">We design and deliver secure AI systems, machine learning solutions, and intelligent digital products that drive measurable business growth.</p>
+                </div>
+              </div>
+              <div class="footer-column col-xl-3 col-lg-4 col-md-4">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">Explore</h6>
+                  <ul class="user-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ai-development-services.html">AI Development Services</a></li>
+                <li><a href="ai-staffing.html">AI Staffing</a></li>
+                <li><a href="ai-consultation.html">AI Consultation</a></li>
+                    <li><a href="page-contact.html">Get in Touch</a></li>
+                    <li><a href="page-contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-column col-xl-3 col-lg-4 col-md-4 col-sm-8">
+                <div class="footer-widget gallery-widget">
+                  <h6 class="widget-title">Global Delivery : 24 x 7 x 365</h6>
+                  <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+                </div>
+              </div>
+              <div class="footer-column col-xl-3 col-lg-4 col-md-4">
+                <div class="footer-widget contacts-widget">
+                  <h6 class="widget-title">Contact</h6>
+                  <ul class="contact-info">
+                    <li><i class="fa fa-envelope"></i> <a href="mailto:info@acesoft.ca">info@acesoft.ca</a></li>
+                    <li><i class="fa fa-phone-square"></i> <a href="tel:+15198081000">+1 519 808 1000</a></li>
+                  </ul>
+                  <a href="page-contact.html" class="footer-contact-btn">Start Your AI Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="auto-container">
+            <div class="inner-container">
+              <div class="copyright-text">&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.fancybox.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/appear.js"></script>
+  <script src="js/select2.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/owl.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.form.min.js"></script>
+
+  <script>
+    var currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").innerText = currentYear;
+  </script>
+
+  <script>
+    (function ($) {
+      $("#contact_form").validate({
+        submitHandler: function (form) {
+          if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise || window.recaptchaWidgetId === null) {
+            $("#captcha-error").removeClass("d-none");
+            return;
+          }
+
+          var response = grecaptcha.enterprise.getResponse(window.recaptchaWidgetId);
+          if (!response) {
+            $("#captcha-error").removeClass("d-none");
+            return;
+          }
+          $("#captcha-error").addClass("d-none");
+
+          var form_btn = $(form).find('button[type="submit"]');
+          var form_result_div = "#form-result";
+          $(form_result_div).remove();
+          form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display:none;"></div>');
+          var form_btn_old_msg = form_btn.html();
+          form_btn.html(form_btn.prop("disabled", true).data("loading-text"));
+
+          $(form).ajaxSubmit({
+            dataType: "json",
+            success: function (data) {
+              if (data.status == "true") {
+                $(form).find(".form-control").val("");
+                grecaptcha.enterprise.reset(window.recaptchaWidgetId);
+              }
+              form_btn.prop("disabled", false).html(form_btn_old_msg);
+              $(form_result_div).html(data.message).fadeIn("slow");
+              setTimeout(function () {
+                $(form_result_div).fadeOut("slow");
+              }, 6000);
+            },
+          });
+        },
+      });
+    })(jQuery);
+  </script>
+
+  <script>
+    window.recaptchaWidgetId = null;
+    function onRecaptchaLoad() {
+      if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) return;
+      window.recaptchaWidgetId = grecaptcha.enterprise.render("recaptcha-widget", {
+        sitekey: "6Le60LgsAAAAAMhd4E5vf-dhzxCwbqMkGSrIA-jm"
+      });
+    }
+  </script>
+
+  <script>
+    (function () {
+      var hero = document.getElementById("contactHero");
+      if (!hero) return;
+
+      var orbs = hero.querySelectorAll(".hero-orb");
+      var cards = document.querySelectorAll(".js-tilt-card");
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        hero.addEventListener("mousemove", function (e) {
+          var rect = hero.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          for (var i = 0; i < orbs.length; i++) {
+            var speed = i === 0 ? 26 : 18;
+            orbs[i].style.transform = "translate3d(" + x * speed + "px," + y * speed + "px,0)";
+          }
+        });
+      }
+
+      for (var c = 0; c < cards.length; c++) {
+        (function (card) {
+          card.addEventListener("mousemove", function (e) {
+            if (reduceMotion || window.innerWidth < 992) return;
+            var r = card.getBoundingClientRect();
+            var rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
+            var ry = ((e.clientX - r.left) / r.width - 0.5) * 8;
+            card.style.transform = "perspective(800px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) translateY(-8px)";
+          });
+          card.addEventListener("mouseleave", function () {
+            card.style.transform = "";
+          });
+        })(cards[c]);
+      }
+
+      var revealItems = document.querySelectorAll(".reveal-on-scroll");
+      if (!reduceMotion && "IntersectionObserver" in window && revealItems.length) {
+        var observer = new IntersectionObserver(function (entries, obs) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add("is-visible");
+              obs.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.2 });
+
+        for (var j = 0; j < revealItems.length; j++) {
+          observer.observe(revealItems[j]);
+        }
+      } else {
+        for (var k = 0; k < revealItems.length; k++) {
+          revealItems[k].classList.add("is-visible");
+        }
+      }
+
+      var logoSlider = document.getElementById("logoSlider");
+      if (logoSlider && !logoSlider.getAttribute("data-loop-ready")) {
+        var firstSlide = logoSlider.querySelector(".logo-slide");
+        if (firstSlide) {
+          logoSlider.appendChild(firstSlide.cloneNode(true));
+          logoSlider.setAttribute("data-loop-ready", "true");
+        }
+      }
+    })();
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      var preloader = document.getElementById("preloader");
+      var container = document.getElementById("container-preloader");
+      if (!preloader || !container) return;
+      container.classList.add("loaded");
+      window.setTimeout(function () {
+        preloader.style.display = "none";
+      }, 1100);
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+

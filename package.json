@@ -1,0 +1,13 @@
+{
+  "name": "acesoft-ai-site",
+  "private": true,
+  "scripts": {
+    "build:css": "cd css && purgecss --css style.css bootstrap.min.css responsive.css animate.css tm-bs-mp.css tm-utility-classes.css linear.css flaticon.css owl.css jquery.fancybox.min.css --content \"../**/*.html\" --output purged && cd .. && powershell -ExecutionPolicy Bypass -File scripts/build-fontawesome-subset.ps1 && powershell -ExecutionPolicy Bypass -File scripts/build-index-home-css.ps1",
+    "build:index-css": "powershell -ExecutionPolicy Bypass -File scripts/build-index-home-css.ps1",
+    "perf:css": "powershell -ExecutionPolicy Bypass -File scripts/apply-perf-css.ps1"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "purgecss": "^6.0.0"
+  }
+}

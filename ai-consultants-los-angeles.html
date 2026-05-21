@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" data-ga4="">
+<head>
+      <!-- Performance: critical CSS + purged deferred stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+/* Critical above-the-fold — keep small; full theme loads deferred */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#1a2444}
+img,svg{max-width:100%;height:auto}
+.page-wrapper{min-height:100vh}
+#preloader{position:fixed;inset:0;z-index:9999}
+.main-header{position:relative;z-index:100}
+/* Acesoft top utility bar — matches site design reference */
+.main-header .acesoft-top-header {
+background: #0a0b10 !important;
+border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+backdrop-filter: none !important;
+box-shadow: none !important;
+}
+.main-header .acesoft-top-header .inner-container {
+min-height: 40px;
+max-width: none;
+margin: 0 auto;
+padding: 6px 20px !important;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+width: 100%;
+}
+.main-header .acesoft-top-header .top-left {
+display: flex;
+align-items: center;
+flex: 1 1 auto;
+min-width: 0;
+overflow: hidden;
+}
+.main-header .acesoft-top-header .top-right {
+display: flex;
+align-items: center;
+flex: 0 0 auto;
+margin-left: auto;
+}
+.main-header .acesoft-top-header .acesoft-top-bar {
+display: flex;
+align-items: center;
+gap: 8px;
+margin: 0;
+padding: 0;
+list-style: none;
+flex-wrap: nowrap;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.main-header .acesoft-top-header .acesoft-top-bar::-webkit-scrollbar {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+height: 28px;
+padding: 0 10px;
+border-radius: 5px;
+background: #1e2128;
+border: 1px solid #33363d;
+color: #ffffff;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 500;
+line-height: 1;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a {
+color: #ffffff;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a:hover {
+color: #93c5fd;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-icon,
+.main-header .acesoft-top-header .acesoft-top-pill--email .fa-envelope {
+color: #3b82f6;
+font-size: 12px;
+line-height: 1;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-cert-icon {
+width: 14px;
+height: 14px;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-flag-icon {
+display: inline-block;
+width: 18px;
+height: 12px;
+border-radius: 2px;
+flex-shrink: 0;
+vertical-align: middle;
+}
+.main-header .acesoft-top-header .useful-links {
+margin: 0;
+padding: 0 !important;
+list-style: none;
+display: flex;
+align-items: center;
+}
+.main-header .acesoft-top-header .useful-links li {
+margin: 0;
+padding: 0;
+}
+.main-header .acesoft-top-header .useful-links li::before {
+display: none !important;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+height: 28px;
+padding: 0 16px;
+border-radius: 5px;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #ffffff !important;
+background: #3b82f6 !important;
+border: none !important;
+box-shadow: none !important;
+text-decoration: none;
+transition: background 0.2s ease, opacity 0.2s ease;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn:hover {
+background: #2563eb !important;
+color: #ffffff !important;
+opacity: 1;
+transform: none;
+}
+@media (max-width: 1280px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--india {
+display: none;
+}
+}
+@media (max-width: 1100px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uae {
+display: none;
+}
+}
+@media (max-width: 992px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uk {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--hipaa {
+display: none;
+}
+}
+@media (max-width: 768px) {
+.main-header .acesoft-top-header .inner-container {
+padding: 6px 12px;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso27001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--usa {
+display: none;
+}
+}
+@media (max-width: 576px) {
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso9001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--canada {
+display: none;
+}
+}
+  </style>
+  <script src="js/loadcss-polyfill.js"></script>
+  <link rel="preload" href="css/purged/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/bootstrap.min.css"></noscript>
+  <link rel="preload" href="css/purged/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/style.css"></noscript>
+  <link rel="preload" href="css/purged/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/responsive.css"></noscript>
+  <link rel="preload" href="css/footer-component.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/footer-component.css"></noscript>
+  <link rel="preload" href="css/purged/linear.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/linear.css"></noscript>
+  <link rel="preload" href="css/fontawesome-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/fontawesome-subset.css"></noscript>
+  <link rel="preload" href="css/purged/flaticon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/flaticon.css"></noscript>
+  <link rel="preload" href="css/purged/tm-bs-mp.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/tm-bs-mp.css"></noscript>
+  <link rel="preload" href="css/purged/tm-utility-classes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged/tm-utility-classes.css"></noscript>
+  <link rel="preload" href="css/seo-landing-shell.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/seo-landing-shell.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+<link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon" />
+  <link rel="icon" href="images/logo-2.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+<title>AI Consultants Los Angeles | Enterprise Software Development</title>
+
+<meta name="description" content="AI consultants in Los Angeles. Content AI, automation, and LLM apps by Acesoft.">
+<meta name="author" content="Acesoft Inc">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+
+<link rel="canonical" href="https://www.aidevelopers.ca/ai-consultants-los-angeles.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.aidevelopers.ca/sitemap.xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Consultants Los Angeles | Enterprise Software Development">
+<meta property="og:description" content="AI consultants in Los Angeles. Content AI, automation, and LLM apps by Acesoft.">
+<meta property="og:url" content="https://www.aidevelopers.ca/ai-consultants-los-angeles.html">
+<meta property="og:site_name" content="Acesoft Inc">
+<meta property="og:image" content="https://www.aidevelopers.ca/images/logo-2.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Consultants Los Angeles | Enterprise Software Development">
+<meta name="twitter:description" content="AI consultants in Los Angeles. Content AI, automation, and LLM apps by Acesoft.">
+<meta name="twitter:image" content="https://www.aidevelopers.ca/images/logo-2.png">
+
+<meta name="ga4-measurement-id" content="">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.aidevelopers.ca/#organization",
+      "name": "Acesoft Inc",
+      "alternateName": "AI Developers.ca",
+      "url": "https://www.aidevelopers.ca/",
+      "logo": "https://www.aidevelopers.ca/images/logo-2.png",
+      "email": "info@acesoft.ca",
+      "telephone": "+1-519-808-1000",
+      "areaServed": ["United States", "Canada"]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.aidevelopers.ca/ai-consultants-los-angeles.html#service",
+      "name": "AI Consultants Los Angeles",
+      "description": "AI consultants in Los Angeles. Content AI, automation, and LLM apps by Acesoft.",
+      "url": "https://www.aidevelopers.ca/ai-consultants-los-angeles.html",
+      "provider": { "@id": "https://www.aidevelopers.ca/#organization" },
+      "areaServed": ["United States", "Canada"]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do Java developers work in regulated environments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many clients are fintech and enterprise; compliance needs are captured during intake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we start with one senior Java engineer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes—many engagements begin with a senior anchor and expand over time."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="service-shell">
+  <div class="page-wrapper">
+    <div id="preloader">
+      <div id="container-preloader" class="container-preloader">
+        <div class="animation-preloader">
+          <div class="spinner"></div>
+          <div class="txt-loading" preloader-text="AI Developers.ca">
+            <span data-text-preloader="H" class="characters">H</span>
+            <span data-text-preloader="i" class="characters">i</span>
+            <span data-text-preloader="r" class="characters">r</span>
+            <span data-text-preloader="e" class="characters">e</span>
+            <span data-text-preloader="D" class="characters">D</span>
+            <span data-text-preloader="e" class="characters">e</span>
+            <span data-text-preloader="v" class="characters">v</span>
+          </div>
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
+    </div>
+
+    <!-- Main Header-->
+		<header class="main-header header-style-one">
+									<div class="header-top acesoft-top-header">
+				<div class="inner-container">
+					<div class="top-left">
+						<ul class="acesoft-top-bar">
+							<li class="acesoft-top-pill acesoft-top-pill--email">
+								<span class="acesoft-top-icon" aria-hidden="true"><i class="fa fa-envelope"></i></span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--iso9001">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								ISO 9001 Certified
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--iso27001">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								ISO 27001 Certified
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--cert acesoft-top-pill--hipaa">
+								<svg class="acesoft-cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20 7V12C20 16.4 16.4 20 12 22C7.6 20 4 16.4 4 12V7L12 2Z" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.12)"/><path d="M9 12L11 14L15 10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+								HIPAA Compliant
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--canada">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="512" height="256" fill="#fff"/><rect width="128" height="256" fill="#d52b1e"/><rect x="384" width="128" height="256" fill="#d52b1e"/><path fill="#d52b1e" d="M256 48l12 37h39l-31 22 12 37-31-22-31 22 12-37-31-22h39z"/></svg>
+								Canada
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--usa">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#fff" width="512" height="512"/><g fill="#bf0a30"><rect height="39.4" width="512"/><rect height="39.4" width="512" y="78.8"/><rect height="39.4" width="512" y="157.5"/><rect height="39.4" width="512" y="236.3"/><rect height="39.4" width="512" y="315"/><rect height="39.4" width="512" y="393.8"/><rect height="39.4" width="512" y="472.5"/></g><rect fill="#002868" height="275.7" width="275.7"/></svg>
+								USA
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--uk">
+								<svg class="acesoft-flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+								UK
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--uae">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#00732f" height="170.7" width="512"/><rect fill="#fff" height="170.7" width="512" y="170.7"/><rect fill="#000" height="170.7" width="512" y="341.3"/><rect fill="#f00" height="512" width="170.7"/></svg>
+								UAE
+							</li>
+							<li class="acesoft-top-pill acesoft-top-pill--flag acesoft-top-pill--india">
+								<svg class="acesoft-flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="#f93" height="170.7" width="512"/><rect fill="#fff" height="170.7" width="512" y="170.7"/><rect fill="#128807" height="170.7" width="512" y="341.3"/><circle cx="256" cy="256" fill="#008" r="42.7"/><circle cx="256" cy="256" fill="#fff" r="35"/><circle cx="256" cy="256" fill="#008" r="8.5"/></svg>
+								India
+							</li>
+						</ul>
+					</div>
+					<div class="top-right">
+						<ul class="useful-links">
+							<li><a href="page-contact.html" class="acesoft-top-contact-btn">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<!-- Main box -->
+				<div class="main-box">
+					<div class="logo-box">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo-2.png"
+									alt="Software Company London, Ontario, Canada" title="Tronis" /></a>
+						</div>
+					</div>
+					<!--Nav Box-->
+					<div class="nav-outer nav-outer--padding">
+						<nav class="nav main-menu">
+																												<ul class="navigation">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="ai-development-services.html">AI Development</a></li>
+								<li><a href="ai-staffing.html">AI Staffing</a></li>
+								<li><a href="ai-industries.html">Industries</a></li>
+								<li class="dropdown current acesoft-regions-nav">
+									<a href="ai-development-canada.html" class="acesoft-regions-toggle">Regions</a>
+									<ul class="acesoft-regions-menu">
+										<li><a href="ai-development-canada.html">AI Development Canada</a></li>
+										<li><a href="ai-development-usa.html" class="acesoft-nav-current-link">AI Development USA</a></li>
+									</ul>
+								</li>
+								<li><a href="ai-consultation.html">AI Consultation</a></li>
+								<li><a href="page-contact.html">Get in Touch</a></li>
+							</ul></nav>
+						<!-- Main Menu End-->
+					</div>
+					<div class="outer-box outer-box--padding">
+						<!-- <div class="ui-btn-outer">
+						<i class="icon fa fa-email"></i>
+						<small>Email us : </small>
+						<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+						</div>
+						
+						<a href="tel:+15198081000" class="info-btn">
+						<i class="icon fa fa-phone"></i>
+						<small>Give us a call</small>+1 519 808 1000
+						</a> -->
+						<!-- Mobile Nav toggler -->
+						<div class="mobile-nav-toggler">
+							<span class="icon lnr-icon-bars"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+				<nav class="menu-box">
+					<div class="upper-box">
+						<div class="nav-logo">
+							<a href="index.html"><img src="images/logo.png"
+									alt="Mobile App Development, Web application Development, Hire Developers and software engineers"
+									title="" /></a>
+						</div>
+						<div class="close-btn"><i class="icon fa fa-times"></i></div>
+					</div>
+					<ul class="navigation clearfix">
+						<!--Keep This Empty / Menu will come through Javascript-->
+					</ul>
+					<ul class="contact-list-one">
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<i class="icon lnr-icon-phone-handset"></i>
+								<span class="title">Call Now</span>
+								<a href="tel:+15198081000">+1 519 808 1000</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-envelope1"></span>
+								<span class="title">Send Email</span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</div>
+						</li>
+						<li>
+							<!-- Contact Info Box -->
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-clock"></span>
+								<span class="title">Send Email</span>
+								Mon - Sat 8:00 - 6:30, Sunday - CLOSED
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<!-- End Mobile Menu -->
+			<!-- Header Search -->
+			<div class="search-popup">
+				<span class="search-back-drop"></span>
+				<button class="close-search">
+					<span class="fa fa-times"></span>
+				</button>
+				<div class="search-inner">
+					<form method="post" action="blog-showcase.html">
+						<div class="form-group">
+							<input type="search" name="search-field" value="" placeholder="Search..." required="" />
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- End Header Search -->
+			<!-- Sticky Header  -->
+			<div class="sticky-header">
+				<div class="auto-container">
+					<div class="inner-container">
+						<!--Logo-->
+						<div class="logo">
+							<a href="index.html" title=""><img src="images/logo-2.png"
+									alt="Mobile Application Development Company London Ontario" title="" /></a>
+						</div>
+						<!--Right Col-->
+						<div class="nav-outer">
+							<!-- Main Menu -->
+							<nav class="main-menu">
+								<div class="navbar-collapse show collapse clearfix">
+									<ul class="navigation clearfix">
+										<!--Keep This Empty / Menu will come through Javascript-->
+									</ul>
+								</div>
+							</nav>
+							<!-- Main Menu End-->
+							<!--Mobile Navigation Toggler-->
+							<div class="mobile-nav-toggler">
+								<span class="icon lnr-icon-bars"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Sticky Menu -->
+		</header>
+		<!--End Main Header -->
+
+    <section class="service-hero seo-hero" id="serviceHero">
+      <span class="hero-orb a"></span>
+      <span class="hero-orb b"></span>
+      <span class="hero-orb c"></span>
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Java · AI Developers.ca · Acesoft Inc</div>
+        <h1><!--SVC:H1-->AI Consultants <em>Los Angeles</em><br>Media &amp; Enterprise AI<!--/SVC:H1-->
+        <p class="hero-lead">AI consultants in Los Angeles. Content AI, automation, and LLM apps by Acesoft.</p>
+        <div class="hero-actions">
+          <a href="page-contact.html" class="btn-hero-primary" data-conversion="request_quote" data-label="hero_request_quote">Request a quote</a>
+          <a href="page-contact.html" class="btn-hero-secondary" data-conversion="book_discovery_call" data-label="hero_book_discovery">Book a discovery call</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag">Los Angeles AI</span>
+          <span class="hero-tag">Media</span>
+          <span class="hero-tag">Content AI</span>
+          <span class="hero-tag">Enterprise</span>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="service-main">
+      <div class="content-container">
+        <div class="overview-panel reveal">
+          <div class="s-label">Los Angeles AI</div>
+          <p class="answer-lead"><strong>Why hire Java developers for enterprise systems?</strong> AI Developers.ca matches vetted java developers through Acesoft—with Canadian-led delivery, clear scoping, and shortlists often within 24 hours after discovery.</p>
+          <h2>Los Angeles AI for media and enterprise</h2>
+          <ul class="tick-list">
+                <li>Workflow mapping for creative ops.</li>
+                <li>Metadata, search, and generation pipelines.</li>
+                <li>Brand safety and review queues.</li>
+                <li>Analytics on adoption and quality.</li>
+          </ul>
+        </div>
+
+        <div class="section-head reveal">
+          <div class="s-label" style="justify-content:center"><!--SVC:FOCUS-->Los Angeles metro media, retail, and services.<!--/SVC:FOCUS--></div>
+          <p>Practical java capacity for product teams—not generic bench staffing.</p>
+        </div>
+
+        <div class="cap-grid seo-cap-grid">
+          <div class="cap-card reveal reveal-delay-1">
+            <span class="cap-card-num">01</span>
+            <h5>Content</h5>
+            <p>Tagging, search, and repurposing.</p>
+          </div>
+          <div class="cap-card reveal reveal-delay-2">
+            <span class="cap-card-num">02</span>
+            <h5>Customer</h5>
+            <p>Support and sales assistants.</p>
+          </div>
+          <div class="cap-card reveal reveal-delay-3">
+            <span class="cap-card-num">03</span>
+            <h5>Ops</h5>
+            <p>Scheduling and document AI.</p>
+          </div>
+        </div>
+
+        <div class="faq-block reveal">
+          <h3>Common questions</h3>
+          <!--SVC:FAQ1--><div class="faq-item"><h4>Rights-managed content?</h4><p>Yes-access and approval flows are built in.</p></motion><!--/SVC:FAQ1-->
+          <!--SVC:FAQ2--><div class="faq-item"><h4>Remote delivery to LA?</h4><p>Yes-we collaborate effectively across time zones.</p></div><!--/SVC:FAQ2-->
+        </div>
+
+                <div class="silo-strip reveal">
+          <motion class="silo-label">More locations</div>
+          <div class="silo-links">
+            <a href="ai-development-usa.html">All USA</a>
+            <a href="ai-development-canada.html">Canada locations</a>
+<a href="ai-consultants-san-francisco.html">San Francisco</a><a href="ai-consultants-seattle.html">Seattle</a><a href="ai-consultants-austin.html">Austin</a>
+            <a href="ai-development-services.html">AI development services</a>
+          </div>
+        </div>
+        <div class="cta-panel reveal">
+          <div class="cta-text">
+            <!--SVC:CTAT-->Ready for AI consultants in Los Angeles?<!--/SVC:CTAT-->
+            <p>Share your stack, timeline, and team shape—we respond with a scoped path and matched profiles when it is a fit.</p>
+          </div>
+          <div class="cta-btn-wrap">
+            <a href="page-contact.html" class="btn-cta" data-conversion="request_quote" data-label="cta_request_quote">
+              Get started
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div id="footer-root">
+<footer class="main-footer">
+  <div class="bg bg-pattern-9"></div>
+  <div class="widgets-section">
+    <div class="footer-inner">
+      <div class="row footer-top-row">
+        <div class="footer-column col-lg-3 col-md-12">
+          <div class="footer-widget about-widget">
+            <div class="logo">
+              <a href="index.html"><img src="images/logo.png" alt="Acesoft Inc" /></a>
+              <img src="images/acesoft/iso-certified.png" alt="ISO Certified Software Development Company Canada" />
+            </div>
+            <div class="text">AI-First Digital Engineering.</div>
+            <p class="footer-about-copy">We design and deliver secure AI systems, machine learning solutions, and intelligent digital products that drive measurable business growth.</p>
+            <div class="footer-widget gallery-widget footer-locations-widget">
+              <h6 class="widget-title">Global Delivery : 24 x 7 x 365</h6>
+              <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Locations" width="300" height="275" />
+            </div>
+          </div>
+        </div>
+        <div class="footer-column col-lg-9 col-md-12">
+          <div class="footer-sitemap">
+            <div class="row">
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">Company</h6>
+                  <ul class="user-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ai-development-services.html">AI Development Services</a></li>
+                    <li><a href="ai-staffing.html">AI Staffing</a></li>
+                    <li><a href="ai-industries.html">Industries</a></li>
+                    <li><a href="ai-consultation.html">AI Consultation</a></li>
+                    <li><a href="page-contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">AI Development</h6>
+                  <ul class="user-links">
+                    <li><a href="ai-consultants-los-angeles.html">Custom AI Development</a></li>
+                    <li><a href="ai-development-usa.html">USA Development</a></li>
+                    <li><a href="ai-development-services.html">AI Development</a></li>
+                    <li><a href="ai-agent-development.html">AI Agent Development</a></li>
+                    <li><a href="ai-chatbot-development.html">AI Chatbot Development</a></li>
+                    <li><a href="ai-automation-solutions.html">AI Automation Solutions</a></li>
+                    <li><a href="page-contact.html">Contact Development</a></li>
+                    <li><a href="ai-saas-product-development.html">AI SaaS Product Development</a></li>
+                    <li><a href="enterprise-ai-development.html">Enterprise AI Development</a></li>
+                    <li><a href="ai-integration-services.html">AI Integration Services</a></li>
+                    <li><a href="ai-mvp-development.html">AI MVP Development</a></li>
+                    <li><a href="ai-app-development.html">AI App Development</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">AI Staffing</h6>
+                  <ul class="user-links">
+                    <li><a href="hire-ai-developers.html">Hire AI Developers</a></li>
+                    <li><a href="dedicated-ai-development-team.html">Dedicated AI Team</a></li>
+                    <li><a href="ai-staff-augmentation-services.html">AI Staff Augmentation</a></li>
+                    <li><a href="offshore-ai-development-center.html">Offshore AI Center</a></li>
+                    <li><a href="ai-outsourcing-company.html">AI Outsourcing Company</a></li>
+                    <li><a href="remote-ai-engineers-for-hire.html">Remote AI Engineers</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">Industries</h6>
+                  <ul class="user-links footer-links-split">
+                    <li><a href="ai-for-healthcare.html">Healthcare</a></li>
+                    <li><a href="ai-for-finance.html">Finance</a></li>
+                    <li><a href="ai-for-retail.html">Retail</a></li>
+                    <li><a href="ai-for-ecommerce.html">Ecommerce</a></li>
+                    <li><a href="ai-for-manufacturing.html">Manufacturing</a></li>
+                    <li><a href="ai-for-logistics.html">Logistics</a></li>
+                    <li><a href="ai-for-real-estate.html">Real Estate</a></li>
+                    <li><a href="ai-for-insurance.html">Insurance</a></li>
+                    <li><a href="ai-for-legal.html">Legal</a></li>
+                    <li><a href="ai-for-education.html">Education</a></li>
+                    <li><a href="ai-for-government.html">Government</a></li>
+                    <li><a href="ai-for-hospitality-travel.html">Hospitality &amp; Travel</a></li>
+                    <li><a href="ai-for-agriculture.html">Agriculture</a></li>
+                    <li><a href="ai-for-telecommunications.html">Telecommunications</a></li>
+                    <li><a href="ai-for-media-content.html">Media &amp; Content</a></li>
+                    <li><a href="ai-for-asset-management.html">Asset Management</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title"><a href="ai-development-canada.html">Canada</a></h6>
+                  <ul class="user-links">
+                    <li><a href="ai-consultants-toronto.html">Toronto</a></li>
+                    <li><a href="ai-consultant-london-ontario.html">London, ON</a></li>
+                    <li><a href="ai-consultants-vancouver.html">Vancouver</a></li>
+                    <li><a href="ai-consultants-montreal.html">Montreal</a></li>
+                    <li><a href="ai-consultants-calgary.html">Calgary</a></li>
+                    <li><a href="ai-consultants-ottawa.html">Ottawa</a></li>
+                    <li><a href="ai-consultants-kitchener-waterloo.html">Kitchener-Waterloo</a></li>
+                    <li><a href="ai-consultants-windsor.html">Windsor</a></li>
+                    <li><a href="ai-consultants-edmonton.html">Edmonton</a></li>
+                    <li><a href="ai-consultants-mississauga.html">Mississauga</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title"><a href="ai-development-usa.html">USA</a></h6>
+                  <ul class="user-links">
+                    <li><a href="ai-consultants-new-york.html">New York</a></li>
+                    <li><a href="ai-consultants-san-francisco.html">San Francisco</a></li>
+                    <li><a href="ai-consultants-los-angeles.html">Los Angeles</a></li>
+                    <li><a href="ai-consultants-chicago.html">Chicago</a></li>
+                    <li><a href="ai-consultants-boston.html">Boston</a></li>
+                    <li><a href="ai-consultants-austin.html">Austin</a></li>
+                    <li><a href="ai-consultants-seattle.html">Seattle</a></li>
+                    <li><a href="ai-consultants-dallas.html">Dallas</a></li>
+                    <li><a href="ai-consultants-atlanta.html">Atlanta</a></li>
+                    <li><a href="ai-consultants-miami.html">Miami</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-contact-row">
+        <div class="footer-column col-md-12">
+          <div class="footer-widget contacts-widget footer-contact-bar">
+            <h6 class="widget-title">Get in Touch</h6>
+            <ul class="contact-info">
+              <li><i class="fa fa-envelope"></i> <a href="mailto:info@acesoft.ca">info@acesoft.ca</a></li>
+              <li><i class="fa fa-phone-square"></i> <a href="tel:+15198081000">+1 519 808 1000</a></li>
+            </ul>
+            <a href="page-contact.html" class="footer-contact-btn">Start Your AI Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-inner">
+      <div class="inner-container">
+        <div class="copyright-text">&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="acesoft-wa-widget" id="acesoftWaWidget">
+  <button type="button" class="acesoft-wa-prompt-close" id="acesoftWaClose" aria-label="Close WhatsApp suggestion">
+    <i class="fa fa-times"></i>
+  </button>
+  <a href="https://wa.me/15198081000?text=Hi%20Acesoft%2C%20I%20need%20AI%20support%20for%20my%20project." class="acesoft-wa-prompt" id="acesoftWaPromptText" target="_blank" rel="noopener">
+    Hey there - need AI support?
+  </a>
+  <a href="https://wa.me/15198081000?text=Hi%20Acesoft%2C%20I%20need%20AI%20support%20for%20my%20project." class="acesoft-wa-button" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+</div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.fancybox.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/appear.js"></script>
+  <script src="js/select2.min.js"></script>
+  <script src="js/owl.js"></script>
+  <script src="js/script.js"></script>
+  
+  
+  <script>
+    document.getElementById("currentYear").innerText = new Date().getFullYear();
+    (function () {
+      var hero = document.getElementById("serviceHero");
+      var orbs = hero ? hero.querySelectorAll(".hero-orb") : [];
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (hero && !reduceMotion) {
+        hero.addEventListener("mousemove", function (e) {
+          var r = hero.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          orbs.forEach(function (orb, i) {
+            var s = [22, 14, 10][i] || 12;
+            orb.style.transform = "translate3d(" + x * s + "px," + y * s + "px,0)";
+          });
+        });
+      }
+      var slider = document.getElementById("logoSlider");
+      if (slider && !slider.getAttribute("data-loop-ready")) {
+        var first = slider.querySelector(".logo-slide");
+        if (first) { slider.appendChild(first.cloneNode(true)); slider.setAttribute("data-loop-ready", "true"); }
+      }
+      var items = document.querySelectorAll(".reveal");
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(function (entries, ob) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add("visible"); ob.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12 });
+        items.forEach(function (el) { obs.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("visible"); });
+      }
+    })();
+    window.addEventListener("load", function () {
+      var preloader = document.getElementById("preloader");
+      var container = document.getElementById("container-preloader");
+      if (!preloader || !container) return;
+      container.classList.add("loaded");
+      window.setTimeout(function () { preloader.style.display = "none"; }, 1100);
+    });
+  </script>
+</body>
+</html>

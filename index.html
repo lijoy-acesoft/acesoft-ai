@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Performance: critical CSS + purged deferred stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+/* Critical above-the-fold — keep small; full theme loads deferred */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#1a2444}
+img{max-width:100%;height:auto}
+svg.flag-icon{width:20px;height:15px;max-width:20px;flex-shrink:0;display:inline-block;vertical-align:middle}
+.country{display:inline-flex;align-items:center;white-space:nowrap}
+.page-wrapper{min-height:100vh}
+html:not(.loaded) .page-wrapper{visibility:hidden}
+#preloader{position:fixed;inset:0;z-index:99999;background:#fff}
+.container-preloader{align-items:center;display:flex;height:100%;justify-content:center;position:fixed;inset:0;width:100%;z-index:100000;background:#fff}
+.container-preloader .loader-section{background:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}
+.container-preloader .loader-section.section-left{left:0}
+.container-preloader .loader-section.section-right{right:0}
+.main-header{position:relative;z-index:100}
+.main-header .logo img,.sticky-header .logo img{width:auto;height:auto}
+.sticky-header .logo img{max-height:40px}
+.acesoft-ai-hero{position:relative;min-height:720px;overflow:hidden;display:flex;align-items:center;background:#040c22}
+#ai-banner-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero-container{position:relative;z-index:3;width:100%;max-width:1260px;margin:0 auto;padding:90px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-headline{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.04;color:#f0f6ff;margin:0 0 22px}
+.hero-desc{font-size:16.5px;line-height:1.72;color:rgba(200,220,255,.82);max-width:520px;margin:0 0 32px}
+.btn-primary,.btn-ghost{display:inline-flex;align-items:center;text-decoration:none}
+/* Acesoft top utility bar — matches site design reference */
+.main-header .acesoft-top-header {
+background: #0a0b10 !important;
+border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+backdrop-filter: none !important;
+box-shadow: none !important;
+}
+.main-header .acesoft-top-header .inner-container {
+min-height: 40px;
+max-width: none;
+margin: 0 auto;
+padding: 6px 20px !important;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+width: 100%;
+}
+.main-header .acesoft-top-header .top-left {
+display: flex;
+align-items: center;
+flex: 1 1 auto;
+min-width: 0;
+overflow: hidden;
+}
+.main-header .acesoft-top-header .top-right {
+display: flex;
+align-items: center;
+flex: 0 0 auto;
+margin-left: auto;
+}
+.main-header .acesoft-top-header .acesoft-top-bar {
+display: flex;
+align-items: center;
+gap: 8px;
+margin: 0;
+padding: 0;
+list-style: none;
+flex-wrap: nowrap;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.main-header .acesoft-top-header .acesoft-top-bar::-webkit-scrollbar {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+height: 28px;
+padding: 0 10px;
+border-radius: 5px;
+background: #1e2128;
+border: 1px solid #33363d;
+color: #ffffff;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 500;
+line-height: 1;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a {
+color: #ffffff;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--email a:hover {
+color: #93c5fd;
+text-decoration: none;
+}
+.main-header .acesoft-top-header .acesoft-top-icon,
+.main-header .acesoft-top-header .acesoft-top-pill--email .fa-envelope {
+color: #3b82f6;
+font-size: 12px;
+line-height: 1;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-cert-icon {
+width: 14px;
+height: 14px;
+flex-shrink: 0;
+}
+.main-header .acesoft-top-header .acesoft-flag-icon {
+display: inline-block;
+width: 18px;
+height: 12px;
+border-radius: 2px;
+flex-shrink: 0;
+vertical-align: middle;
+}
+.main-header .acesoft-top-header .useful-links {
+margin: 0;
+padding: 0 !important;
+list-style: none;
+display: flex;
+align-items: center;
+}
+.main-header .acesoft-top-header .useful-links li {
+margin: 0;
+padding: 0;
+}
+.main-header .acesoft-top-header .useful-links li::before {
+display: none !important;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+height: 28px;
+padding: 0 16px;
+border-radius: 5px;
+font-family: 'DM Sans', Arial, sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #ffffff !important;
+background: #3b82f6 !important;
+border: none !important;
+box-shadow: none !important;
+text-decoration: none;
+transition: background 0.2s ease, opacity 0.2s ease;
+}
+.main-header .acesoft-top-header .acesoft-top-contact-btn:hover {
+background: #2563eb !important;
+color: #ffffff !important;
+opacity: 1;
+transform: none;
+}
+@media (max-width: 1280px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--india {
+display: none;
+}
+}
+@media (max-width: 1100px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uae {
+display: none;
+}
+}
+@media (max-width: 992px) {
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uk {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--hipaa {
+display: none;
+}
+}
+@media (max-width: 768px) {
+.main-header .acesoft-top-header .inner-container {
+padding: 6px 12px;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso27001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--usa {
+display: none;
+}
+}
+@media (max-width: 576px) {
+.main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso9001 {
+display: none;
+}
+.main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--canada {
+display: none;
+}
+}
+</style>
+  <script src="js/loadcss-polyfill.js"></script>
+  <link rel="preload" href="css/purged-home/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/bootstrap.min.css"></noscript>
+  <link rel="preload" href="css/purged-home/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/style.css"></noscript>
+  <link rel="preload" href="css/purged-home/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/responsive.css"></noscript>
+  <link rel="preload" href="css/purged-home/footer-component.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/footer-component.css"></noscript>
+  <link rel="preload" href="css/purged-home/linear.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/linear.css"></noscript>
+  <link rel="preload" href="css/fontawesome-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/fontawesome-subset.css"></noscript>
+  <link rel="preload" href="css/purged-home/flaticon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/flaticon.css"></noscript>
+  <link rel="preload" href="css/purged-home/tm-bs-mp.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/tm-bs-mp.css"></noscript>
+  <link rel="preload" href="css/purged-home/tm-utility-classes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/tm-utility-classes.css"></noscript>
+  <link rel="preload" href="css/purged-home/index-page.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/purged-home/index-page.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+
+<link rel="shortcut icon" href="images/logo-2.png" type="image/x-icon">
+	<link rel="icon" href="images/logo-2.png" type="image/x-icon">
+
+
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+
+<title>AI Development Company London Ontario | Enterprise AI Solutions Canada | Acesoft</title>
+
+<meta name="description"
+	content="Acesoft is London Ontario's leading AI development company delivering enterprise AI solutions, custom AI systems, generative AI, machine learning & automation for businesses in London, Toronto, Kitchener, Waterloo, Windsor & across Canada. Call +1 519 808 1000.">
+<meta name="author" content="Acesoft Inc - London, Ontario, Canada">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="geo.region" content="CA-ON">
+<meta name="geo.placename" content="London, Ontario">
+<meta name="geo.position" content="42.9849;-81.2453">
+<meta name="ICBM" content="42.9849, -81.2453">
+
+<link rel="canonical" href="https://www.aidevelopers.ca/">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.aidevelopers.ca/sitemap.xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Development Company London Ontario | Enterprise AI Solutions Canada | Acesoft">
+<meta property="og:description" content="London Ontario's trusted AI development company. Custom AI systems, generative AI, LLMs, machine learning & automation for businesses across Ontario and Canada. ISO 9001 & 27001 certified.">
+<meta property="og:url" content="https://www.aidevelopers.ca/">
+<meta property="og:site_name" content="Acesoft Inc">
+<meta property="og:locale" content="en_CA">
+<meta property="og:image"
+	content="https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png">
+<meta property="og:image:alt"
+	content="AI development company in London, Ontario, Canada serving North America">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Development Company London Ontario | Acesoft">
+<meta name="twitter:description" content="London Ontario's leading AI development company - enterprise AI, generative AI, LLMs, ML & automation for businesses across Canada.">
+<meta name="twitter:image"
+	content="https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+	{
+	  "@type": "Organization",
+	  "@id": "https://www.aidevelopers.ca/#organization",
+	  "name": "Acesoft Inc",
+	  "url": "https://www.aidevelopers.ca/",
+	  "logo": "https://www.aidevelopers.ca/images/logo-2.png",
+	  "email": "info@acesoft.ca",
+	  "telephone": "+1-519-808-1000",
+	  "foundingLocation": {
+		"@type": "Place",
+		"address": {
+		  "@type": "PostalAddress",
+		  "addressLocality": "London",
+		  "addressRegion": "Ontario",
+		  "addressCountry": "CA"
+		}
+	  }
+	},
+	{
+	  "@type": "LocalBusiness",
+	  "@id": "https://www.aidevelopers.ca/#localbusiness",
+	  "name": "Acesoft Inc - AI Development Company London Ontario",
+	  "url": "https://www.aidevelopers.ca/",
+	  "image": "https://www.aidevelopers.ca/images/resource/ai-solutions-canada-usa.png",
+	  "telephone": "+1-519-808-1000",
+	  "email": "info@acesoft.ca",
+	  "priceRange": "$$",
+	  "areaServed": [
+		{ "@type": "City", "name": "London, Ontario" },
+		{ "@type": "City", "name": "Toronto, Ontario" },
+		{ "@type": "City", "name": "Kitchener, Ontario" },
+		{ "@type": "City", "name": "Waterloo, Ontario" },
+		{ "@type": "City", "name": "Windsor, Ontario" },
+		{ "@type": "City", "name": "Ottawa, Ontario" },
+		{ "@type": "City", "name": "Mississauga, Ontario" },
+		{ "@type": "Country", "name": "Canada" },
+		{ "@type": "Country", "name": "United States" }
+	  ],
+	  "address": {
+		"@type": "PostalAddress",
+		"addressCountry": "CA",
+		"addressRegion": "Ontario",
+		"addressLocality": "London"
+	  },
+	  "geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 42.9849,
+		"longitude": -81.2453
+	  },
+	  "openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+		"opens": "08:00",
+		"closes": "18:30"
+	  },
+	  "aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"reviewCount": "187"
+	  }
+	},
+	{
+	  "@type": "Service",
+	  "@id": "https://www.aidevelopers.ca/#service",
+	  "serviceType": "AI Development & Consulting Services",
+	  "name": "AI Development Services London Ontario",
+	  "provider": {
+		"@id": "https://www.aidevelopers.ca/#organization"
+	  },
+	  "areaServed": [
+		"London, Ontario",
+		"Toronto, Ontario",
+		"Kitchener, Ontario",
+		"Waterloo, Ontario",
+		"Windsor, Ontario",
+		"Ottawa, Ontario",
+		"Canada",
+		"United States"
+	  ],
+	  "hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "AI Services in London, Ontario",
+		"itemListElement": [
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Development Services London Ontario" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Solutions Ontario" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Integration Services Canada" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consulting Services London Ontario" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI Development Canada" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Chatbot Development London Ontario" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Machine Learning Development Services" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation Services Ontario" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLM Development & RAG Pipelines" } },
+		  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise AI Copilot Development" } }
+		]
+	  }
+	},
+	{
+	  "@type": "FAQPage",
+	  "mainEntity": [
+		{
+		  "@type": "Question",
+		  "name": "Where is Acesoft's AI development office located?",
+		  "acceptedAnswer": {
+			"@type": "Answer",
+			"text": "Acesoft is an AI development company headquartered in London, Ontario, Canada, with global delivery teams. We serve clients across London, Toronto, Kitchener, Waterloo, Windsor, Ottawa, and the rest of Canada and the United States."
+		  }
+		},
+		{
+		  "@type": "Question",
+		  "name": "What AI development services does Acesoft offer in London, Ontario?",
+		  "acceptedAnswer": {
+			"@type": "Answer",
+			"text": "We offer end-to-end AI development services in London, Ontario including custom AI solutions, generative AI, large language model (LLM) apps, RAG pipelines, AI agents, AI chatbots, machine learning, MLOps, AI automation, and enterprise AI integration."
+		  }
+		},
+		{
+		  "@type": "Question",
+		  "name": "Do you build AI solutions for enterprises across Canada?",
+		  "acceptedAnswer": {
+			"@type": "Answer",
+			"text": "Yes. From our London, Ontario headquarters we deliver enterprise AI solutions to businesses across Toronto, Kitchener-Waterloo, Windsor, Ottawa, Mississauga, and the rest of Canada and the United States."
+		  }
+		},
+		{
+		  "@type": "Question",
+		  "name": "Is Acesoft certified for security and quality?",
+		  "acceptedAnswer": {
+			"@type": "Answer",
+			"text": "Yes. Acesoft is ISO 9001 and ISO 27001 certified and HIPAA compliant, ensuring enterprise-grade quality and security for every AI project delivered from London, Ontario."
+		  }
+		}
+	  ]
+	}
+  ]
+}
+</script>
+
+
+
+	
+	<link rel="preload" href="images/logo-2.png" as="image" type="image/png" fetchpriority="high">
+</head>
+
+<body>
+
+	<div id="preloader">
+		<div id="container-preloader" class="container-preloader">
+			<div class="animation-preloader">
+				<div class="spinner"></div>
+				<div class="txt-loading">
+					<span preloader-text="A" class="characters">A</span>
+					<span preloader-text="C" class="characters">C</span>
+					<span preloader-text="E" class="characters">E</span>
+					<span preloader-text="S" class="characters">S</span>
+					<span preloader-text="O" class="characters">O</span>
+					<span preloader-text="F" class="characters">F</span>
+					<span preloader-text="T" class="characters">T</span>
+				</div>
+			</div>
+			<div class="loader-section section-left"></div>
+			<div class="loader-section section-right"></div>
+		</div>
+	</div>
+
+	<div class="page-wrapper">
+
+		<!-- Main Header-->
+		<header class="main-header header-style-one">
+			<div class="header-top">
+				<div class="inner-container">
+					<div class="top-left">
+						<!-- Info List -->
+						<ul class="list-style-one">
+							<li>
+								<i class="fa fa-envelope"></i>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> ISO 9001 Certified
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> ISO 27001 Certified
+							</li>
+							<li>
+								<i class="fa-solid fa-certificate"></i> HIPAA Compliant
+							</li>
+							<li>
+								<i class="fa fa-map-marker"></i>
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<rect fill="#f93" height="170.7" width="512" />
+										<rect fill="#fff" height="170.7" width="512" y="170.7" />
+										<rect fill="#128807" height="170.7" width="512" y="341.3" />
+										<circle cx="256" cy="256" fill="#008" r="42.7" />
+										<circle cx="256" cy="256" fill="#fff" r="35" />
+										<circle cx="256" cy="256" fill="#008" r="8.5" />
+										<g fill="#008">
+											<circle cx="256" cy="212.5" r="5" />
+											<circle cx="299.5" cy="256" r="5" />
+											<circle cx="256" cy="299.5" r="5" />
+											<circle cx="212.5" cy="256" r="5" />
+										</g>
+									</svg>
+									India
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<rect fill="#00732f" height="170.7" width="512" />
+										<rect fill="#fff" height="170.7" width="512" y="170.7" />
+										<rect fill="#000" height="170.7" width="512" y="341.3" />
+										<rect fill="#f00" height="512" width="170.7" />
+									</svg>
+									UAE (+971 56 491 9389)
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<rect fill="#fff" height="512" width="512" />
+										<g fill="#bf0a30">
+											<rect height="39.4" width="512" y="0" />
+											<rect height="39.4" width="512" y="78.8" />
+											<rect height="39.4" width="512" y="157.5" />
+											<rect height="39.4" width="512" y="236.3" />
+											<rect height="39.4" width="512" y="315" />
+											<rect height="39.4" width="512" y="393.8" />
+											<rect height="39.4" width="512" y="472.5" />
+										</g>
+										<rect fill="#002868" height="275.7" width="275.7" />
+										<g fill="#fff">
+											<circle cx="27.6" cy="27.6" r="10" />
+											<circle cx="82.7" cy="27.6" r="10" />
+											<circle cx="137.8" cy="27.6" r="10" />
+											<circle cx="193" cy="27.6" r="10" />
+											<circle cx="248.1" cy="27.6" r="10" />
+											<circle cx="55.1" cy="55.1" r="10" />
+											<circle cx="110.3" cy="55.1" r="10" />
+											<circle cx="165.4" cy="55.1" r="10" />
+											<circle cx="220.5" cy="55.1" r="10" />
+											<circle cx="27.6" cy="82.7" r="10" />
+											<circle cx="82.7" cy="82.7" r="10" />
+											<circle cx="137.8" cy="82.7" r="10" />
+											<circle cx="193" cy="82.7" r="10" />
+											<circle cx="248.1" cy="82.7" r="10" />
+											<circle cx="55.1" cy="110.3" r="10" />
+											<circle cx="110.3" cy="110.3" r="10" />
+											<circle cx="165.4" cy="110.3" r="10" />
+											<circle cx="220.5" cy="110.3" r="10" />
+											<circle cx="27.6" cy="137.8" r="10" />
+											<circle cx="82.7" cy="137.8" r="10" />
+											<circle cx="137.8" cy="137.8" r="10" />
+											<circle cx="193" cy="137.8" r="10" />
+											<circle cx="248.1" cy="137.8" r="10" />
+											<circle cx="55.1" cy="165.4" r="10" />
+											<circle cx="110.3" cy="165.4" r="10" />
+											<circle cx="165.4" cy="165.4" r="10" />
+											<circle cx="220.5" cy="165.4" r="10" />
+											<circle cx="27.6" cy="193" r="10" />
+											<circle cx="82.7" cy="193" r="10" />
+											<circle cx="137.8" cy="193" r="10" />
+											<circle cx="193" cy="193" r="10" />
+											<circle cx="248.1" cy="193" r="10" />
+											<circle cx="55.1" cy="220.5" r="10" />
+											<circle cx="110.3" cy="220.5" r="10" />
+											<circle cx="165.4" cy="220.5" r="10" />
+											<circle cx="220.5" cy="220.5" r="10" />
+											<circle cx="27.6" cy="248.1" r="10" />
+											<circle cx="82.7" cy="248.1" r="10" />
+											<circle cx="137.8" cy="248.1" r="10" />
+											<circle cx="193" cy="248.1" r="10" />
+											<circle cx="248.1" cy="248.1" r="10" />
+										</g>
+									</svg>
+									USA
+								</span>
+								,
+								<span class="country">
+									<svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256"
+										width="32" height="16">
+										<rect width="512" height="256" fill="#fff" />
+										<rect width="128" height="256" fill="#d52b1e" />
+										<rect x="384" width="128" height="256" fill="#d52b1e" />
+										<path fill="#d52b1e"
+											d="M256 48l12 37h39l-31 22 12 37-31-22-31 22 12-37-31-22h39z" />
+									</svg>
+									Canada - London, Ontario (+1 519 808 1000)
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="top-right">
+						<ul class="useful-links">
+							<li><a href="page-contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<!-- Main box -->
+				<div class="main-box">
+					<div class="logo-box">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo-2.png" width="160" height="140" decoding="async" fetchpriority="high"
+									alt="Acesoft - AI Development Company London Ontario Canada" title="Acesoft - London Ontario AI Development" /></a>
+						</div>
+					</div>
+					<!--Nav Box-->
+					<div class="nav-outer nav-outer--padding">
+						<nav class="nav main-menu">
+							<ul class="navigation">
+								<li><a href="index.html" class="acesoft-nav-current-link">Home</a></li>
+								<li><a href="ai-development-services.html">AI Development</a></li>
+								<li><a href="ai-staffing.html">AI Staffing</a></li>
+								<li><a href="ai-industries.html">Industries</a></li>
+								<li class="dropdown acesoft-regions-nav">
+									<a href="ai-development-canada.html" class="acesoft-regions-toggle">Regions</a>
+									<ul class="acesoft-regions-menu">
+										<li><a href="ai-development-canada.html">AI Development Canada</a></li>
+										<li><a href="ai-development-usa.html">AI Development USA</a></li>
+									</ul>
+								</li>
+								<li><a href="ai-consultation.html">AI Consultation</a></li>
+								<li><a href="page-contact.html">Get in Touch</a></li>
+							</ul>
+						</nav>
+						<!-- Main Menu End-->
+					</div>
+					<div class="outer-box outer-box--padding">
+						<!-- Mobile Nav toggler -->
+						<div class="mobile-nav-toggler">
+							<span class="icon lnr-icon-bars"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<nav class="menu-box">
+					<div class="upper-box">
+						<div class="nav-logo">
+							<a href="index.html"><img src="images/logo.png" width="160" height="140" decoding="async"
+									alt="AI Development Company London Ontario - Enterprise AI, LLM, Generative AI & ML"
+									title="Acesoft - London Ontario" /></a>
+						</div>
+						<div class="close-btn"><i class="icon fa fa-times"></i></div>
+					</div>
+					<ul class="navigation clearfix">
+					</ul>
+					<ul class="contact-list-one">
+						<li>
+							<div class="contact-info-box">
+								<i class="icon lnr-icon-phone-handset"></i>
+								<span class="title">Call Now - London, Ontario</span>
+								<a href="tel:+15198081000">+1 519 808 1000</a>
+							</div>
+						</li>
+						<li>
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-envelope1"></span>
+								<span class="title">Send Email</span>
+								<a href="mailto:info@acesoft.ca">info@acesoft.ca</a>
+							</div>
+						</li>
+						<li>
+							<div class="contact-info-box">
+								<span class="icon lnr-icon-clock"></span>
+								<span class="title">Office Hours</span>
+								Mon - Sat 8:00 - 6:30, Sunday - CLOSED
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<!-- End Mobile Menu -->
+			<!-- Header Search -->
+			<div class="search-popup">
+				<span class="search-back-drop"></span>
+				<button class="close-search">
+					<span class="fa fa-times"></span>
+				</button>
+				<div class="search-inner">
+					<form method="post" action="blog-showcase.html">
+						<div class="form-group">
+							<input type="search" name="search-field" value="" placeholder="Search..." required="" />
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- End Header Search -->
+			<!-- Sticky Header  -->
+			<div class="sticky-header">
+				<div class="auto-container">
+					<div class="inner-container">
+						<div class="logo">
+							<a href="index.html" title="Acesoft - AI Development Company London Ontario"><img src="images/logo-2.png" width="160" height="140" decoding="async"
+									alt="AI Development Company London Ontario Canada" title="Acesoft London Ontario" /></a>
+						</div>
+						<div class="nav-outer">
+							<nav class="main-menu">
+								<div class="navbar-collapse show collapse clearfix">
+									<ul class="navigation clearfix">
+									</ul>
+								</div>
+							</nav>
+							<div class="mobile-nav-toggler">
+								<span class="icon lnr-icon-bars"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Sticky Menu -->
+		</header>
+		<!--End Main Header -->
+
+		<!-- Banner Section -->
+		<section class="acesoft-ai-hero" id="acesoftAIHero" aria-label="AI Development Company in London, Ontario, Canada">
+			<canvas id="ai-banner-canvas" aria-hidden="true"></canvas>
+			<div class="hero-container">
+				<div class="hero-content">
+					<span class="hero-eyebrow">
+						<span class="eyebrow-dot"></span>
+						Acesoft Inc &middot; Based in London, Ontario &middot; Serving All of Canada
+					</span>
+
+					<h1 class="hero-headline">
+						<span class="city-accent">London Ontario's</span><br>
+						Trusted <span class="word-gradient">AI Development</span><br>
+						<span class="word-outline">Company.</span>
+					</h1>
+
+					<p class="hero-desc">
+						Acesoft is a <strong>London, Ontario-based AI development company</strong> building secure, scalable AI systems &mdash; AI copilots, generative AI, LLM apps, RAG pipelines, intelligent automation, and ML platforms &mdash; for startups and enterprises across <strong>London, Toronto, Kitchener, Waterloo, Windsor, Ottawa and all of Canada</strong>.
+					</p>
+
+					<div class="hero-cta-row">
+						<a href="page-contact.html" class="btn-primary" aria-label="Start your AI project with Acesoft London Ontario">
+							Start Your AI Project
+							<span class="btn-arrow">&rarr;</span>
+						</a>
+						<a href="ai-development-services.html" class="btn-ghost" aria-label="Explore AI development services in London Ontario">
+							Explore AI Services
+						</a>
+					</div>
+
+					<div class="hero-pills">
+						<span class="pill">LLM Apps &amp; AI Copilots</span>
+						<span class="pill">RAG &amp; Knowledge Search</span>
+						<span class="pill">AI Agents &amp; Automation</span>
+						<span class="pill">MLOps &amp; Monitoring</span>
+						<span class="pill">24x7 Global Delivery</span>
+					</div>
+
+					<div class="hero-trust">
+						<div class="trust-stat">
+							<span class="trust-num">200+</span>
+							<span class="trust-label">Projects delivered</span>
+						</div>
+						<div class="trust-div"></div>
+						<div class="trust-stat">
+							<span class="trust-num">98%</span>
+							<span class="trust-label">Client satisfaction</span>
+						</div>
+						<div class="trust-div"></div>
+						<div class="trust-stat">
+							<span class="trust-num">12+</span>
+							<span class="trust-label">Years in Ontario</span>
+						</div>
+						<div class="trust-div"></div>
+						<div class="trust-iso">
+							<span class="iso-badge">9001</span>
+							<span class="iso-badge">27001</span>
+							ISO Certified
+						</div>
+					</div>
+				</div>
+
+				<div class="hero-visual-col">
+					<div class="ai-orb-wrap" id="aiOrbWrap">
+						<div class="orbit-ring orbit-1"><span class="orbit-dot"></span></div>
+						<div class="orbit-ring orbit-2"><span class="orbit-dot"></span></div>
+						<div class="orbit-ring orbit-3"><span class="orbit-dot"></span></div>
+						<div class="orb-glow"></div>
+						<canvas id="ai-orb-canvas" width="260" height="260" aria-hidden="true"></canvas>
+
+						<div class="hpanel hp-analytics">
+							<div class="hp-label"><span class="hp-dot"></span>Data Analytics</div>
+							<div class="hp-val">2.4M</div>
+							<div class="hp-sub">events processed today</div>
+							<div class="sparkline">
+								<div class="sp-bar" style="height:38%"></div>
+								<div class="sp-bar" style="height:52%"></div>
+								<div class="sp-bar" style="height:45%"></div>
+								<div class="sp-bar" style="height:72%"></div>
+								<div class="sp-bar" style="height:60%"></div>
+								<div class="sp-bar hi" style="height:88%"></div>
+								<div class="sp-bar hi" style="height:95%"></div>
+							</div>
+						</div>
+
+						<div class="hpanel hp-workflow">
+							<div class="hp-label"><span class="hp-dot"></span>Automation</div>
+							<div class="hp-val" style="font-size:15px;margin-bottom:4px">Workflow Engine</div>
+							<div class="flow-list">
+								<div class="flow-row"><span class="fd fd-done"></span>Data ingestion</div>
+								<div class="flow-row"><span class="fd fd-run"></span>AI processing</div>
+								<div class="flow-row"><span class="fd fd-wait"></span>Report dispatch</div>
+							</div>
+						</div>
+
+						<div class="hpanel hp-model">
+							<div class="hp-label"><span class="hp-dot"></span>ML Model</div>
+							<div class="ring-wrap">
+								<svg class="acc-svg" viewBox="0 0 44 44">
+									<circle class="r-bg" cx="22" cy="22" r="18" />
+									<circle class="r-val" cx="22" cy="22" r="18" />
+								</svg>
+								<div class="ring-info">
+									<strong>94.1%</strong>
+									Prediction accuracy<br>Updated 2 min ago
+								</div>
+							</div>
+						</div>
+
+						<div class="hpanel hp-realtime">
+							<div class="hp-label">
+								<span class="hp-dot"></span>Insights
+								<span class="live-badge">LIVE</span>
+							</div>
+							<div class="rt-rows">
+								<div class="rt-row-item">
+									<span class="rt-k">API calls/sec</span>
+									<span class="rt-v" id="apiTicker">1,284</span>
+								</div>
+								<div class="rt-row-item">
+									<span class="rt-k">Latency</span>
+									<span class="rt-v">18 ms <span class="up-badge"> fast</span></span>
+								</div>
+								<div class="rt-row-item">
+									<span class="rt-k">Uptime</span>
+									<span class="rt-v">99.98%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Banner Section -->
+
+		<section class="as-services" id="acesoftServices">
+			<div class="as-container">
+				<div class="as-header">
+					<div class="as-header-left">
+						<div class="as-label"><span class="as-label-dot"></span>Acesoft AI Services &middot; London, Ontario</div>
+						<h2 class="as-title">End-to-end AI development services<br>in <em>London, Ontario &amp; across Canada.</em></h2>
+						<p class="as-subtitle">From AI opportunity discovery to production deployment, Acesoft delivers practical AI and machine learning solutions for startups, SMBs, and enterprises in London, Toronto, Kitchener-Waterloo, Windsor, Ottawa and beyond.</p>
+					</div>
+					<a href="page-contact.html" class="as-cta-btn">Discuss Your AI Project
+						<svg fill="none" viewBox="0 0 20 20" width="16" height="16"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</a>
+				</div>
+
+		
+
+				<div class="as-filters">
+					<span class="as-filter-label">View for:</span>
+					<button class="as-filter active" data-filter="all">All Services</button>
+					<button class="as-filter" data-filter="startup">Startups</button>
+					<button class="as-filter" data-filter="enterprise">Enterprise</button>
+					<button class="as-filter" data-filter="design">Design-First</button>
+				</div>
+
+				<div class="as-cards-grid" id="asCardsGrid">
+					<div class="as-card theme-blue" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">01</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Discovery</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="2" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="2" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><rect x="2" y="14" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M14 19h10M19 14v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Strategy &amp; Use-Case Discovery</h4>
+						<p class="as-card-desc">Identify high-value AI opportunities for your Ontario business, define measurable outcomes, and build a practical roadmap aligned with business priorities.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">AI Opportunity Mapping</span><span class="as-deliver-tag">Data Readiness Review</span><span class="as-deliver-tag">ROI Prioritization</span><span class="as-deliver-tag">Delivery Roadmap</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-violet" data-filter="all startup design" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">02</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Design</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><circle cx="13" cy="13" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M8 13h10M13 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="13" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+						<h4 class="as-card-title">AI Product UX &amp; Conversation Design</h4>
+						<p class="as-card-desc">Design intuitive AI interactions, prompt flows, and human-in-the-loop experiences that improve trust and adoption across Canadian audiences.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Conversation Flows</span><span class="as-deliver-tag">Prompt Patterns</span><span class="as-deliver-tag">UX Prototypes</span><span class="as-deliver-tag">Usability Testing</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-teal" data-filter="all enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">03</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>LLM Apps</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><rect x="7" y="2" width="12" height="22" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="20" r="1" fill="currentColor"/><path d="M10 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">LLM Apps, RAG &amp; Enterprise Copilots</h4>
+						<p class="as-card-desc">Build secure AI assistants and knowledge copilots connected to your internal data, docs, and enterprise workflows &mdash; built in London, Ontario.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">LLM Integration</span><span class="as-deliver-tag">RAG Pipelines</span><span class="as-deliver-tag">Vector Search</span><span class="as-deliver-tag">Copilot UX</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-amber" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">04</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Automation</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M5 13h16M13 5l8 8-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Agents &amp; Workflow Orchestration</h4>
+						<p class="as-card-desc">Automate multi-step operations across CRM, ERP, support, and internal tools using reliable AI agent workflows for Ontario businesses.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Agent Workflows</span><span class="as-deliver-tag">Tool Integration</span><span class="as-deliver-tag">Process Automation</span><span class="as-deliver-tag">Human Approval Loops</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-coral" data-filter="all enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">05</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Security</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M4 6h18M4 13h12M4 20h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="19" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M22.5 21.5l2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+						<h4 class="as-card-title">AI Evaluation, Guardrails &amp; Security</h4>
+						<p class="as-card-desc">Validate model quality, reduce hallucinations, enforce policy controls, and secure AI systems for Canadian enterprise production environments.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Evaluation</span><span class="as-deliver-tag">Safety Guardrails</span><span class="as-deliver-tag">Prompt Security</span><span class="as-deliver-tag">Compliance Checks</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+					<div class="as-card theme-indigo" data-filter="all startup enterprise" data-visible="true">
+						<div class="as-card-accent"></div><span class="as-card-phase">06</span>
+						<span class="as-stage-chip"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Growth</span>
+						<div class="as-icon-box"><svg fill="none" viewBox="0 0 26 26" style="color:currentColor"><path d="M3 20l6-6 4 4 10-12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="4" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></div>
+						<h4 class="as-card-title">MLOps, Monitoring &amp; Optimization</h4>
+						<p class="as-card-desc">Scale and improve AI systems with model observability, drift tracking, retraining loops, and ongoing performance tuning.</p>
+						<div class="as-deliverables"><div class="as-deliver-list"><span class="as-deliver-tag">Model Monitoring</span><span class="as-deliver-tag">Drift Detection</span><span class="as-deliver-tag">Retraining Pipelines</span><span class="as-deliver-tag">Cost Optimization</span></div><a href="ai-development-services.html" class="as-card-link">Learn more<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+					</div>
+				</div>
+
+				<div class="as-journey">
+					<div class="as-journey-step"><div class="as-j-num">01</div><div class="as-j-label">Discover AI Use Cases</div></div>
+					<div class="as-journey-step"><div class="as-j-num">02</div><div class="as-j-label">Design AI Experience</div></div>
+					<div class="as-journey-step"><div class="as-j-num">03</div><div class="as-j-label">Build &amp; Integrate Models</div></div>
+					<div class="as-journey-step"><div class="as-j-num">04</div><div class="as-j-label">Evaluate &amp; Secure</div></div>
+					<div class="as-journey-step"><div class="as-j-num">05</div><div class="as-j-label">Deploy to Production</div></div>
+					<div class="as-journey-step"><div class="as-j-num">06</div><div class="as-j-label">Monitor &amp; Improve</div></div>
+				</div>
+
+				<div class="as-bottom-cta">
+					<div class="as-cta-text">
+						<h3 class="text-white">Ready to build AI that delivers results in London, Ontario?</h3>
+						<p>Talk to our local Ontario AI specialists - we'll respond within one business day.</p>
+					</div>
+					<div class="as-cta-actions">
+						<a href="page-contact.html" class="as-btn-white">Book a Free Consultation</a>
+						<a href="tel:+15198081000" class="as-btn-ghost-white">+1 519 808 1000</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section Four -->
+		<section class="about-section-four pt-0 acesoft-about-section">
+			<div class="auto-container">
+				<div class="row align-items-center">
+					<div class="content-column col-xl-6 col-lg-7 col-md-12 col-sm-12 order-2 wow fadeInRight"
+						data-wow-delay="600ms">
+						<div class="inner-column">
+							<div class="sec-title">
+								<span class="sub-title"><i class="fa fa-building"></i> About Acesoft &middot; London, Ontario</span>
+								<h2>London Ontario's trusted technology partner for AI-first digital transformation.</h2>
+								<div class="text">Headquartered in London, Ontario, Acesoft combines AI product strategy, engineering, and domain expertise to deliver enterprise AI solutions, generative AI products, machine learning systems, and intelligent automation for businesses across Ontario, Canada, and the United States.</div>
+							</div>
+							<ul class="about-points">
+								<li><i class="fa fa-check-circle"></i> AI development in London Ontario for LLM apps, generative AI, and ML platforms</li>
+								<li><i class="fa fa-check-circle"></i> Enterprise-grade delivery with security, scalability, and performance for Ontario businesses</li>
+								<li><i class="fa fa-check-circle"></i> Global 24x7 collaboration model for faster AI release cycles across Canada and USA</li>
+							</ul>
+							<div class="about-stats">
+								<span class="stat-pill">ISO 9001 &amp; 27001 Certified</span>
+								<span class="stat-pill">Headquartered in London, ON</span>
+								<span class="stat-pill">Startup to Enterprise AI Engagements</span>
+							</div>
+							<div class="about-actions">
+								<a href="tel:+15198081000" class="info-btn"><i
+										class="icon flaticon-phone-ringing"></i><small>Have an AI project in mind?</small>
+									+1 519 808 1000</a>
+								<a href="page-contact.html" class="theme-btn btn-style-one"><span class="btn-title">Book
+										a Free Consultation</span></a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Image Column -->
+					<div class="image-column col-xl-6 col-lg-5 col-md-12 col-sm-12">
+						<div class="inner-column wow fadeInLeft">
+							<div class="image-box">
+								<span class="bg-shape"></span>
+								<figure class="image-1 overlay-anim wow fadeInUp"><img
+										src="images/resource/ai-development-ontario-canada.png" alt="AI Development Ontario Canada - Acesoft team"></figure>
+								<figure class="image-2 overlay-anim wow fadeInRight"><img
+										src="images/resource/ai-development-london-ontario.png" alt="AI Development London Ontario - Acesoft headquarters"></figure>
+								<div class="about-badge"><strong>24x7</strong>Global engineering coverage</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--End About Section -->
+
+		<!-- 3Es + Work Process Section -->
+		<section class="acesoft-e3-process-section">
+			<video class="e3-process-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+				<source
+					src="images/background/vecteezy_glossy-black-wave-form-flowing-continuously-over-dark_74325729.mp4"
+					type="video/mp4">
+			</video>
+			<div class="e3-process-overlay"></div>
+			<div class="auto-container">
+				<div class="sec-title text-center">
+					<span class="sub-title"><i class="fa fa-sparkles"></i> 3 Es + Work Process</span>
+					<h2>Excellent, Experienced, Economical<br>AI delivery from London, Ontario.</h2>
+				</div>
+				<div class="row align-items-stretch e3-grid">
+					<div class="col-lg-5 col-md-12">
+						<div class="e3-card-wrap">
+							<div class="e3-card">
+								<div class="e3-icon"><i class="fa fa-award"></i></div>
+								<h5>Excellent</h5>
+								<p>High-quality AI engineering standards, robust evaluation, and polished UX for enterprise-grade AI products built in Ontario.</p>
+							</div>
+							<div class="e3-card">
+								<div class="e3-icon"><i class="fa fa-user-check"></i></div>
+								<h5>Experienced</h5>
+								<p>Domain-focused AI architects, ML engineers, and analysts with deep enterprise and startup delivery experience across Canada.</p>
+							</div>
+							<div class="e3-card">
+								<div class="e3-icon"><i class="fa fa-coins"></i></div>
+								<h5>Economical</h5>
+								<p>Flexible engagement models built to optimize cost without compromising AI quality or delivery speed.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7 col-md-12">
+						<div class="process-panel">
+							<div class="process-step">
+								<span class="step-no">01</span>
+								<div class="step-content">
+									<h5>Requirement Discovery</h5>
+									<p>AI strategists and solution architects gather, validate, and prioritize your AI use cases and business goals.</p>
+								</div>
+							</div>
+							<div class="process-step">
+								<span class="step-no">02</span>
+								<div class="step-content">
+									<h5>Design &amp; Build</h5>
+									<p>AI UX, architecture, and engineering teams execute with agile sprints, transparent milestones, and continuous evaluation.</p>
+								</div>
+							</div>
+							<div class="process-step">
+								<span class="step-no">03</span>
+								<div class="step-content">
+									<h5>Launch &amp; Scale</h5>
+									<p>Deployment, model monitoring, and continuous improvement to maximize AI performance and business ROI.</p>
+								</div>
+							</div>
+							<div class="process-cta-row">
+								<a href="page-contact.html" class="theme-btn btn-style-one"><span
+										class="btn-title">Start with Acesoft</span></a>
+								<a href="tel:+15198081000" class="process-phone"><i class="fa fa-phone"></i> +1 519 808
+									1000</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End 3Es + Work Process Section -->
+
+		<!-- Acesoft Highlights Section -->
+		<section class="acesoft-highlights-section">
+			<div class="auto-container">
+				<div class="sec-title">
+					<div class="row">
+						<div class="col-lg-6">
+							<span class="sub-title"><i class="fa fa-star"></i> Acesoft highlights</span>
+							<h2>Acesoft Inc &mdash; London Ontario's trusted AI build partner</h2>
+							<h4>Serving North America, UK, UAE &amp; India</h4>
+						</div>
+						<div class="col-lg-6 d-flex align-items-center">
+							<div class="text">
+								Acesoft Inc is an AI-first engineering company headquartered in <strong>London, Ontario, Canada</strong>, with global delivery teams. We design and build enterprise AI solutions that are practical, secure, and outcome-driven &mdash; from pilot to production &mdash; for clients in London, Toronto, Kitchener-Waterloo, Windsor, Ottawa, and beyond.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="content-column col-xl-6 col-lg-7 col-md-12 col-sm-12 order-2 order-lg-1">
+						<div class="inner-column">
+							<div class="highlight-card">
+								<span class="icon"><i class="flaticon-user-interface"></i></span>
+								<h5 class="title">AI domain specialists</h5>
+								<div class="text">
+									From generative AI copilots to predictive intelligence, our London Ontario specialists translate Canadian business goals into production-ready AI systems.
+								</div>
+							</div>
+							<div class="highlight-card">
+								<span class="icon"><i class="flaticon-front-end"></i></span>
+								<h5 class="title">Practical and ROI-focused</h5>
+								<div class="text">
+									We prioritize high-impact AI use cases, fast proof-of-value, and scalable architecture so Ontario businesses see measurable returns on every AI investment.
+								</div>
+							</div>
+							<div class="highlight-card">
+								<span class="icon"><i class="flaticon-design"></i></span>
+								<h5 class="title">Built for scale, operated 24x7</h5>
+								<div class="text">
+									Our global teams provide continuous AI delivery, monitoring, and optimization to keep AI products reliable as demand grows across Canada.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="image-column col-xl-6 col-lg-5 col-md-12 col-sm-12 order-1 order-lg-2">
+						<div class="inner-column">
+							<div class="image-box d-flex">
+								<figure class="image-1 overlay-anim"><img src="images/resource/about-6.jpg" width="494" height="494" loading="lazy" decoding="async"
+										alt="AI Development Company London Ontario"></figure>
+								<figure class="image-2 overlay-anim"><img src="images/resource/about-7.jpg" width="308" height="309" loading="lazy" decoding="async"
+										alt="Enterprise AI Solutions London Ontario Canada"></figure>
+								<figure class="logo"><img src="images/logo.png" width="52" height="45" alt="Acesoft Logo - London Ontario"></figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Acesoft Highlights Section -->
+
+
+
+
+
+		<section class="clientele-shell">
+			<div class="logo-slider" id="homeLogoSlider">
+				<div class="logo-slide">
+					<img src="images/clientele/logo-1.png" alt="Client logo - Acesoft AI London Ontario" loading="lazy" />
+					<img src="images/clientele/logo-2.png" alt="Client logo - Acesoft AI Canada" loading="lazy" />
+					<img src="images/clientele/logo-3.png" alt="Client logo - AI Development Ontario" loading="lazy" />
+					<img src="images/clientele/logo-4.png" alt="Client logo - Acesoft AI Toronto" loading="lazy" />
+					<img src="images/clientele/logo-5.png" alt="Client logo - Acesoft AI Kitchener" loading="lazy" />
+					<img src="images/clientele/logo-6.png" alt="Client logo - Acesoft AI Waterloo" loading="lazy" />
+					<img src="images/clientele/logo-7.png" alt="Client logo - Acesoft AI Windsor" loading="lazy" />
+					<img src="images/clientele/logo-8.png" alt="Client logo - Acesoft enterprise AI client" loading="lazy" />
+					<img src="images/clientele/logo-9.png" alt="Client logo - Acesoft AI startup client" loading="lazy" />
+					<img src="images/clientele/logo-10.webp" alt="Client logo - Acesoft Canada" loading="lazy" />
+					<img src="images/clientele/logo-11.jpg" alt="Client logo - Acesoft Ontario" loading="lazy" />
+					<img src="images/clientele/logo-12.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-14.jpeg" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-15.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-16.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-17.jpeg" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-18.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-19.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-20.png" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-21.jpeg" alt="Client logo - Acesoft" loading="lazy" />
+					<img src="images/clientele/logo-22.png" alt="Client logo - Acesoft" loading="lazy" />
+				</div>
+			</div>
+		</section>
+
+		<div id="footer-root">
+<footer class="main-footer">
+  <div class="bg bg-pattern-9"></div>
+  <div class="widgets-section">
+    <div class="footer-inner">
+      <div class="row footer-top-row">
+        <div class="footer-column col-lg-3 col-md-12">
+          <div class="footer-widget about-widget">
+            <div class="logo">
+              <a href="index.html"><img src="images/logo.png" width="160" height="140" decoding="async" alt="Acesoft Inc - AI Development Company London Ontario" /></a>
+              <img src="images/acesoft/iso-certified.png" alt="ISO Certified AI Development Company London Ontario Canada" />
+            </div>
+            <div class="text">AI-First Digital Engineering &middot; London, Ontario.</div>
+            <p class="footer-about-copy">We design and deliver secure AI systems, machine learning solutions, and intelligent digital products from London, Ontario for clients across Canada and the United States.</p>
+            <div class="footer-widget gallery-widget footer-locations-widget">
+              <h6 class="widget-title">Global Delivery : 24 x 7 x 365</h6>
+              <img src="images/acesoft/acesoft-locations.png" alt="Acesoft Inc Global Locations - London Ontario Headquarters" width="300" height="275" />
+            </div>
+          </div>
+        </div>
+        <div class="footer-column col-lg-9 col-md-12">
+          <div class="footer-sitemap">
+            <div class="row">
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">Company</h6>
+                  <ul class="user-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ai-development-services.html">AI Development Services</a></li>
+                    <li><a href="ai-staffing.html">AI Staffing</a></li>
+                    <li><a href="ai-industries.html">Industries</a></li>
+                    <li><a href="ai-consultation.html">AI Consultation</a></li>
+                    <li><a href="page-contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">AI Development</h6>
+                  <ul class="user-links">
+                    <li><a href="custom-ai-development-services.html">Custom AI Development</a></li>
+                    <li><a href="generative-ai-development.html">Generative AI Development</a></li>
+                    <li><a href="llm-development.html">LLM Development</a></li>
+                    <li><a href="ai-agent-development.html">AI Agent Development</a></li>
+                    <li><a href="ai-chatbot-development.html">AI Chatbot Development</a></li>
+                    <li><a href="ai-automation-solutions.html">AI Automation Solutions</a></li>
+                    <li><a href="machine-learning-development.html">Machine Learning Development</a></li>
+                    <li><a href="ai-saas-product-development.html">AI SaaS Product Development</a></li>
+                    <li><a href="enterprise-ai-development.html">Enterprise AI Development</a></li>
+                    <li><a href="ai-integration-services.html">AI Integration Services</a></li>
+                    <li><a href="ai-mvp-development.html">AI MVP Development</a></li>
+                    <li><a href="ai-app-development.html">AI App Development</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">AI Staffing</h6>
+                  <ul class="user-links">
+                    <li><a href="hire-ai-developers.html">Hire AI Developers</a></li>
+                    <li><a href="dedicated-ai-development-team.html">Dedicated AI Team</a></li>
+                    <li><a href="ai-staff-augmentation-services.html">AI Staff Augmentation</a></li>
+                    <li><a href="offshore-ai-development-center.html">Offshore AI Center</a></li>
+                    <li><a href="ai-outsourcing-company.html">AI Outsourcing Company</a></li>
+                    <li><a href="remote-ai-engineers-for-hire.html">Remote AI Engineers</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title">Industries</h6>
+                  <ul class="user-links footer-links-split">
+                    <li><a href="ai-for-healthcare.html">Healthcare</a></li>
+                    <li><a href="ai-for-finance.html">Finance</a></li>
+                    <li><a href="ai-for-retail.html">Retail</a></li>
+                    <li><a href="ai-for-ecommerce.html">Ecommerce</a></li>
+                    <li><a href="ai-for-manufacturing.html">Manufacturing</a></li>
+                    <li><a href="ai-for-logistics.html">Logistics</a></li>
+                    <li><a href="ai-for-real-estate.html">Real Estate</a></li>
+                    <li><a href="ai-for-insurance.html">Insurance</a></li>
+                    <li><a href="ai-for-legal.html">Legal</a></li>
+                    <li><a href="ai-for-education.html">Education</a></li>
+                    <li><a href="ai-for-government.html">Government</a></li>
+                    <li><a href="ai-for-hospitality-travel.html">Hospitality &amp; Travel</a></li>
+                    <li><a href="ai-for-agriculture.html">Agriculture</a></li>
+                    <li><a href="ai-for-telecommunications.html">Telecommunications</a></li>
+                    <li><a href="ai-for-media-content.html">Media &amp; Content</a></li>
+                    <li><a href="ai-for-asset-management.html">Asset Management</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title"><a href="ai-development-canada.html">Canada</a></h6>
+                  <ul class="user-links">
+                    <li><a href="ai-consultant-london-ontario.html"><strong>London, ON (HQ)</strong></a></li>
+                    <li><a href="ai-consultants-toronto.html">Toronto</a></li>
+                    <li><a href="ai-consultants-vancouver.html">Vancouver</a></li>
+                    <li><a href="ai-consultants-montreal.html">Montreal</a></li>
+                    <li><a href="ai-consultants-calgary.html">Calgary</a></li>
+                    <li><a href="ai-consultants-ottawa.html">Ottawa</a></li>
+                    <li><a href="ai-consultants-kitchener-waterloo.html">Kitchener-Waterloo</a></li>
+                    <li><a href="ai-consultants-windsor.html">Windsor</a></li>
+                    <li><a href="ai-consultants-edmonton.html">Edmonton</a></li>
+                    <li><a href="ai-consultants-mississauga.html">Mississauga</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-sitemap-col col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-widget links-widget">
+                  <h6 class="widget-title"><a href="ai-development-usa.html">USA</a></h6>
+                  <ul class="user-links">
+                    <li><a href="ai-consultants-new-york.html">New York</a></li>
+                    <li><a href="ai-consultants-san-francisco.html">San Francisco</a></li>
+                    <li><a href="ai-consultants-los-angeles.html">Los Angeles</a></li>
+                    <li><a href="ai-consultants-chicago.html">Chicago</a></li>
+                    <li><a href="ai-consultants-boston.html">Boston</a></li>
+                    <li><a href="ai-consultants-austin.html">Austin</a></li>
+                    <li><a href="ai-consultants-seattle.html">Seattle</a></li>
+                    <li><a href="ai-consultants-dallas.html">Dallas</a></li>
+                    <li><a href="ai-consultants-atlanta.html">Atlanta</a></li>
+                    <li><a href="ai-consultants-miami.html">Miami</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-contact-row">
+        <div class="footer-column col-md-12">
+          <div class="footer-widget contacts-widget footer-contact-bar">
+            <h6 class="widget-title">Get in Touch &middot; London, Ontario</h6>
+            <ul class="contact-info">
+              <li><i class="fa fa-envelope"></i> <a href="mailto:info@acesoft.ca">info@acesoft.ca</a></li>
+              <li><i class="fa fa-phone-square"></i> <a href="tel:+15198081000">+1 519 808 1000</a></li>
+            </ul>
+            <a href="page-contact.html" class="footer-contact-btn">Start Your AI Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-inner">
+      <div class="inner-container">
+        <div class="copyright-text">&copy; Copyright <span id="currentYear"></span> by <a href="index.html">Acesoft.ca</a> &middot; AI Development Company London Ontario</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="acesoft-wa-widget" id="acesoftWaWidget">
+  <button type="button" class="acesoft-wa-prompt-close" id="acesoftWaClose" aria-label="Close WhatsApp suggestion">
+    <i class="fa fa-times"></i>
+  </button>
+  <a href="https://wa.me/15198081000?text=Hi%20Acesoft%2C%20I%20need%20AI%20support%20for%20my%20project." class="acesoft-wa-prompt" id="acesoftWaPromptText" target="_blank" rel="noopener">
+    Hey there - need AI support?
+  </a>
+  <a href="https://wa.me/15198081000?text=Hi%20Acesoft%2C%20I%20need%20AI%20support%20for%20my%20project." class="acesoft-wa-button" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+</div>
+
+	</div><!-- End Page Wrapper -->
+
+	<!-- Scroll To Top -->
+	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+	<script defer src="js/jquery.js"></script>
+	<script defer src="js/script.js"></script>
+	<script>
+		var currentYear = new Date().getFullYear();
+		document.getElementById("currentYear").innerText = currentYear;
+	</script>
+	<script>
+		var THREE_URL = "https://unpkg.com/three@0.160.0/build/three.min.js";
+		function loadScript(src) {
+			return new Promise(function (resolve, reject) {
+				if (window.THREE) { resolve(); return; }
+				var existing = document.querySelector('script[data-dynamic-src="' + src + '"]');
+				if (existing) {
+					existing.addEventListener("load", resolve, { once: true });
+					existing.addEventListener("error", reject, { once: true });
+					return;
+				}
+				var s = document.createElement("script");
+				s.src = src;
+				s.async = true;
+				s.dataset.dynamicSrc = src;
+				s.onload = resolve;
+				s.onerror = reject;
+				document.head.appendChild(s);
+			});
+		}
+		function runWhenThreeReady(fn) {
+			var start = function () { loadScript(THREE_URL).then(fn).catch(function () {}); };
+			if ("requestIdleCallback" in window) {
+				requestIdleCallback(start, { timeout: 2500 });
+			} else {
+				window.addEventListener("load", function () { setTimeout(start, 0); }, { once: true });
+			}
+		}
+		runWhenThreeReady(function () {
+			var section = document.getElementById("acesoftAIHero");
+			var canvas = document.getElementById("ai-banner-canvas");
+			if (!section || !canvas || !window.THREE) return;
+
+			var reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+			var mobile = window.innerWidth < 768;
+			var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.setSize(section.clientWidth, section.clientHeight);
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera(50, section.clientWidth / section.clientHeight, 0.1, 500);
+			camera.position.z = 38;
+
+			var clock = new THREE.Clock();
+			var mx = 0;
+			var my = 0;
+			var rafId;
+			var N = mobile ? 900 : 1800;
+			var pGeo = new THREE.BufferGeometry();
+			var pPos = new Float32Array(N * 3);
+			for (var i = 0; i < N; i++) {
+				pPos[i * 3] = (Math.random() - 0.5) * 80;
+				pPos[i * 3 + 1] = (Math.random() - 0.5) * 40;
+				pPos[i * 3 + 2] = (Math.random() - 0.5) * 35;
+			}
+			pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
+			var pMat = new THREE.PointsMaterial({
+				color: 0x4477cc,
+				size: 0.09,
+				transparent: true,
+				opacity: 0.6,
+				blending: THREE.AdditiveBlending,
+				depthWrite: false
+			});
+			var pts = new THREE.Points(pGeo, pMat);
+			scene.add(pts);
+
+			var gSize = 60;
+			var gDivs = 16;
+			var gridGeo = new THREE.BufferGeometry();
+			var gVerts = [];
+			var step = gSize / gDivs;
+			for (var g = 0; g <= gDivs; g++) {
+				var v = -gSize / 2 + g * step;
+				gVerts.push(-gSize / 2, -14, v, gSize / 2, -14, v);
+				gVerts.push(v, -14, -gSize / 2, v, -14, gSize / 2);
+			}
+			gridGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(gVerts), 3));
+			var gridMat = new THREE.LineBasicMaterial({
+				color: 0x1a3a7a,
+				transparent: true,
+				opacity: 0.35,
+				blending: THREE.AdditiveBlending,
+				depthWrite: false
+			});
+			scene.add(new THREE.LineSegments(gridGeo, gridMat));
+
+			function animate() {
+				var t = clock.getElapsedTime();
+				pts.rotation.y = t * 0.025;
+				pts.rotation.x = Math.sin(t * 0.18) * 0.04;
+				camera.position.x += (mx * 4 - camera.position.x) * 0.035;
+				camera.position.y += (-my * 2.5 - camera.position.y) * 0.035;
+				camera.lookAt(0, 0, 0);
+				renderer.render(scene, camera);
+				rafId = requestAnimationFrame(animate);
+			}
+
+			section.addEventListener("mousemove", function (e) {
+				var r = section.getBoundingClientRect();
+				mx = ((e.clientX - r.left) / r.width) * 2 - 1;
+				my = ((e.clientY - r.top) / r.height) * 2 - 1;
+			});
+
+			window.addEventListener("resize", function () {
+				camera.aspect = section.clientWidth / section.clientHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(section.clientWidth, section.clientHeight);
+			});
+
+			if (!reduced) animate();
+			else renderer.render(scene, camera);
+
+			window.addEventListener("beforeunload", function () {
+				if (rafId) cancelAnimationFrame(rafId);
+				renderer.dispose();
+			});
+		});
+
+		runWhenThreeReady(function () {
+			var canvas = document.getElementById("ai-orb-canvas");
+			var wrap = document.getElementById("aiOrbWrap");
+			if (!canvas || !wrap || !window.THREE) return;
+
+			var reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+			var W = 260;
+			var H = 260;
+			var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.setSize(W, H);
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera(48, 1, 0.1, 200);
+			camera.position.z = 12;
+
+			var clock = new THREE.Clock();
+			var mx = 0;
+			var my = 0;
+			var rafId;
+			var core = new THREE.Group();
+			var ig = new THREE.IcosahedronGeometry(2.6, 4);
+			var im = new THREE.MeshBasicMaterial({ color: 0x08163a, transparent: true, opacity: 0.95 });
+			core.add(new THREE.Mesh(ig, im));
+			var wg1 = new THREE.IcosahedronGeometry(2.65, 2);
+			var wm1 = new THREE.MeshBasicMaterial({ color: 0x3a7fff, wireframe: true, transparent: true, opacity: 0.6 });
+			core.add(new THREE.Mesh(wg1, wm1));
+			var wg2 = new THREE.IcosahedronGeometry(2.95, 1);
+			var wm2 = new THREE.MeshBasicMaterial({ color: 0x5ab4ff, wireframe: true, transparent: true, opacity: 0.25, blending: THREE.AdditiveBlending, depthWrite: false });
+			core.add(new THREE.Mesh(wg2, wm2));
+			var og = new THREE.SphereGeometry(3.6, 24, 24);
+			var om = new THREE.MeshBasicMaterial({ color: 0x3366ff, transparent: true, opacity: 0.07, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide });
+			core.add(new THREE.Mesh(og, om));
+			scene.add(core);
+
+			var nodeN = 32;
+			var spread = 7;
+			var nPos = [];
+			for (var n = 0; n < nodeN; n++) {
+				var theta = Math.random() * Math.PI * 2;
+				var phi = Math.acos(2 * Math.random() - 1);
+				var r = spread * (0.5 + Math.random() * 0.5);
+				nPos.push(new THREE.Vector3(
+					r * Math.sin(phi) * Math.cos(theta),
+					r * Math.sin(phi) * Math.sin(theta),
+					r * Math.cos(phi)
+				));
+			}
+
+			var ndGeo = new THREE.BufferGeometry();
+			var ndPos = new Float32Array(nodeN * 3);
+			nPos.forEach(function (p, i) {
+				ndPos[i * 3] = p.x;
+				ndPos[i * 3 + 1] = p.y;
+				ndPos[i * 3 + 2] = p.z;
+			});
+			ndGeo.setAttribute("position", new THREE.BufferAttribute(ndPos, 3));
+			scene.add(new THREE.Points(ndGeo, new THREE.PointsMaterial({
+				color: 0x88ccff,
+				size: 0.18,
+				transparent: true,
+				opacity: 0.9,
+				blending: THREE.AdditiveBlending,
+				depthWrite: false
+			})));
+
+			var eVerts = [];
+			for (var a = 0; a < nodeN; a++) {
+				for (var b = a + 1; b < nodeN; b++) {
+					if (nPos[a].distanceTo(nPos[b]) < 5.5) {
+						eVerts.push(nPos[a].x, nPos[a].y, nPos[a].z, nPos[b].x, nPos[b].y, nPos[b].z);
+					}
+				}
+			}
+			var eGeo = new THREE.BufferGeometry();
+			eGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(eVerts), 3));
+			scene.add(new THREE.LineSegments(eGeo, new THREE.LineBasicMaterial({
+				color: 0x2255cc,
+				transparent: true,
+				opacity: 0.22,
+				blending: THREE.AdditiveBlending,
+				depthWrite: false
+			})));
+
+			var streakDirs = [
+				[1, 0.4, 0.2], [-0.9, 0.5, -0.1], [0.3, -1, 0.4], [-0.3, 0.8, -0.9], [0.7, -0.3, 0.8], [-0.5, -0.7, 0.3]
+			].map(function (d) {
+				var v = new THREE.Vector3(d[0], d[1], d[2]);
+				v.normalize();
+				return v;
+			});
+
+			var streaks = streakDirs.map(function (dir, si) {
+				var sg = new THREE.BufferGeometry();
+				sg.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
+				var sm = new THREE.LineBasicMaterial({ color: 0x55aaff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+				var sk = new THREE.LineSegments(sg, sm);
+				sk.userData = { dir: dir, phase: si * 1.05, speed: 0.85 + Math.random() * 0.7 };
+				scene.add(sk);
+				return sk;
+			});
+
+			function animate() {
+				var t = clock.getElapsedTime();
+				core.rotation.y = t * 0.2;
+				core.rotation.x = Math.sin(t * 0.28) * 0.1;
+
+				streaks.forEach(function (sk) {
+					var phase = ((t * sk.userData.speed + sk.userData.phase) % 3.0) / 3.0;
+					var d = sk.userData.dir;
+					var arr = sk.geometry.attributes.position.array;
+					var tail = phase * 8.5;
+					var head = tail + 1.4;
+					arr[0] = d.x * tail; arr[1] = d.y * tail; arr[2] = d.z * tail;
+					arr[3] = d.x * head; arr[4] = d.y * head; arr[5] = d.z * head;
+					sk.geometry.attributes.position.needsUpdate = true;
+					sk.material.opacity = Math.sin(phase * Math.PI) * 0.65;
+				});
+
+				camera.position.x += (mx * 2.5 - camera.position.x) * 0.04;
+				camera.position.y += (-my * 1.8 - camera.position.y) * 0.04;
+				camera.lookAt(0, 0, 0);
+				renderer.render(scene, camera);
+				rafId = requestAnimationFrame(animate);
+			}
+
+			wrap.addEventListener("mousemove", function (e) {
+				var r = wrap.getBoundingClientRect();
+				mx = ((e.clientX - r.left) / r.width) * 2 - 1;
+				my = ((e.clientY - r.top) / r.height) * 2 - 1;
+			});
+
+			if (!reduced) animate();
+			else renderer.render(scene, camera);
+
+			window.addEventListener("beforeunload", function () {
+				if (rafId) cancelAnimationFrame(rafId);
+				renderer.dispose();
+			});
+		});
+
+		setInterval(function () {
+			var el = document.getElementById("apiTicker");
+			if (el) el.textContent = (1100 + Math.floor(Math.random() * 420)).toLocaleString();
+		}, 2400);
+	</script>
+	<script>
+		function animateCount(el, target, duration) {
+			var start = 0;
+			var step = target / (duration / 16);
+			var timer = setInterval(function () {
+				start = Math.min(start + step, target);
+				el.textContent = Math.round(start);
+				if (start >= target) clearInterval(timer);
+			}, 16);
+		}
+		var observed = false;
+		var observer = new IntersectionObserver(function (entries) {
+			if (entries[0].isIntersecting && !observed) {
+				observed = true;
+				var apps = document.getElementById("stat-apps");
+				var sat = document.getElementById("stat-sat");
+				var yrs = document.getElementById("stat-yrs");
+				if (apps) animateCount(apps, 300, 1400);
+				if (sat) animateCount(sat, 98, 1200);
+				if (yrs) animateCount(yrs, 12, 1100);
+			}
+		}, { threshold: 0.3 });
+		var statsBar = document.querySelector(".as-stats-bar");
+		if (statsBar) observer.observe(statsBar);
+
+		var filters = document.querySelectorAll(".as-filter");
+		var cards = document.querySelectorAll(".as-card");
+		filters.forEach(function (btn) {
+			btn.addEventListener("click", function () {
+				var f = btn.dataset.filter;
+				filters.forEach(function (b) { b.classList.remove("active"); });
+				btn.classList.add("active");
+				cards.forEach(function (card) {
+					var tags = (card.dataset.filter || "").split(" ");
+					var show = f === "all" || tags.indexOf(f) !== -1;
+					card.style.display = show ? "flex" : "none";
+				});
+			});
+		});
+		cards.forEach(function (card) {
+			card.setAttribute("tabindex", "0");
+			card.addEventListener("keydown", function (e) {
+				if (e.key === "Enter") {
+					var link = card.querySelector(".as-card-link");
+					if (link) link.click();
+				}
+			});
+		});
+	</script>
+	<script>
+		(function () {
+			var logoSlider = document.getElementById("homeLogoSlider");
+			if (logoSlider && !logoSlider.getAttribute("data-loop-ready")) {
+				var firstSlide = logoSlider.querySelector(".logo-slide");
+				if (firstSlide) {
+					logoSlider.appendChild(firstSlide.cloneNode(true));
+					logoSlider.setAttribute("data-loop-ready", "true");
+				}
+			}
+		})();
+	</script>
+	<script>
+		window.addEventListener("load", function () {
+			var preloader = document.getElementById("preloader");
+			var container = document.getElementById("container-preloader");
+			if (!preloader || !container) return;
+			document.documentElement.classList.add("loaded");
+			container.classList.add("loaded");
+			window.setTimeout(function () {
+				preloader.style.display = "none";
+			}, 1100);
+		});
+	</script>
+</body>
+
+</html>

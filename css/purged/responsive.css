@@ -1,0 +1,173 @@
+/* Amiso | Web Design Agency HTML Template  */
+
+@media only screen and (max-width: 1439px){
+	.header-style-one .container-fluid,
+	.header-top .inner-container{
+		padding: 0 20px;
+	}
+
+	
+	.main-header .info-btn{
+		display: none;
+	}
+
+	.about-section-four .content-column .inner-column{
+		padding-left: 0;
+	}
+}
+
+
+@media only screen and (max-width: 1199px){
+
+	.main-footer .links-widget{
+		padding-left: 0;
+	}
+
+
+	
+	.main-menu .navigation > li{
+		margin-right: 40px;
+	}
+
+	.sticky-header .main-menu .navigation > li{
+		margin-right: 0;
+	}
+
+	.about-section-four .image-column .image-1{
+		width: 100%;
+		height: 100%;
+	}
+
+	.about-section-four .image-column .bg-shape{
+		width: 300px;
+		height: 300px;
+		background-size: cover;
+		left: 0;
+	}
+
+	.about-section-four .image-column .image-2{
+		left: 0;
+		margin: 0 auto;
+		bottom: -30px;
+	}
+}
+
+
+@media only screen and (min-width: 768px){
+	.main-menu .navigation > li > ul,
+	.main-menu .navigation > li > ul > li > ul{
+		display:block !important;
+		visibility:hidden;
+		opacity:0;
+	}
+}
+
+
+@media only screen and (max-width: 1023px){
+	.header-top,
+	.main-header .main-menu {
+		display: none;
+	}
+
+	.main-header .logo {
+		min-width: auto;
+	}
+
+	.main-header .logo img,
+	.sticky-header .logo img {
+		width: auto;
+		max-width: none;
+		max-height: 45px;
+	}
+
+	.mobile-nav-toggler {
+		display: block;
+		color: #fff
+	}
+
+	.main-header .main-box .nav-outer{
+		width: auto;
+	}
+
+	
+	.main-header .outer-box .ui-btn-outer{
+		border-left: 0;
+	}
+
+	
+	.about-section-four .content-column{
+		order: 0 !important;
+	}
+
+	.contacts-widget{
+		padding-left: 0;
+	}
+
+	.mobile-nav-toggler{
+		margin-left: 15px;
+	}
+
+	.sec-title .d-flex{
+		display: block !important;
+	}
+
+	.sec-title .row .text{
+		max-width: 100%;
+	}
+
+	.about-section-four .image-column .image-box{
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	.about-section-four .image-column .bg-shape{
+		top: 20%;
+	}
+
+	.about-section-four .image-column .bg-shape{
+		display: none;
+	}
+
+}
+
+
+@media only screen and (max-width: 767px){
+
+	.main-footer .footer-widget{
+		padding: 0;
+		margin: 0;
+	}
+	
+}
+
+
+
+
+
+@media only screen and (max-width: 599px){
+
+	
+	.sec-title h2 br{
+		display: none;
+	}
+
+	
+	.about-section-four .image-column .image-2{
+		display: none;
+	}
+
+	.about-section-four .content-column .title{
+		font-size: 20px;
+		line-height: 1.4em;
+	}
+}
+
+
+@media only screen and (max-width: 424px){
+	.sec-title h2{
+		font-size: 38px;
+		line-height: 1.1em;
+	}
+
+
+}

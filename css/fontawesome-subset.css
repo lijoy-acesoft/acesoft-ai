@@ -1,0 +1,85 @@
+/* Font Awesome subset â€” icons used on site */
+.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands{
+  display:inline-block;font-style:normal;font-variant:normal;line-height:1;text-rendering:auto;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+.fa::before,.fas::before,.far::before,.fab::before{display:inline-block}
+.fa,.fas,.fa-solid{font-family:"Font Awesome 6 Pro";font-weight:900}
+.far,.fa-regular{font-family:"Font Awesome 6 Pro";font-weight:400}
+.fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fa-brands-400.woff2") format("woff2"), url("../fonts/fa-brands-400.woff") format("woff"), url("../fonts/fa-brands-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Pro';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../fonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fa-solid-900.woff") format("woff"), url("../fonts/fa-solid-900.ttf") format("truetype");
+}
+.fa-angle-up::before {
+  content: "\f106";
+}
+.fa-award::before {
+  content: "\f559";
+}
+.fa-building::before {
+  content: "\f1ad";
+}
+.fa-certificate::before {
+  content: "\f0a3";
+}
+.fa-check-circle::before {
+  content: "\f058";
+}
+.fa-coins::before {
+  content: "\f51e";
+}
+.fa-envelope::before {
+  content: "\f0e0";
+}
+.fa-handshake::before {
+  content: "\f2b5";
+}
+.fa-handshake-o::before {
+  content: "\f2b5";
+}
+.fa-laptop::before {
+  content: "\f109";
+}
+.fa-map-marker::before {
+  content: "\f041";
+}
+.fa-microchip::before {
+  content: "\f2db";
+}
+.fa-phone::before {
+  content: "\f095";
+}
+.fa-phone-square::before {
+  content: "\f098";
+}
+.fa-search::before {
+  content: "\f002";
+}
+.fa-sparkles::before {
+  content: "\f890";
+}
+.fa-star::before {
+  content: "\f005";
+}
+.fa-times::before {
+  content: "\f00d";
+}
+.fa-user-check::before {
+  content: "\f4fc";
+}
+.fa-whatsapp:before {
+  content: "\f232";
+}
+.fa-brands.fa-whatsapp::before{content:"\f232"}

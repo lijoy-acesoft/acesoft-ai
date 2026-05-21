@@ -1,0 +1,187 @@
+/* Acesoft top utility bar — matches site design reference */
+.main-header .acesoft-top-header {
+  background: #0a0b10 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.main-header .acesoft-top-header .inner-container {
+  min-height: 40px;
+  max-width: none;
+  margin: 0 auto;
+  padding: 6px 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.main-header .acesoft-top-header .top-left {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.main-header .acesoft-top-header .top-right {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.main-header .acesoft-top-header .acesoft-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.main-header .acesoft-top-header .acesoft-top-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.main-header .acesoft-top-header .acesoft-top-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 5px;
+  background: #1e2128;
+  border: 1px solid #33363d;
+  color: #ffffff;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.main-header .acesoft-top-header .acesoft-top-pill--email a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.main-header .acesoft-top-header .acesoft-top-pill--email a:hover {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.main-header .acesoft-top-header .acesoft-top-icon,
+.main-header .acesoft-top-header .acesoft-top-pill--email .fa-envelope {
+  color: #3b82f6;
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.main-header .acesoft-top-header .acesoft-cert-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.main-header .acesoft-top-header .acesoft-flag-icon {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.main-header .acesoft-top-header .useful-links {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.main-header .acesoft-top-header .useful-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.main-header .acesoft-top-header .useful-links li::before {
+  display: none !important;
+}
+
+.main-header .acesoft-top-header .acesoft-top-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 16px;
+  border-radius: 5px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  background: #3b82f6 !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.main-header .acesoft-top-header .acesoft-top-contact-btn:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1280px) {
+  .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--india {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uae {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--uk {
+    display: none;
+  }
+  .main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--hipaa {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header .acesoft-top-header .inner-container {
+    padding: 6px 12px;
+  }
+  .main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso27001 {
+    display: none;
+  }
+  .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--usa {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-header .acesoft-top-header .acesoft-top-pill--cert.acesoft-top-pill--iso9001 {
+    display: none;
+  }
+  .main-header .acesoft-top-header .acesoft-top-pill--flag.acesoft-top-pill--canada {
+    display: none;
+  }
+}
