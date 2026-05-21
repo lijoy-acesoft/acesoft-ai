@@ -970,12 +970,7 @@ display: none;
 
 		<!-- 3Es + Work Process Section -->
 		<section class="acesoft-e3-process-section">
-			<video class="e3-process-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-				<source
-					src="images/background/vecteezy_glossy-black-wave-form-flowing-continuously-over-dark_74325729.mp4"
-					type="video/mp4">
-			</video>
-			<div class="e3-process-overlay"></div>
+			<div class="e3-process-overlay" aria-hidden="true"></div>
 			<div class="auto-container">
 				<div class="sec-title text-center">
 					<span class="sub-title"><i class="fa fa-sparkles"></i> 3 Es + Work Process</span>
@@ -1304,269 +1299,98 @@ display: none;
 		document.getElementById("currentYear").innerText = currentYear;
 	</script>
 	<script>
-		var THREE_URL = "https://unpkg.com/three@0.160.0/build/three.min.js";
-		function loadScript(src) {
-			return new Promise(function (resolve, reject) {
-				if (window.THREE) { resolve(); return; }
-				var existing = document.querySelector('script[data-dynamic-src="' + src + '"]');
-				if (existing) {
-					existing.addEventListener("load", resolve, { once: true });
-					existing.addEventListener("error", reject, { once: true });
-					return;
-				}
-				var s = document.createElement("script");
-				s.src = src;
-				s.async = true;
-				s.dataset.dynamicSrc = src;
-				s.onload = resolve;
-				s.onerror = reject;
-				document.head.appendChild(s);
-			});
-		}
-		function runWhenThreeReady(fn) {
-			var start = function () { loadScript(THREE_URL).then(fn).catch(function () {}); };
-			if ("requestIdleCallback" in window) {
-				requestIdleCallback(start, { timeout: 2500 });
-			} else {
-				window.addEventListener("load", function () { setTimeout(start, 0); }, { once: true });
-			}
-		}
-		runWhenThreeReady(function () {
-			var section = document.getElementById("acesoftAIHero");
-			var canvas = document.getElementById("ai-banner-canvas");
-			if (!section || !canvas || !window.THREE) return;
+		(function () {
+			var hero = document.getElementById("acesoftAIHero");
+			if (!hero) return;
 
-			var reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-			var mobile = window.innerWidth < 768;
-			var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-			renderer.setSize(section.clientWidth, section.clientHeight);
-
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera(50, section.clientWidth / section.clientHeight, 0.1, 500);
-			camera.position.z = 38;
-
-			var clock = new THREE.Clock();
-			var mx = 0;
-			var my = 0;
-			var rafId;
-			var N = mobile ? 900 : 1800;
-			var pGeo = new THREE.BufferGeometry();
-			var pPos = new Float32Array(N * 3);
-			for (var i = 0; i < N; i++) {
-				pPos[i * 3] = (Math.random() - 0.5) * 80;
-				pPos[i * 3 + 1] = (Math.random() - 0.5) * 40;
-				pPos[i * 3 + 2] = (Math.random() - 0.5) * 35;
-			}
-			pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
-			var pMat = new THREE.PointsMaterial({
-				color: 0x4477cc,
-				size: 0.09,
-				transparent: true,
-				opacity: 0.6,
-				blending: THREE.AdditiveBlending,
-				depthWrite: false
-			});
-			var pts = new THREE.Points(pGeo, pMat);
-			scene.add(pts);
-
-			var gSize = 60;
-			var gDivs = 16;
-			var gridGeo = new THREE.BufferGeometry();
-			var gVerts = [];
-			var step = gSize / gDivs;
-			for (var g = 0; g <= gDivs; g++) {
-				var v = -gSize / 2 + g * step;
-				gVerts.push(-gSize / 2, -14, v, gSize / 2, -14, v);
-				gVerts.push(v, -14, -gSize / 2, v, -14, gSize / 2);
-			}
-			gridGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(gVerts), 3));
-			var gridMat = new THREE.LineBasicMaterial({
-				color: 0x1a3a7a,
-				transparent: true,
-				opacity: 0.35,
-				blending: THREE.AdditiveBlending,
-				depthWrite: false
-			});
-			scene.add(new THREE.LineSegments(gridGeo, gridMat));
-
-			function animate() {
-				var t = clock.getElapsedTime();
-				pts.rotation.y = t * 0.025;
-				pts.rotation.x = Math.sin(t * 0.18) * 0.04;
-				camera.position.x += (mx * 4 - camera.position.x) * 0.035;
-				camera.position.y += (-my * 2.5 - camera.position.y) * 0.035;
-				camera.lookAt(0, 0, 0);
-				renderer.render(scene, camera);
-				rafId = requestAnimationFrame(animate);
+			var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+			var desktop = window.innerWidth >= 992;
+			if (reduced || !desktop) {
+				hero.classList.add("acesoft-hero--static");
+				return;
 			}
 
-			section.addEventListener("mousemove", function (e) {
-				var r = section.getBoundingClientRect();
-				mx = ((e.clientX - r.left) / r.width) * 2 - 1;
-				my = ((e.clientY - r.top) / r.height) * 2 - 1;
-			});
+			var heroRuntime = null;
+			var threePromise = null;
 
-			window.addEventListener("resize", function () {
-				camera.aspect = section.clientWidth / section.clientHeight;
-				camera.updateProjectionMatrix();
-				renderer.setSize(section.clientWidth, section.clientHeight);
-			});
-
-			if (!reduced) animate();
-			else renderer.render(scene, camera);
-
-			window.addEventListener("beforeunload", function () {
-				if (rafId) cancelAnimationFrame(rafId);
-				renderer.dispose();
-			});
-		});
-
-		runWhenThreeReady(function () {
-			var canvas = document.getElementById("ai-orb-canvas");
-			var wrap = document.getElementById("aiOrbWrap");
-			if (!canvas || !wrap || !window.THREE) return;
-
-			var reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-			var W = 260;
-			var H = 260;
-			var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-			renderer.setSize(W, H);
-
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera(48, 1, 0.1, 200);
-			camera.position.z = 12;
-
-			var clock = new THREE.Clock();
-			var mx = 0;
-			var my = 0;
-			var rafId;
-			var core = new THREE.Group();
-			var ig = new THREE.IcosahedronGeometry(2.6, 4);
-			var im = new THREE.MeshBasicMaterial({ color: 0x08163a, transparent: true, opacity: 0.95 });
-			core.add(new THREE.Mesh(ig, im));
-			var wg1 = new THREE.IcosahedronGeometry(2.65, 2);
-			var wm1 = new THREE.MeshBasicMaterial({ color: 0x3a7fff, wireframe: true, transparent: true, opacity: 0.6 });
-			core.add(new THREE.Mesh(wg1, wm1));
-			var wg2 = new THREE.IcosahedronGeometry(2.95, 1);
-			var wm2 = new THREE.MeshBasicMaterial({ color: 0x5ab4ff, wireframe: true, transparent: true, opacity: 0.25, blending: THREE.AdditiveBlending, depthWrite: false });
-			core.add(new THREE.Mesh(wg2, wm2));
-			var og = new THREE.SphereGeometry(3.6, 24, 24);
-			var om = new THREE.MeshBasicMaterial({ color: 0x3366ff, transparent: true, opacity: 0.07, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide });
-			core.add(new THREE.Mesh(og, om));
-			scene.add(core);
-
-			var nodeN = 32;
-			var spread = 7;
-			var nPos = [];
-			for (var n = 0; n < nodeN; n++) {
-				var theta = Math.random() * Math.PI * 2;
-				var phi = Math.acos(2 * Math.random() - 1);
-				var r = spread * (0.5 + Math.random() * 0.5);
-				nPos.push(new THREE.Vector3(
-					r * Math.sin(phi) * Math.cos(theta),
-					r * Math.sin(phi) * Math.sin(theta),
-					r * Math.cos(phi)
-				));
-			}
-
-			var ndGeo = new THREE.BufferGeometry();
-			var ndPos = new Float32Array(nodeN * 3);
-			nPos.forEach(function (p, i) {
-				ndPos[i * 3] = p.x;
-				ndPos[i * 3 + 1] = p.y;
-				ndPos[i * 3 + 2] = p.z;
-			});
-			ndGeo.setAttribute("position", new THREE.BufferAttribute(ndPos, 3));
-			scene.add(new THREE.Points(ndGeo, new THREE.PointsMaterial({
-				color: 0x88ccff,
-				size: 0.18,
-				transparent: true,
-				opacity: 0.9,
-				blending: THREE.AdditiveBlending,
-				depthWrite: false
-			})));
-
-			var eVerts = [];
-			for (var a = 0; a < nodeN; a++) {
-				for (var b = a + 1; b < nodeN; b++) {
-					if (nPos[a].distanceTo(nPos[b]) < 5.5) {
-						eVerts.push(nPos[a].x, nPos[a].y, nPos[a].z, nPos[b].x, nPos[b].y, nPos[b].z);
+			function loadScript(src) {
+				return new Promise(function (resolve, reject) {
+					var existing = document.querySelector('script[data-dynamic-src="' + src + '"]');
+					if (existing) {
+						if (existing.dataset.loaded === "1") {
+							resolve();
+							return;
+						}
+						existing.addEventListener("load", resolve, { once: true });
+						existing.addEventListener("error", reject, { once: true });
+						return;
 					}
-				}
-			}
-			var eGeo = new THREE.BufferGeometry();
-			eGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(eVerts), 3));
-			scene.add(new THREE.LineSegments(eGeo, new THREE.LineBasicMaterial({
-				color: 0x2255cc,
-				transparent: true,
-				opacity: 0.22,
-				blending: THREE.AdditiveBlending,
-				depthWrite: false
-			})));
-
-			var streakDirs = [
-				[1, 0.4, 0.2], [-0.9, 0.5, -0.1], [0.3, -1, 0.4], [-0.3, 0.8, -0.9], [0.7, -0.3, 0.8], [-0.5, -0.7, 0.3]
-			].map(function (d) {
-				var v = new THREE.Vector3(d[0], d[1], d[2]);
-				v.normalize();
-				return v;
-			});
-
-			var streaks = streakDirs.map(function (dir, si) {
-				var sg = new THREE.BufferGeometry();
-				sg.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
-				var sm = new THREE.LineBasicMaterial({ color: 0x55aaff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
-				var sk = new THREE.LineSegments(sg, sm);
-				sk.userData = { dir: dir, phase: si * 1.05, speed: 0.85 + Math.random() * 0.7 };
-				scene.add(sk);
-				return sk;
-			});
-
-			function animate() {
-				var t = clock.getElapsedTime();
-				core.rotation.y = t * 0.2;
-				core.rotation.x = Math.sin(t * 0.28) * 0.1;
-
-				streaks.forEach(function (sk) {
-					var phase = ((t * sk.userData.speed + sk.userData.phase) % 3.0) / 3.0;
-					var d = sk.userData.dir;
-					var arr = sk.geometry.attributes.position.array;
-					var tail = phase * 8.5;
-					var head = tail + 1.4;
-					arr[0] = d.x * tail; arr[1] = d.y * tail; arr[2] = d.z * tail;
-					arr[3] = d.x * head; arr[4] = d.y * head; arr[5] = d.z * head;
-					sk.geometry.attributes.position.needsUpdate = true;
-					sk.material.opacity = Math.sin(phase * Math.PI) * 0.65;
+					var s = document.createElement("script");
+					s.src = src;
+					s.async = true;
+					s.defer = true;
+					s.dataset.dynamicSrc = src;
+					s.onload = function () {
+						s.dataset.loaded = "1";
+						resolve();
+					};
+					s.onerror = reject;
+					document.body.appendChild(s);
 				});
-
-				camera.position.x += (mx * 2.5 - camera.position.x) * 0.04;
-				camera.position.y += (-my * 1.8 - camera.position.y) * 0.04;
-				camera.lookAt(0, 0, 0);
-				renderer.render(scene, camera);
-				rafId = requestAnimationFrame(animate);
 			}
 
-			wrap.addEventListener("mousemove", function (e) {
-				var r = wrap.getBoundingClientRect();
-				mx = ((e.clientX - r.left) / r.width) * 2 - 1;
-				my = ((e.clientY - r.top) / r.height) * 2 - 1;
-			});
+			function loadThreeStack() {
+				if (!threePromise) {
+					threePromise = loadScript("js/vendor/three.min.js").then(function () {
+						return loadScript("js/home-hero-three.js");
+					});
+				}
+				return threePromise;
+			}
 
-			if (!reduced) animate();
-			else renderer.render(scene, camera);
+			function startHero() {
+				if (heroRuntime || !window.AcesoftHomeHero) return;
+				heroRuntime = window.AcesoftHomeHero.mount();
+				if (heroRuntime) heroRuntime.start();
+			}
 
-			window.addEventListener("beforeunload", function () {
-				if (rafId) cancelAnimationFrame(rafId);
-				renderer.dispose();
-			});
-		});
+			function stopHero() {
+				if (!heroRuntime) return;
+				heroRuntime.stop();
+			}
 
-		setInterval(function () {
-			var el = document.getElementById("apiTicker");
-			if (el) el.textContent = (1100 + Math.floor(Math.random() * 420)).toLocaleString();
-		}, 2400);
+			if ("IntersectionObserver" in window) {
+				var io = new IntersectionObserver(
+					function (entries) {
+						var visible = entries[0] && entries[0].isIntersecting;
+						if (!visible) {
+							stopHero();
+							return;
+						}
+						loadThreeStack()
+							.then(startHero)
+							.catch(function () {
+								hero.classList.add("acesoft-hero--static");
+							});
+					},
+					{ rootMargin: "120px 0px", threshold: 0.08 }
+				);
+				io.observe(hero);
+			}
+
+			var ticker = document.getElementById("apiTicker");
+			if (ticker && "IntersectionObserver" in window) {
+				var tickerIo = new IntersectionObserver(
+					function (entries) {
+						if (!entries[0].isIntersecting) return;
+						ticker.textContent = (1100 + Math.floor(Math.random() * 420)).toLocaleString();
+						tickerIo.disconnect();
+					},
+					{ threshold: 0.2 }
+				);
+				tickerIo.observe(ticker);
+			}
+		})();
 	</script>
 	<script>
 		function animateCount(el, target, duration) {
@@ -1633,16 +1457,25 @@ display: none;
 		})();
 	</script>
 	<script>
-		window.addEventListener("load", function () {
+		(function () {
 			var preloader = document.getElementById("preloader");
 			var container = document.getElementById("container-preloader");
 			if (!preloader || !container) return;
-			document.documentElement.classList.add("loaded");
-			container.classList.add("loaded");
-			window.setTimeout(function () {
-				preloader.style.display = "none";
-			}, 1100);
-		});
+
+			function hidePreloader() {
+				document.documentElement.classList.add("loaded");
+				container.classList.add("loaded");
+				window.setTimeout(function () {
+					preloader.style.display = "none";
+				}, 380);
+			}
+
+			if (document.readyState === "complete") {
+				hidePreloader();
+			} else {
+				window.addEventListener("load", hidePreloader, { once: true });
+			}
+		})();
 	</script>
 </body>
 

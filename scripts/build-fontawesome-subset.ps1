@@ -32,16 +32,10 @@ $baseRules = @'
 .fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}
 '@
 
-$fontFaces = New-Object System.Collections.Generic.List[string]
-foreach ($m in [regex]::Matches($fa, '@font-face\s*\{[^}]+\}', 'Singleline')) {
-  $block = $m.Value
-  if ($block -match 'fa-solid-900|fa-brands-400') {
-    $fontFaces.Add($block)
-  }
-}
-if ($fontFaces.Count -lt 2) {
-  throw "Expected solid + brands @font-face blocks in fontawesome.css (found $($fontFaces.Count))"
-}
+$fontFaces = @(
+  '@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/fa-brands-400.woff2") format("woff2")}'
+  '@font-face{font-family:"Font Awesome 6 Pro";font-style:normal;font-weight:900;font-display:swap;src:url("../fonts/fa-solid-900.woff2") format("woff2")}'
+)
 
 $legacyMap = @{
   'handshake-o' = 'handshake'
